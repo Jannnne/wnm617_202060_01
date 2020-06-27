@@ -3,55 +3,86 @@
 <head>
 	<meta charset="UTF-8">
 	<title>New Project</title>
+
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-	<! -- header>h1 -->
-	<header>
-		<h1>Cool Website</h1>
+
+	<!-- cmd+/ -->
+	<!-- cmd+c,v -->
+	<!-- cmd+/,c,v,/ -->
+
+	<!-- header>h1 -->
+
+	<input type="checkbox" id="menu" class="hidden">
+
+	<header class="navbar">
+		<div class="container display-flex">
+			<div class="flex-none">
+				<h1>Cool Website</h1>
+			</div>
+
+			<div class="flex-stretch"></div>
+
+			<label class="flex-none menu-button" for="menu">&equiv;</label>
+
+			<nav class="nav flex-none">
+				<ul class="display-flex">
+					<li><a href="#article1">Article 1</a></li>
+					<li><a href="#article2">Article 2</a></li>
+					<li><a href="#article3">Article 3</a></li>
+					<li><a href="#article4">Article 4</a></li>
+				</ul>
+			</nav>
+		</div>
 	</header>
 
-	<!-- nav.nav>ul>li*4>a[href=#articles$]>{Article $} -->
-	<nav class="nav">
-		<ul>
-			<li><a href="#articles1">Article 1</a></li>
-			<li><a href="#articles2">Article 2</a></li>
-			<li><a href="#articles3">Article 3</a></li>
-			<li><a href="#articles4">Article 4</a></li>
-		</ul>
-	</nav>
+	<!-- nav.nav>ul>li*4>a[href=#article$]>{Article $} -->
 
-	<!-- .container>article.article#articles$*4>h2{Article $}+div.article-body>p*>4>lorem50 -->
+	<!-- .container>article.article#article$*4>h2{Article $}+div.article-body>p*4>lorem50 -->
 	<div class="container">
-		<article class="article" id="articles1">
-			<h2>Article 1</h2>
+		<article class="article" id="article1">
+			<div class="display-flex flex-align-center">
+				<div class="flex-none">
+					<h2>Article 1</h2>
+				</div>
+				<div class="flex-stretch"></div>
+				<div class="flex-none">2020-06-25 12:16pm</div>
+			</div>
 			<div class="article-body">
-				<p>
-					<4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus pariatur accusamus, odit cupiditate placeat laudantium impedit iusto obcaecati fugit, autem dolorum aperiam dolore excepturi aspernatur quas magnam deleniti, quae nihil, porro. Cumque quo, distinctio, quos quasi dolorem mollitia aliquam necessitatibus deserunt hic minus voluptatibus ut asperiores, aliquid cupiditate animi, blanditiis?</4>
-				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi voluptatum fugit reiciendis itaque rerum mollitia, laboriosam illum perferendis placeat, earum ratione aut eum, eveniet expedita! Nisi voluptatem nemo ratione repellendus blanditiis, facilis quam dolor, earum sunt provident molestiae, totam possimus minus aut et in rerum, similique. At nulla illum, accusantium!</p>
+				<p>Ratione laudantium vitae quia aliquid veritatis nam accusamus quaerat in nulla deserunt consequuntur eius quidem rem soluta magni dolore, repudiandae facere, hic minus, fuga cum labore corrupti dicta sint! Non, voluptatum ratione quam nobis illo atque impedit architecto repellendus iure eius dolore veritatis reprehenderit maxime modi, mollitia cumque nisi? Fugit.</p>
+				<p>Accusantium, iste rem ex impedit laudantium perferendis, nostrum repellat provident doloribus. Recusandae quo deleniti cum sint modi illum, distinctio animi molestiae expedita? Mollitia, quisquam sunt a alias veritatis reiciendis fuga magnam cupiditate, laboriosam molestiae quae minus corporis deleniti doloremque tenetur fugit nisi, aliquam, voluptas inventore commodi quas quis ad quasi.</p>
+				<p>Officia natus omnis voluptates adipisci ipsum sequi, maiores velit consectetur. Aperiam id, impedit voluptate molestias, voluptatem soluta iure eius enim provident eveniet nemo repudiandae delectus earum, inventore incidunt numquam ipsam aliquid. Laboriosam iure magnam cupiditate, illum perspiciatis harum eos voluptatum quod enim voluptatibus facilis nostrum modi provident consequuntur. Magni, a.</p>
 			</div>
 		</article>
-		<article class="article" id="articles2">
+		<article class="article" id="article2">
 			<h2>Article 2</h2>
 			<div class="article-body">
-				<p>
-					<4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Iste vitae vel, asperiores adipisci. Maiores earum autem sunt cupiditate, illo necessitatibus quidem ipsa quas quaerat laborum, sit quae minima! Iusto nemo, modi, minima sint deserunt reprehenderit nesciunt sapiente. Libero labore, dolorum distinctio saepe, voluptatum repudiandae eaque odio dignissimos blanditiis qui iure!</4>
-				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Alias incidunt maxime esse libero, reprehenderit deserunt eaque sed omnis quam culpa, nam repellendus ipsa rerum voluptatibus velit consequuntur! Veniam id inventore magnam modi nesciunt excepturi sunt nemo ipsa necessitatibus quod quos, ad fugiat ducimus at alias consequatur similique est quaerat eos?</p>
+				<p>Debitis est omnis magnam ea error quasi unde quidem quo impedit saepe delectus dolorum, cumque cum ut distinctio dolores culpa. Doloremque tempore odio, ab facere tempora explicabo, ratione perspiciatis nesciunt deserunt! Quidem enim impedit iste fugiat, numquam provident, fuga magnam. Ex minus ipsam, soluta, laborum natus blanditiis dignissimos magnam. Consequuntur?</p>
+				<p>Sunt praesentium tempora veniam a blanditiis rem dolorum, voluptatem, animi eum consequatur repellendus, alias. Repellat blanditiis adipisci in, et fugit nesciunt quam alias porro aliquam. Totam sed facilis non deleniti eius! Architecto quaerat at quam pariatur asperiores debitis sunt sit velit, quo magni deleniti accusantium, suscipit consectetur nam, corporis aliquid.</p>
+				<p>Aut ullam distinctio, veritatis iure dicta voluptas possimus minima, quia harum, temporibus, assumenda animi eius. Amet minus vitae error, nam voluptate ipsum fugiat aut, tenetur, enim eum facilis! Vero totam ut deserunt ullam, cum quasi repudiandae odit perspiciatis nulla illum atque impedit, fuga magnam provident nobis itaque eveniet, aut mollitia.</p>
 			</div>
 		</article>
-		<article class="article" id="articles3">
+		<article class="article" id="article3">
 			<h2>Article 3</h2>
 			<div class="article-body">
-				<p>
-					<4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem libero ut eaque, laborum amet, assumenda, distinctio quas, facilis eius tempora vero beatae odio voluptatibus eos. Exercitationem consequatur veniam reprehenderit neque est cum distinctio modi dolores ut animi culpa aliquam, doloremque mollitia perspiciatis reiciendis. Reprehenderit incidunt dolore laudantium perferendis, perspiciatis autem.</4>
-				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus eaque sequi id quod nesciunt iusto ad mollitia beatae. Pariatur, porro vitae assumenda vel distinctio aliquam nisi iusto necessitatibus nostrum delectus deserunt, quidem. Reiciendis corrupti deserunt aliquid aut facilis in, reprehenderit nobis similique labore, facere officiis nulla nisi quis. Neque, placeat.</p>
+				<p>Repellat a nesciunt cupiditate iure id, libero provident nulla perferendis error officiis optio asperiores voluptatem ut iusto veritatis. Veritatis culpa quod doloribus quisquam facilis at nulla, possimus impedit nisi deserunt molestiae nam, enim nihil labore rerum earum. Voluptatibus, a, accusamus recusandae deleniti sunt, aspernatur hic, quas laudantium et esse nulla.</p>
+				<p>Iure nisi autem, quasi officia assumenda itaque reprehenderit perspiciatis mollitia rerum id similique qui atque quod rem recusandae minus incidunt veritatis. Neque dolores ducimus quod nihil id, perferendis sapiente, autem incidunt similique minima suscipit non nulla labore et sit corrupti. Possimus dolorem quas vero minima nisi optio temporibus eligendi? Beatae.</p>
+				<p>Odio deserunt quas dolores eligendi officia explicabo asperiores est rerum quaerat! Reiciendis tempora et similique accusamus voluptates vitae, cupiditate quo, repudiandae officiis nobis magni doloribus odit consequuntur ex error libero! Saepe aliquam laboriosam ad minus perferendis, aut ipsa quas hic commodi recusandae consequuntur maxime facilis, eius rem provident fuga veniam.</p>
 			</div>
 		</article>
-		<article class="article" id="articles4">
+		<article class="article" id="article4">
 			<h2>Article 4</h2>
 			<div class="article-body">
-				<p>
-					<4>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Sit ex illo delectus fugit, dolorum, minus alias molestiae cumque vel nemo iusto porro quia, inventore minima, quas. Fuga maiores eum excepturi facilis nisi repellendus dicta quas rem, blanditiis iusto harum. Odio blanditiis excepturi, non debitis fugit commodi aliquid explicabo placeat reprehenderit?</4>
-				</p>
+				<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. A aspernatur dicta accusantium officiis inventore. Debitis, obcaecati voluptas aut, quae dolore natus eaque esse quam necessitatibus, distinctio dicta? Libero porro voluptatibus omnis fugit vero voluptatum quas repudiandae, magnam laboriosam, sapiente, facilis. Libero suscipit ullam fugiat, magnam nisi molestiae ipsa excepturi quas?</p>
+				<p>Porro asperiores aspernatur ex incidunt, laudantium aut accusamus, obcaecati recusandae ea, consequuntur omnis delectus aliquam officia debitis enim ab at autem eaque iusto, fuga nisi dolor quibusdam iure! Quibusdam neque, quod omnis aspernatur exercitationem quidem inventore dolorum eligendi ullam, minima similique magni labore ipsam? Deleniti quasi delectus minus quibusdam numquam!</p>
+				<p>Necessitatibus possimus, nobis nesciunt voluptate, magnam maxime placeat nam ad adipisci! Corrupti neque dolores, fuga ex, iste asperiores, est repellat eum delectus ad sapiente maxime hic voluptatibus excepturi ea at! Maiores, culpa sint. Dolorem quaerat perferendis in, deserunt voluptas quo soluta cum, quam laboriosam tempora minus, sapiente explicabo. Assumenda, voluptates!</p>
+				<p>Eum labore aut iure non delectus facilis, est quis! Exercitationem autem minima debitis pariatur quisquam esse praesentium ut ducimus aliquid tempore possimus consequatur commodi perferendis id, itaque, voluptate illo enim nisi consequuntur, libero deleniti eius odit maiores voluptatum accusantium. Neque dolores temporibus, quia modi placeat architecto, ipsum nemo nobis nostrum!</p>
 			</div>
 		</article>
 	</div>
