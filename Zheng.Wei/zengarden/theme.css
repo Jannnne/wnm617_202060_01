@@ -1,0 +1,281 @@
+/* ELEMENT RESETS */
+/* code from Hamilton Cline email: MHCline@academyart.edu */
+
+*,*::before,*::after {
+	box-sizing:border-box;
+}
+
+:root {
+	--color-neutral-light: #eaeeef;
+   --color-neutral-medium: #9aa2a4;
+   --color-neutral-dark: #363c3e;
+
+   --color-white: #fff;
+   --color-black: #000;
+
+	--header-height:3rem;
+	--gap-size:1rem;
+	--container-width:1000px;
+
+	--font-serif:Georgia, "Times New Roman", serif;
+	--font-sans:Helvetica, arial, sans-serif;
+}
+
+body {
+	margin:0;
+	font-size:100%;
+	font-family:var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family:var(--font-serif);
+}
+
+a {
+	display:inline-block;
+	color:inherit;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+/* Small Classes */
+
+.container {
+	max-width:var(--container-width);
+	margin-right: auto;
+	margin-left: auto;
+}
+.hidden { display:none; }
+
+
+
+/* Layout Classes */
+
+.display-flex { display:flex; }
+.display-inline-flex { display:inline-flex; }
+.display-block { display:block; }
+.display-inline-block { display:inline-block; }
+
+.flex-stretch { flex: 1 1 auto; }
+.flex-none { flex: none; }
+
+.flex-justify-center { justify-content:center; }
+.flex-align-center { align-items:center; }
+
+/* Components */
+
+.navbar {
+	background-color:var(--color-neutral-dark);
+	color:var(--color-neutral-light);
+	line-height:var(--header-height);
+}
+.navbar h1 {
+	font-size:1em;
+	margin:0;
+}
+
+
+
+
+.nav ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+.navbar li:not(:last-child) a {
+	padding-left:0.5em;
+	padding-right:0.5em;
+}
+.navbar li:last-child a {
+	padding-left:0.5em;
+}
+
+
+
+
+.article {
+	margin-top:1em;
+	margin-bottom:1em;
+}
+.article h2 {
+	margin:0;
+}
+
+
+
+@media (max-width:1000px) {
+	.article,.navbar {
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+}
+
+
+
+.menu-button { display:none; }
+
+@media (max-width:500px) {
+	.navbar>.display-flex {
+		flex-wrap:wrap;
+	}
+	.navbar .nav li {
+		line-height:calc(var(--header-height) * 0.66);
+	}
+	.navbar .nav {
+		width:100%;
+	}
+
+	.menu-button { display:block; }
+	.navbar .nav ul {
+		display:none;
+	}
+	#menu:checked + .navbar .nav ul {
+		display:block;
+		padding-bottom:0.5em;
+	}
+}
+
+/* LAYOUT GRID SYSTEM */
+/* code from Michael Catanzaro email: MCatanzaro@academyart.edu */
+
+/*.grid {
+	display: grid;
+	--grid-gap: 1em;
+	grid-template-columns: repeat(12,1fr);
+}
+	.grid-10 {
+		grid-template-columns: repeat(10,1fr);
+	}
+
+
+.grid.gap {
+	grid-gap: var(--grid-gap);
+	gap: var(--grid-gap);
+}
+	.gap.large { --grid-gap: 2em; }
+	.gap.medium { --grid-gap: 1em; }
+	.gap.small { --grid-gap: 0.5em; }
+
+
+
+
+.col-0 { display: none; }
+.col-1 { grid-column: span 1; }
+.col-2 { grid-column: span 2; }
+.col-3 { grid-column: span 3; }
+.col-4 { grid-column: span 4; }
+.col-5 { grid-column: span 5; }
+.col-6 { grid-column: span 6; }
+.col-7 { grid-column: span 7; }
+.col-8 { grid-column: span 8; }
+.col-9 { grid-column: span 9; }
+.col-10 { grid-column: span 10; }
+.col-11 { grid-column: span 11; }
+.col-12 { grid-column: span 12; }
+
+
+@media (min-width:0) {
+	.gap.xs-large { --grid-gap: 2em; }
+	.gap.xs-medium { --grid-gap: 1em; }
+	.gap.xs-small { --grid-gap: 0.5em; }
+
+	.col-xs-0 { display: none; }
+	.col-xs-1 { grid-column: span 1; }
+	.col-xs-2 { grid-column: span 2; }
+	.col-xs-3 { grid-column: span 3; }
+	.col-xs-4 { grid-column: span 4; }
+	.col-xs-5 { grid-column: span 5; }
+	.col-xs-6 { grid-column: span 6; }
+	.col-xs-7 { grid-column: span 7; }
+	.col-xs-8 { grid-column: span 8; }
+	.col-xs-9 { grid-column: span 9; }
+	.col-xs-10 { grid-column: span 10; }
+	.col-xs-11 { grid-column: span 11; }
+	.col-xs-12 { grid-column: span 12; }
+}
+
+@media (min-width:320px) {
+	.gap.sm-large { --grid-gap: 2em; }
+	.gap.sm-medium { --grid-gap: 1em; }
+	.gap.sm-small { --grid-gap: 0.5em; }
+
+	.col-sm-0 { display: none; }
+	.col-sm-1 { grid-column: span 1; }
+	.col-sm-2 { grid-column: span 2; }
+	.col-sm-3 { grid-column: span 3; }
+	.col-sm-4 { grid-column: span 4; }
+	.col-sm-5 { grid-column: span 5; }
+	.col-sm-6 { grid-column: span 6; }
+	.col-sm-7 { grid-column: span 7; }
+	.col-sm-8 { grid-column: span 8; }
+	.col-sm-9 { grid-column: span 9; }
+	.col-sm-10 { grid-column: span 10; }
+	.col-sm-11 { grid-column: span 11; }
+	.col-sm-12 { grid-column: span 12; }
+}
+
+@media (min-width:600px) {
+	.gap.md-large { --grid-gap: 2em; }
+	.gap.md-medium { --grid-gap: 1em; }
+	.gap.md-small { --grid-gap: 0.5em; }
+
+	.col-md-0 { display: none; }
+	.col-md-1 { grid-column: span 1; }
+	.col-md-2 { grid-column: span 2; }
+	.col-md-3 { grid-column: span 3; }
+	.col-md-4 { grid-column: span 4; }
+	.col-md-5 { grid-column: span 5; }
+	.col-md-6 { grid-column: span 6; }
+	.col-md-7 { grid-column: span 7; }
+	.col-md-8 { grid-column: span 8; }
+	.col-md-9 { grid-column: span 9; }
+	.col-md-10 { grid-column: span 10; }
+	.col-md-11 { grid-column: span 11; }
+	.col-md-12 { grid-column: span 12; }
+}
+
+@media (min-width:900px) {
+	.gap.lg-large { --grid-gap: 2em; }
+	.gap.lg-medium { --grid-gap: 1em; }
+	.gap.lg-small { --grid-gap: 0.5em; }
+
+	.col-lg-0 { display: none; }
+	.col-lg-1 { grid-column: span 1; }
+	.col-lg-2 { grid-column: span 2; }
+	.col-lg-3 { grid-column: span 3; }
+	.col-lg-4 { grid-column: span 4; }
+	.col-lg-5 { grid-column: span 5; }
+	.col-lg-6 { grid-column: span 6; }
+	.col-lg-7 { grid-column: span 7; }
+	.col-lg-8 { grid-column: span 8; }
+	.col-lg-9 { grid-column: span 9; }
+	.col-lg-10 { grid-column: span 10; }
+	.col-lg-11 { grid-column: span 11; }
+	.col-lg-12 { grid-column: span 12; }
+}
+
+@media (min-width:1200px) {
+	.gap.xl-large { --grid-gap: 2em; }
+	.gap.xl-medium { --grid-gap: 1em; }
+	.gap.xl-small { --grid-gap: 0.5em; }
+
+	.col-xl-0 { display: none; }
+	.col-xl-1 { grid-column: span 1; }
+	.col-xl-2 { grid-column: span 2; }
+	.col-xl-3 { grid-column: span 3; }
+	.col-xl-4 { grid-column: span 4; }
+	.col-xl-5 { grid-column: span 5; }
+	.col-xl-6 { grid-column: span 6; }
+	.col-xl-7 { grid-column: span 7; }
+	.col-xl-8 { grid-column: span 8; }
+	.col-xl-9 { grid-column: span 9; }
+	.col-xl-10 { grid-column: span 10; }
+	.col-xl-11 { grid-column: span 11; }
+	.col-xl-12 { grid-column: span 12; }
+}
+*/
