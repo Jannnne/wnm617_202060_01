@@ -1,31 +1,27 @@
 /* ELEMENT RESETS */
-
 *,*::before,*::after {
 	box-sizing:border-box;
 }
-
 :root {
 	--color-neutral-light: #eaeeef;
    --color-neutral-medium: #9aa2a4;
    --color-neutral-dark: #363c3e;
-
+	--color-main-light: #b9f1fe;
+	--color-main-medium: #20b3d5;
+	--color-main-dark: #054352;
    --color-white: #fff;
    --color-black: #000;
-
 	--header-height:3rem;
 	--gap-size:1rem;
 	--container-width:1000px;
-
 	--font-serif:Georgia, "Times New Roman", serif;
 	--font-sans:Helvetica, arial, sans-serif;
 }
-
 body {
 	margin:0;
 	font-size:100%;
 	font-family:var(--font-sans);
 }
-
 h1,
 h2,
 h3,
@@ -34,50 +30,29 @@ h5,
 h6 {
 	font-family:var(--font-serif);
 }
-
 a {
 	display:inline-block;
 	color:inherit;
 	font-weight:bold;
 	text-decoration:none;
 }
-
-
-
-
-
-
 /* Small Classes */
-
 .container {
 	max-width:var(--container-width);
 	margin-right: auto;
 	margin-left: auto;
 }
 .hidden { display:none; }
-
-
-
 /* Layout Classes */
-
 .display-flex { display:flex; }
 .display-inline-flex { display:inline-flex; }
 .display-block { display:block; }
 .display-inline-block { display:inline-block; }
-
 .flex-stretch { flex: 1 1 auto; }
 .flex-none { flex: none; }
-
 .flex-justify-center { justify-content:center; }
 .flex-align-center { align-items:center; }
-
-
-
-
-
-
 /* Components */
-
 .navbar {
 	background-color:var(--color-neutral-dark);
 	color:var(--color-neutral-light);
@@ -87,10 +62,6 @@ a {
 	font-size:1em;
 	margin:0;
 }
-
-
-
-
 .nav ul {
 	list-style-type:none;
 	margin:0;
@@ -103,10 +74,6 @@ a {
 .navbar li:last-child a {
 	padding-left:0.5em;
 }
-
-
-
-
 .article {
 	margin-top:1em;
 	margin-bottom:1em;
@@ -114,6 +81,79 @@ a {
 .article h2 {
 	margin:0;
 }
+/* Accordion */
+.accordion dt {
+	background-color: var(--color-main-medium);
+	padding: 0.2em calc(1em + 2px);
+	color: var(--color-white);
+}
+.accordion dt~dt {
+	margin-top:1em;
+}
+.accordion dd {
+	padding: 1em;
+	margin: 0;
+	border: 2px solid var(--color-main-medium);
+	border-top-width: 0;
+	display:none;
+}
+
+
+/* TAB GROUP */
+.tabgroup {}
+.tabs {
+    display: flex;
+    border-bottom: 1px solid var(--color-neutral-light);
+}
+.tab {
+    flex: 1 1 auto;
+    text-align: center;
+    padding: 0.5em 0;
+    position:relative;
+}
+.tab:hover {
+	cursor:pointer;
+	background-color:var(--color-neutral-light);
+}
+.tab.active {
+	background-color:initial;
+}
+.tab::after {
+	content:'';
+	position:absolute;
+	bottom:0;
+	left:0;
+	width:100%;
+	transition:all 0.3s;
+	height:0;
+	background-color:var(--color-main-medium);
+}
+.tab.active::after {
+	height:3px;
+}
+.contents {
+    position: relative;
+    height: 20em;
+    overflow: hidden;
+}
+.content {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: auto;
+    transition: all 0.3s;
+    opacity: 0;
+    pointer-events: none;
+}
+.content.active {
+	opacity: 1;
+	pointer-events: initial;
+}
+
+
+
 
 
 
@@ -123,11 +163,7 @@ a {
 		padding-right: 1em;
 	}
 }
-
-
-
 .menu-button { display:none; }
-
 @media (max-width:500px) {
 	.navbar>.display-flex {
 		flex-wrap:wrap;
@@ -138,7 +174,6 @@ a {
 	.navbar .nav {
 		width:100%;
 	}
-
 	.menu-button { display:block; }
 	.navbar .nav ul {
 		display:none;

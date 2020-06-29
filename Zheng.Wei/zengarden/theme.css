@@ -241,7 +241,7 @@ div {
 }
 
 .explanation {
-	background: rgb(255, 188, 58);
+	background: rgb(255, 200, 58);
 	width: 100%;
     padding-top: 20px;
     padding-bottom: 20px;
@@ -249,12 +249,7 @@ div {
 }
 
 #zen-explanation {
-	width: 0;
-      height: 0;
-      border-left: 50px solid transparent;
-      border-right: 50px solid transparent;
-      border-bottom: 100px solid red;
-      position: relative;
+	
 }
 
 #zen-explanation[role=article] {
@@ -270,7 +265,7 @@ div {
 }
 
 #zen-participation {
-
+	
 }
 
 #zen-participation[role=article] {
