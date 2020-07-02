@@ -1,0 +1,160 @@
+/* ELEMENT RESETS */
+
+*,*::before,*::after {
+	box-sizing:border-box;
+}
+
+:root {
+	--color-neutral-light: #eaeeef;
+   --color-neutral-medium: #9aa2a4;
+   --color-neutral-dark: #363c3e;
+
+	--color-main-light: #b9f1fe;
+	--color-main-medium: #20b3d5;
+	--color-main-dark: #054352;
+
+   --color-white: #fff;
+   --color-black: #000;
+
+	--header-height:3rem;
+	--gap-size:1rem;
+	--container-width:1000px;
+
+	--font-serif:Georgia, "Times New Roman", serif;
+	--font-sans:Helvetica, arial, sans-serif;
+}
+
+body {
+	margin:0;
+	font-size:100%;
+	font-family:var(--font-sans);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family:var(--font-serif);
+}
+
+a {
+	display:inline-block;
+	color:inherit;
+	font-weight:bold;
+	text-decoration:none;
+}
+
+
+
+
+
+
+/* Small Classes */
+
+.container {
+	max-width:var(--container-width);
+	margin-right: auto;
+	margin-left: auto;
+}
+.hidden { display:none; }
+
+
+
+/* Layout Classes */
+
+.display-flex { display:flex; }
+.display-inline-flex { display:inline-flex; }
+.display-block { display:block; }
+.display-inline-block { display:inline-block; }
+
+.flex-stretch { flex: 1 1 auto; }
+.flex-none { flex: none; }
+
+.flex-justify-center { justify-content:center; }
+.flex-align-center { align-items:center; }
+
+
+
+
+
+
+[data-role="header"] ul,
+[data-role="footer"] ul,
+.nav ul {
+	list-style-type:none;
+	margin:0;
+	padding:0;
+}
+
+.center-child {
+	position:absolute;
+	top:50%;
+	left:50%;
+	transform:translate(-50%,-50%);
+}
+
+
+
+
+
+
+
+
+.ui-mobile .ui-page-active {
+	display:flex;
+	flex-direction:column;
+
+	position:fixed;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	overflow:hidden;
+}
+[data-role="main"] {
+	flex: 1 1 100%;
+	overflow:hidden;
+	position:relative;
+	background-color:white;
+	z-index:1;
+}
+[data-role="header"],
+[data-role="footer"] {
+	flex: none;
+	overflow:hidden;
+	position:relative;
+	line-height: var(--header-height);
+	border-width:0;
+	background-color:white;
+	box-shadow:0 0 5px rgba(0,0,0,0.2);
+	z-index:2;
+}
+
+[data-role="header"] ul,
+[data-role="footer"] ul {
+	display:flex;
+	position:relative;
+}
+
+[data-role="footer"] li {
+	flex:1 1 auto;
+	text-align:center;
+}
+
+.ui-header .ui-title {
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	height:100%;
+	text-align:center;
+	padding:0;
+	margin:0;
+}
+
+[data-role="header"] a {
+	display:block;
+	padding:0 1em;
+}
