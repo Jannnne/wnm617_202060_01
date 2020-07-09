@@ -8,9 +8,10 @@
 
 	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="css/app.css">
-	<link rel="stylesheet" href="css/gridsystem.css">
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
+
+	<script src="js/signin.js"></script>
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -18,35 +19,117 @@
 <body>
 	
 	<section data-role="page" id="signin-page">
-		<div data-role="main">
-			<form id="signin-form" data-ajax="false" class="center-child">
-				<div class="form-control">
-					<label for="signin-username" class="form-label">Username</label>
-					<input type="text" class="form-input" id="signin-username" placeholder="Type your Username" data-role="none">
-				</div>
-				<div class="form-control">
-					<label for="signin-password" class="form-label">Password</label>
-					<input type="password" class="form-input" id="signin-password" placeholder="Type your Password" data-role="none">
-				</div>
-				<div class="form-control">
-					<input type="submit" class="form-button" value="Sign In" data-role="none">
-					<a href="#recent-page">Navigate</a>
-				</div>
-			</form>
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="flex-none" style="text-align:center">
+				<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
+			</div>
+			<div class="flex-none" style="padding:1em">
+				<form id="signin-form" data-ajax="false">
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						<a href="#signin-email-page" class="main-button">Sign In</a>
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Don't have an account? <a href="#signup-page">Sign Up</a>
+					</div>
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
 		</div>
 	</section>
-	<section data-role="page" id="signup-page"></section>
 
-	<section data-role="page" id="recent-page">
+	<section data-role="page" id="signin-email-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			
+			<div class="flex-none" style="padding:1em">
+				<form id="signin-form" data-ajax="false">
+					<div class="form-control">
+						<label for="signin-email" class="form-label">email</label>
+						<input type="text" class="form-input" id="signin-email" placeholder="Type your email" data-role="none">
+					</div>
+					
+					<div class="form-control">
+						<a href="#signin-password-page" class="confirm-button">Next</a>
+					</div>
+					
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Don't have an account? <a href="#signup-page">Sign Up</a>
+					</div>
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>
+
+	<section data-role="page" id="signin-password-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			
+			<div class="flex-none" style="padding:1em">
+				<form id="signin-form" data-ajax="false">
+					<div class="form-control">
+						<label for="signin-password" class="form-label">Password</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Type your Password" data-role="none">
+					</div>
+					
+					<div class="form-control">
+						<input type="submit" class="confirm-button" value="Sign In" href="#map-page" data-role="none">
+					</div>
+					
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Don't have an account? <a href="#signup-page">Sign Up</a>
+					</div>
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>
+	
+
+	<section data-role="page" id="signup-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="flex-none" style="padding:1em">
+				<form id="signup-form" data-ajax="false">
+					<div class="form-control">
+						<label for="signup-username" class="form-label">Username</label>
+						<input type="text" class="form-input" id="signup-username" placeholder="Type your Username" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-email" class="form-label">Email</label>
+						<input type="text" class="form-input" id="signup-email" placeholder="Type your Email" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password" class="form-label">Password</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password2" class="form-label">Confirm Password</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<input type="submit" class="form-button" value="Sign Up" data-role="none">
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Already have an account? <a href="#signin-page">Sign In</a>
+					</div>
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>
+
+	<section data-role="page" id="map-page">
 		<div data-role="main">
 			Map
 		</div>
 		<footer data-role="footer">
 			<ul>
 				<!-- li*3>a[href=#] -->
-				<li><a href="#recent-page">Recent</a></li>
-				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
+				<li><a href="#map-page">MAP</a></li>
+				<li><a href="#Category-page">CATEGORY</a></li>
+				<li><a href="#profile-page">PROFILE</a></li>
 			</ul>
 		</footer>
 	</section>
@@ -63,28 +146,28 @@
 		<div data-role="main">
 			<!-- ul>li*10>a[href=#animal-profile-page]>{Animal $} -->
 			<ul>
-				<li><a href="#animal-profile-page">Place 1</a></li>
-				<li><a href="#animal-profile-page">Place 2</a></li>
-				<li><a href="#animal-profile-page">Place 3</a></li>
-				<li><a href="#animal-profile-page">Place 4</a></li>
-				<li><a href="#animal-profile-page">Place 5</a></li>
-				<li><a href="#animal-profile-page">Place 6</a></li>
-				<li><a href="#animal-profile-page">Place 7</a></li>
-				<li><a href="#animal-profile-page">Place 8</a></li>
-				<li><a href="#animal-profile-page">Place 9</a></li>
-				<li><a href="#animal-profile-page">Place 10</a></li>
+				<li><a href="#location-profile-page">Place 1</a></li>
+				<li><a href="#location-profile-page">Place 2</a></li>
+				<li><a href="#location-profile-page">Place 3</a></li>
+				<li><a href="#location-profile-page">Place 4</a></li>
+				<li><a href="#location-profile-page">Place 5</a></li>
+				<li><a href="#location-profile-page">Place 6</a></li>
+				<li><a href="#location-profile-page">Place 7</a></li>
+				<li><a href="#location-profile-page">Place 8</a></li>
+				<li><a href="#location-profile-page">Place 9</a></li>
+				<li><a href="#location-profile-page">Place 10</a></li>
 			</ul>
 		</div>
 		<footer data-role="footer">
 			<ul>
 				<!-- li*3>a[href=#] -->
-				<li><a href="#recent-page">Recent</a></li>
-				<li><a href="#list-page">List</a></li>
+				<li><a href="#map-page">Recent</a></li>
+				<li><a href="#category-page">List</a></li>
 				<li><a href="#profile-page">Profile</a></li>
 			</ul>
 		</footer>
 	</section>
-	<section data-role="page" id="animal-profile-page">
+	<section data-role="page" id="location-profile-page">
 		<header data-role="header">
 			<h1>Place Profile</h1>
 			<ul>
@@ -97,6 +180,9 @@
 			Cool Place
 		</div>
 	</section>
+
+
+	<!-- profile page -->
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
 			User Profile
