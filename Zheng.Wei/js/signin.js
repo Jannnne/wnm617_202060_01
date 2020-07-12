@@ -1,6 +1,6 @@
 
 const checkLoginForm = () => {
-	let user = $("#signin-username").val();
+	let user = $("#signin-email").val();
 	let pass = $("#signin-password").val();
 
 	console.log(user,pass);
@@ -20,15 +20,15 @@ const checkLoginForm = () => {
 }
 
 const checkUserId = () => {
-	let p = ["#signin-page","#signup-page",""];
+	let p = ["#signin-password-page","#signup-page",""];
 
 	if(sessionStorage.userId===undefined) {
 		// not logged in
 		if(!p.some(o=>window.location.hash===o))
-			$.mobile.navigate("#signin-page");
+			$.mobile.navigate("#signin-password-page");
 	} else {
 		// logged in
 		if(p.some(o=>window.location.hash===o))
-			$.mobile.navigate("#recent-page");
+			$.mobile.navigate("#map-page");
 	}
 }

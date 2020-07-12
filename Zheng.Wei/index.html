@@ -15,10 +15,12 @@
 	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+	<script src="js/sticky_smooth_active_nav.js"></script>
 </head>
 <body>
 	
-	<section data-role="page" id="signin-page">
+	<!-- Welcome Page -->
+	<section data-role="page" id="welcome-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
 			<div class="flex-none" style="text-align:center">
@@ -38,6 +40,8 @@
 		</div>
 	</section>
 
+
+	<!-- Signin page -->
 	<section data-role="page" id="signin-email-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
@@ -45,12 +49,16 @@
 			<div class="flex-none" style="padding:1em">
 				<form id="signin-form" data-ajax="false">
 					<div class="form-control">
-						<label for="signin-email" class="form-label">email</label>
+						<label for="signin-email" class="form-label">Email</label>
 						<input type="text" class="form-input" id="signin-email" placeholder="Type your email" data-role="none">
 					</div>
 					
 					<div class="form-control">
 						<a href="#signin-password-page" class="confirm-button">Next</a>
+					</div>
+
+					<div class="form-control">
+						<a href="#signin-page" class="primary-button">Cancel</a>
 					</div>
 					
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
@@ -58,6 +66,7 @@
 					</div>
 				</form>
 			</div>
+
 			<div class="flex-stretch"></div>
 		</div>
 	</section>
@@ -76,6 +85,9 @@
 					<div class="form-control">
 						<input type="submit" class="confirm-button" value="Sign In" href="#map-page" data-role="none">
 					</div>
+					<div class="form-control">
+						<a href="#signin-email-page" class="primary-button">Cancel</a>
+					</div>
 					
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Don't have an account? <a href="#signup-page">Sign Up</a>
@@ -86,7 +98,7 @@
 		</div>
 	</section>
 	
-
+	<!-- signup page -->
 	<section data-role="page" id="signup-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
@@ -109,10 +121,11 @@
 						<input type="password" class="form-input" id="signup-password2" placeholder="Type your Password" data-role="none">
 					</div>
 					<div class="form-control">
-						<input type="submit" class="form-button" value="Sign Up" data-role="none">
+						<input type="submit" class="confirm-button" value="Sign Up" data-role="none">
 					</div>
+					
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
-						Already have an account? <a href="#signin-page">Sign In</a>
+						Already have an account? <a href="#signin-email-page">Sign In</a>
 					</div>
 				</form>
 			</div>
@@ -120,56 +133,146 @@
 		</div>
 	</section>
 
-	<section data-role="page" id="map-page">
-		<div data-role="main">
-			Map
-		</div>
-		<footer data-role="footer">
-			<ul>
-				<!-- li*3>a[href=#] -->
-				<li><a href="#map-page">MAP</a></li>
-				<li><a href="#Category-page">CATEGORY</a></li>
-				<li><a href="#profile-page">PROFILE</a></li>
-			</ul>
-		</footer>
-	</section>
-	<section data-role="page" id="list-page">
-		<header data-role="header">
-			<h1>Place List</h1>
+	<!-- map page -->
+	<section data-role="page" id="map-page" data-url="map-page" tabindex="0" class="ui-page ui-page-theme-a ui-page-active" style="">
+		<header data-role="header" role="banner" class="ui-header ui-bar-inherit">
+			<h1 class="ui-title" role="heading" aria-level="1">MAP</h1>
 			<ul>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#">&plus;</a>
+					<a href="#" data-activate="#list-add-animal-modal" class="ui-link">+</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<!-- ul>li*10>a[href=#animal-profile-page]>{Animal $} -->
-			<ul>
-				<li><a href="#location-profile-page">Place 1</a></li>
-				<li><a href="#location-profile-page">Place 2</a></li>
-				<li><a href="#location-profile-page">Place 3</a></li>
-				<li><a href="#location-profile-page">Place 4</a></li>
-				<li><a href="#location-profile-page">Place 5</a></li>
-				<li><a href="#location-profile-page">Place 6</a></li>
-				<li><a href="#location-profile-page">Place 7</a></li>
-				<li><a href="#location-profile-page">Place 8</a></li>
-				<li><a href="#location-profile-page">Place 9</a></li>
-				<li><a href="#location-profile-page">Place 10</a></li>
+			<div class="map"></div>
+			<div>
+				
+					<div class="modal-icon">
+						<a href="#" data-activate="#add-modal">
+							<img class="icon" src="img/icons/pin.svg" alt="">
+						</a>
+					</div>
+				</li>
 			</ul>
+			</div>
 		</div>
-		<footer data-role="footer">
-			<ul>
-				<!-- li*3>a[href=#] -->
-				<li><a href="#map-page">Recent</a></li>
-				<li><a href="#category-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
-			</ul>
-		</footer>
+		<footer data-role="footer" data-template="#footer-template" role="contentinfo" class="ui-footer ui-bar-inherit">
+		<ul>
+			<li>
+				<a href="#map-page" class="ui-link">
+					<div class="footer-icon"><img class="icon" src="img/icons/location.svg" alt=""></div>
+					<div class="footer-label">MAP</div>
+				</a>
+			</li>
+			<li>
+				<a href="#gallery-page" class="ui-link">
+					<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
+					<div class="footer-label">GALLERY</div>
+				</a>
+			</li>
+			<li>
+				<a href="#profile-page" class="ui-link">
+					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					<div class="footer-label">PROFILE</div>
+				</a>
+			</li>
+		</ul>
+	</footer>
+
+	<div class="modal active" id="list-add-animal-modal">
+		<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">
+					<a href="#add-place-page">ADD PLACE</a>
+				</div>
+				<!-- https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css -->
+				<div class="modal-h_line"></div>
+				
+				<div class="modal-foot">
+					<a href="#add-street-art-page">ADD STREET ART</a>
+				</div>
+			</div>
+		</div>
+	</div>
 	</section>
-	<section data-role="page" id="location-profile-page">
+
+
+
+	<!-- Gallery page -->
+	<section data-role="page" id="gallery-page" data-url="gallery-page">
+		<header data-role="header" role="banner" class="ui-header ui-bar-inherit">
+			<h1 class="ui-title" role="heading" aria-level="1">Animal List</h1>
+			<ul>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-activate="#list-add-animal-modal" class="ui-link">+</a>
+				</li>
+			</ul>
+		</header>
+		
+		<div data-role="main">
+			<div class="scrollable">
+				<ul>
+					<li><a href="#place-profile-page">place 1</a></li>
+					<li><a href="#place-profile-page">place 2</a></li>
+					<li><a href="#place-profile-page">place 3</a></li>
+					<li><a href="#place-profile-page">place 4</a></li>
+					<li><a href="#place-profile-page">place 5</a></li>
+					<li><a href="#place-profile-page">place 6</a></li>
+					<li><a href="#place-profile-page">place 7</a></li>
+					<li><a href="#place-profile-page">place 8</a></li>
+					<li><a href="#place-profile-page">place 9</a></li>
+					<li><a href="#place-profile-page">place 10</a></li>
+					
+				</ul>
+			</div>
+		</div>
+		<footer data-role="footer" data-template="#footer-template">
+		<ul>
+			<li>
+				<a href="#map-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
+					<div class="footer-label">MAP</div>
+				</a>
+			</li>
+			<li>
+				<a href="#gallery-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
+					<div class="footer-label">GALLERY</div>
+				</a>
+			</li>
+			<li>
+				<a href="#profile-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					<div class="footer-label">PROFILE</div>
+				</a>
+			</li>
+		</ul>
+	</footer>
+
+		<div class="modal active" id="list-add-animal-modal">
+		<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+			<div class="modal-popup">
+				<div class="modal-head">
+					<a href="#add-place-page">ADD PLACE</a>
+				</div>
+				<!-- https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css -->
+				<div class="modal-h_line"></div>
+				
+				<div class="modal-foot">
+					<a href="#add-street-art-page">ADD STREET ART</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	</section>
+
+
+<!-- add place page -->
+	<section data-role="page" id="add-place-page" data-url="add-place-page">
 		<header data-role="header">
-			<h1>Place Profile</h1>
+			<h1>ADD PLACE</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
@@ -177,25 +280,212 @@
 			</ul>
 		</header>
 		<div data-role="main">
-			Cool Place
+			Add Place
 		</div>
 	</section>
 
-
-	<!-- profile page -->
-	<section data-role="page" id="profile-page">
-		<div data-role="main">
-			User Profile
-		</div>
-		<footer data-role="footer">
+<!-- add street art page -->
+	<section data-role="page" id="add-street-art-page" data-url="add-street-art-page">
+		<header data-role="header">
+			<h1>ADD STREET ART</h1>
 			<ul>
-				<!-- li*3>a[href=#] -->
-				<li><a href="#recent-page">Recent</a></li>
-				<li><a href="#list-page">List</a></li>
-				<li><a href="#profile-page">Profile</a></li>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
 			</ul>
-		</footer>
+		</header>
+		<div data-role="main">
+			Add street art
+		</div>
 	</section>
+
+	<!-- place gallery profile page -->
+	
+	<section data-role="page" id="place-profile-page" data-url="place-profile-page">
+		<header data-role="header">
+			<h1>PLACE PROFILE</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+			</ul>
+		</header>
+		<!-- https://css-tricks.com/sticky-smooth-active-nav/ -->
+		<div data-role="main">
+			<div class="scrollable">
+				<div class="cool-place-cover">
+  					<h1>Cool Place</h1>
+				</div>
+
+				<!-- The navbar -->
+				<nav>
+  					<ul>
+    					<li><a href="#section-1">Section 1</a></li>
+    					<li><a href="#section-2">Section 2</a></li>
+    					<li><a href="#section-3">Section 3</a></li>
+    					<li><a href="#section-4">Section 4</a></li>
+    					<li><a href="#section-5">Section 5</a></li>
+    					<li><a href="#section-6">Section 6</a></li>
+    					<li><a href="#section-7">Section 7</a></li>
+    					<li><a href="#section-8">Section 8</a></li>
+    					<li><a href="#section-9">Section 9</a></li>
+  					</ul>
+					</nav>
+
+				<div class="update-time">
+  					<section id="section-1">
+    					<h1>Section 1</h1>
+    					<img src="" alt="">
+    					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, blanditiis expedita? Earum eligendi pariatur quaerat quos expedita ab quibusdam ratione veniam in, mollitia fuga repudiandae?</p>
+  					</section>
+  					<section id="section-2">
+    					<h1>Section 2</h1>
+    					<img src="" alt="">
+    					<p>Ratione nulla nam, ipsa dignissimos corrupti veniam nostrum, laudantium asperiores sequi numquam placeat velit voluptate in praesentium non labore unde incidunt laborum maxime quae magni.</p>
+  					</section>
+  					<section id="section-3">
+    					<h1>Section 3</h1>
+    					<img src="" alt="">
+    					<p>Soluta quibusdam ad nostrum vel voluptate delectus sequi dolores quia quaerat officia corrupti, aperiam fugit facere debitis repudiandae praesentium sapiente inventore repellendus, nemo commodi alias!</p>
+  					</section>
+  					<section id="section-4">
+    					<h1>Section 4</h1>
+    					<img src="" alt="">
+    					<p>Aliquid aliquam magnam ducimus similique obcaecati, unde exercitationem laborum incidunt, quas in ipsum inventore nostrum? Blanditiis optio cumque earum iste odio! Alias sint accusamus repudiandae.</p>
+  					</section>
+  					<section id="section-5">
+    					<h1>Section 5</h1>
+    					<img src="" alt="">
+    					<p>Officia ipsum fugit iure eaque quisquam error tempore earum enim illum, delectus officiis incidunt corrupti aliquid nam quas perspiciatis eveniet doloremque quod labore? Doloremque, ipsum?</p>
+  					</section>
+  					<section id="section-6">
+    					<h1>Section 6</h1>
+    					<img src="" alt="">
+    					<p>Aperiam repellat dignissimos fugiat possimus esse, suscipit neque nisi libero alias obcaecati ipsam, porro illo corrupti nostrum reprehenderit unde, illum in laudantium impedit. Modi, veniam.</p>
+  					</section>
+  					<section id="section-7">
+    					<h1>Section 7</h1>
+    					<img src="" alt="">
+    					<p>Cum asperiores temporibus itaque consequatur quod inventore, quia quis explicabo dicta esse minus voluptatem reiciendis eveniet animi, necessitatibus illum dolorem doloremque repellat placeat, dolores eaque.</p>
+  					</section>
+  					<section id="section-8">
+    					<h1>Section 8</h1>
+    					<img src="" alt="">
+    					<p>Optio qui, omnis itaque rerum iusto molestiae necessitatibus deleniti quod tenetur id perspiciatis voluptatum dolorum quisquam eius ipsum non architecto labore! Distinctio, tenetur. Officiis, necessitatibus?</p>
+  					</section>
+  					<section id="section-9">
+    					<h1>Section 9</h1>
+    					<img src="" alt="">
+    					<p>Rem iste iure blanditiis excepturi esse nisi corrupti sequi, illo, laborum quo quis quaerat assumenda perspiciatis quod fuga vel laudantium doloribus architecto tempora omnis earum!</p>
+  					</section>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	
+
+	<!-- PROFILE PAGE -->
+	<section data-role="page" id="profile-page" data-url="profile-page">
+		<div data-role="main">
+			<div class="hero-image">
+				<img src="https://hdraws.com/images/businesscard.png" alt="">
+			</div>
+			<h2 class="profile-title">Hamilton</h2>
+			<div class="profile-body">
+				<div>
+					<strong>Email:</strong> <span>hamdiggy@gmail.com</span>
+				</div>
+				<div>
+					<strong>places:</strong> <span>5</span>
+				</div>
+				<div>
+					<strong>Locations:</strong> <span>25</span>
+				</div>
+			</div>
+
+			<a class="settings" href="#settings-page">
+				<img src="img/icons/shishkabob.svg" alt="" class="icon">
+			</a>
+		</div>
+		<footer data-role="footer" data-template="#footer-template">
+		<ul>
+			<li>
+				<a href="#map-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
+					<div class="footer-label">MAP</div>
+				</a>
+			</li>
+			<li>
+				<a href="#gallery-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
+					<div class="footer-label">GALLERY</div>
+				</a>
+			</li>
+			<li>
+				<a href="#profile-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					<div class="footer-label">PROFILE</div>
+				</a>
+			</li>
+		</ul>
+	</footer>
+	</section>
+
+	<section data-role="page" id="settings-page" data-url="settings-page">
+		<header data-role="header">
+			<h1>Settings</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<ul>
+				<li>
+					<a href="#" class="js-logout">Logout</a>
+				</li>
+				<li>
+					<a href="#">Change Password</a>
+				</li>
+				<li>
+					<a href="#">Change Email</a>
+				</li>
+				<li>
+					<a href="#">Change Profile Info</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+	<script type="text/template" id="footer-template">
+		<ul>
+			<li>
+				<a href="#map-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
+					<div class="footer-label">map</div>
+				</a>
+			</li>
+			<li>
+				<a href="#gallery-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
+					<div class="footer-label">gallery</div>
+				</a>
+			</li>
+			<li>
+				<a href="#profile-page">
+					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					<div class="footer-label">Profile</div>
+				</a>
+			</li>
+		</ul>
+	</script>
+
+	<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div>
+	
+ 
+  
 
 </body>
 </html>
