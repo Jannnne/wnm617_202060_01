@@ -1,6 +1,6 @@
 $(()=>{
 
-	checkUserId();
+	// checkUserId ();  // shuimu157@gmail.com
 
 	// EVENT DELEGATION
 	$(document)
@@ -35,6 +35,8 @@ $(()=>{
 	.on("click","[data-activateone]",function(e){
 		$($(this).data("activateone")).addClass("active")
 			.siblings().removeClass("active");
-	})
+	}); // shuimu157@gmail.com
+
+	$("#list-add-place-modal").removeClass("active"); // shuimu157@gmail.com
 
 });

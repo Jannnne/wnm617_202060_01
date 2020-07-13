@@ -8,14 +8,19 @@
 
 	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="css/app.css">
+	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
 	<script src="js/signin.js"></script>
 	<script src="js/app.js"></script>
 
+
+
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
-	<script src="js/sticky_smooth_active_nav.js"></script>
+	<script src="js/welcomeslide.js"></script>
+	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
 </head>
 <body>
 	
@@ -24,13 +29,24 @@
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
 			<div class="flex-none" style="text-align:center">
-				<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
+				<img src="img/logo.svg" alt="" class="login-logo">
+				<!-- // https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_slideshow_dots2 -->
+				<!-- <img src="img_nature_wide.jpg" alt="" class="welcome-slide">
+  				<img src="img_snow_wide.jpg" alt="" class="welcome-slide">
+  				<img src="img_mountains_wide.jpg" alt="" class="welcome-slide">
+  				<div class="w3-center w3-container w3-section w3-large w3-text-white w3-display-bottommiddle" style="width:100%">
+    				<div class="w3-left w3-hover-text-khaki" onclick="plusDivs(-1)">&#10094;</div>
+    				<div class="w3-right w3-hover-text-khaki" onclick="plusDivs(1)">&#10095;</div>
+    				<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(1)"></span>
+    				<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(2)"></span>
+    				<span class="w3-badge demo w3-border w3-transparent w3-hover-white" onclick="currentDiv(3)"></span> -->
+  				</div>
 			</div>
-			<div class="flex-none" style="padding:1em">
-				<form id="signin-form" data-ajax="false">
+			<div class="flex-none" style="padding:1em; background-color: var(--color-background);">
+				<form id="signin-form">
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
-						<a href="#signin-email-page" class="main-button">Sign In</a>
-					</div>
+						<a href="#signin-password-page" class="main-button">Sign In</a>
+					</div> <!-- shuimu157@gmail.com -->
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Don't have an account? <a href="#signup-page">Sign Up</a>
 					</div>
@@ -48,10 +64,10 @@
 			
 			<div class="flex-none" style="padding:1em">
 				<form id="signin-form" data-ajax="false">
-					<div class="form-control">
+					<!-- <div class="form-control">
 						<label for="signin-email" class="form-label">Email</label>
 						<input type="text" class="form-input" id="signin-email" placeholder="Type your email" data-role="none">
-					</div>
+					</div> --> <!-- shuimu157@gmail.com-->
 					
 					<div class="form-control">
 						<a href="#signin-password-page" class="confirm-button">Next</a>
@@ -59,7 +75,7 @@
 
 					<div class="form-control">
 						<a href="#signin-page" class="primary-button">Cancel</a>
-					</div>
+					</div> --> <!-- shuimu157@gmail.com -->
 					
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Don't have an account? <a href="#signup-page">Sign Up</a>
@@ -75,19 +91,24 @@
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
 			
-			<div class="flex-none" style="padding:1em">
+			<div class="flex-none" style="padding:1em;">
 				<form id="signin-form" data-ajax="false">
 					<div class="form-control">
+						<label for="signin-email" class="form-label">Email</label>
+						<input type="text" class="form-input" id="signin-email" placeholder="Type your email" data-role="none">
+					</div>
+					<div class="form-control">
 						<label for="signin-password" class="form-label">Password</label>
-						<input type="password" class="form-input" id="signup-password" placeholder="Type your Password" data-role="none">
+						<input type="password" class="form-input" id="signin-password" placeholder="Type your Password" data-role="none">
 					</div>
 					
-					<div class="form-control">
-						<input type="submit" class="confirm-button" value="Sign In" href="#map-page" data-role="none">
+					<div class="form-control" style="text-align: center;">
+						<input type="submit" class="confirm-button" value="Sign In" onclick="checkLoginForm();" data-role="none"> <!-- shuimu157@gmail.com -->
 					</div>
-					<div class="form-control">
-						<a href="#signin-email-page" class="primary-button">Cancel</a>
-					</div>
+					<!-- <div class="form-control">
+						<a href="#signin-password-page" class="primary-button">Cancel</a>
+					</div>  -->
+					<!-- shuimu157@gmail.com-->
 					
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Don't have an account? <a href="#signup-page">Sign Up</a>
@@ -125,8 +146,8 @@
 					</div>
 					
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
-						Already have an account? <a href="#signin-email-page">Sign In</a>
-					</div>
+						Already have an account? <a href="#signin-password-page">Sign In</a>
+					</div> <!-- shuimu157@gmail.com-->
 				</form>
 			</div>
 			<div class="flex-stretch"></div>
@@ -134,13 +155,15 @@
 	</section>
 
 	<!-- map page -->
-	<section data-role="page" id="map-page" data-url="map-page" tabindex="0" class="ui-page ui-page-theme-a ui-page-active" style="">
+	<section data-role="page" id="map-page" data-url="map-page" tabindex="0" class="ui-page ui-page-theme-a">  <!-- shuimu157@gmail.com-->
 		<header data-role="header" role="banner" class="ui-header ui-bar-inherit">
 			<h1 class="ui-title" role="heading" aria-level="1">MAP</h1>
 			<ul>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-animal-modal" class="ui-link">+</a>
+					<a href="#" data-activate="#list-add-place-modal" class="ui-link">
+						<i class="fas fa-plus"></i>
+					</a>
 				</li>
 			</ul>
 		</header>
@@ -157,11 +180,12 @@
 			</ul>
 			</div>
 		</div>
+
 		<footer data-role="footer" data-template="#footer-template" role="contentinfo" class="ui-footer ui-bar-inherit">
 		<ul>
 			<li>
 				<a href="#map-page" class="ui-link">
-					<div class="footer-icon"><img class="icon" src="img/icons/location.svg" alt=""></div>
+					<div class="footer-icon"><img class="icon" src="img/icons/location.svg" alt=""></div> <!-- shuimu157@gmail.com-->
 					<div class="footer-label">MAP</div>
 				</a>
 			</li>
@@ -180,17 +204,17 @@
 		</ul>
 	</footer>
 
-	<div class="modal active" id="list-add-animal-modal">
-		<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+	<div class="modal active" id="list-add-place-modal">
+		<div class="modal-back" data-deactivate="#list-add-place-modal"></div>
 			<div class="modal-popup">
 				<div class="modal-head">
-					<a href="#add-place-page">ADD PLACE</a>
+					<a href="#add-place-page">ADD A PLACE</a>
 				</div>
 				<!-- https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css -->
 				<div class="modal-h_line"></div>
 				
 				<div class="modal-foot">
-					<a href="#add-street-art-page">ADD STREET ART</a>
+					<a href="#add-street-art-page">ADD A STREET ART</a>
 				</div>
 			</div>
 		</div>
@@ -202,17 +226,45 @@
 	<!-- Gallery page -->
 	<section data-role="page" id="gallery-page" data-url="gallery-page">
 		<header data-role="header" role="banner" class="ui-header ui-bar-inherit">
-			<h1 class="ui-title" role="heading" aria-level="1">Animal List</h1>
+			<h1 class="ui-title" role="heading" aria-level="1">GALLERY</h1>
 			<ul>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-animal-modal" class="ui-link">+</a>
+					<a href="#" data-activate="#list-add-place-modal" class="ui-link">
+						<i class="fas fa-plus"></i>
+					</a>
 				</li>
 			</ul>
 		</header>
 		
+
 		<div data-role="main">
-			<div class="scrollable">
+			<!-- *******************************  shuimu157@gmail.com *********************  -->
+			<div class="gallarys">
+				<ul class="outer-list">
+					<li>
+						<span class="inner-left"><img src="img/gallary/image1.png" alt=""></span>
+						<span class="inner-right"><img src="img/gallary/image2.png" alt=""></span>
+					</li>
+					<li>
+						<span class="inner-left"><img src="img/gallary/image3.png" alt=""></span>
+						<span class="inner-right"><img src="img/gallary/image4.png" alt=""></span>
+					</li>
+					<li>
+						<span class="inner-left"><img src="img/gallary/image5.png" alt=""></span>
+						<span class="inner-right"><img src="img/gallary/image6.png" alt=""></span>
+					</li>
+					<li>
+						<span class="inner-left"><img src="img/gallary/image7.png" alt=""></span>
+						<span class="inner-right"><img src="img/gallary/image8.png" alt=""></span>
+					</li>
+					<li>
+						<span class="inner-left"><img src="img/gallary/image9.png" alt=""></span>
+						<span class="inner-right"><img src="img/gallary/image10.png" alt=""></span>
+					</li>
+				</ul>
+			</div> 
+			<!-- <div class="scrollable">
 				<ul>
 					<li><a href="#place-profile-page">place 1</a></li>
 					<li><a href="#place-profile-page">place 2</a></li>
@@ -227,75 +279,193 @@
 					
 				</ul>
 			</div>
-		</div>
-		<footer data-role="footer" data-template="#footer-template">
-		<ul>
-			<li>
-				<a href="#map-page">
-					<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
-					<div class="footer-label">MAP</div>
-				</a>
-			</li>
-			<li>
-				<a href="#gallery-page">
-					<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
-					<div class="footer-label">GALLERY</div>
-				</a>
-			</li>
-			<li>
-				<a href="#profile-page">
-					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
-					<div class="footer-label">PROFILE</div>
-				</a>
-			</li>
-		</ul>
-	</footer>
+			<div class="tabgroup">
+			<div class="tabs"> -->
+				<!-- .tab*4>{Tab $} -->
+				<!-- <div class="tab active"><i class="fas fa-list-ul" id="icon"></i>Tab 1</div>
+				<div class="tab"><i class="fas fa-table" id="icon"></i>Tab 2</div>
 
-		<div class="modal active" id="list-add-animal-modal">
-		<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
-			<div class="modal-popup">
-				<div class="modal-head">
-					<a href="#add-place-page">ADD PLACE</a>
+			</div> -->
+
+			<!-- .contents>.content*4>h3{Content $}+div>p*4>lorem40 -->
+			<!-- <div class="contents">
+				<div class="content active">
+					<h3>Content 1</h3>
+					<div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolores vel, optio animi commodi, accusamus id saepe sunt ducimus, minus cum totam ex doloribus harum expedita deleniti nulla velit suscipit! Veniam id laboriosam est eveniet iusto consequuntur quia facilis maxime consequatur.</p>
+						<p>Illum officia dolorum blanditiis voluptatem nostrum dolores temporibus dolor, fugiat velit maxime voluptates alias consequatur sed quis excepturi aperiam voluptas vel voluptatibus facere, itaque architecto numquam ipsum? Porro, optio facilis vitae enim sed alias iusto, nostrum natus rem, fugit numquam!</p>
+						<p>Ratione incidunt dolor aperiam similique tenetur, quisquam saepe cum fugiat provident excepturi, id molestias vitae, explicabo tempore architecto, sit voluptatum pariatur sunt consequuntur unde vero! Molestiae, voluptatibus beatae consequatur, vitae consectetur voluptatem, fugit placeat rem tempora necessitatibus ut sunt at?</p>
+						<p>Ratione corporis debitis sequi, alias expedita eum. Totam rem delectus iusto obcaecati dolorum laborum laboriosam. Officia rem possimus corporis magni tempore cupiditate obcaecati assumenda, adipisci, repudiandae quis, quos earum architecto atque non excepturi incidunt. Voluptas perferendis nemo, quae ipsum et?</p>
+					</div>
 				</div>
-				<!-- https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css -->
-				<div class="modal-h_line"></div>
+				<div class="content">
+					<h3>Content 2</h3>
+					<div>
+						<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Laboriosam omnis illo minima nisi ex possimus fugiat ab inventore nostrum ipsam sint reprehenderit sequi voluptatibus soluta, ullam magnam sapiente velit neque nesciunt facilis quisquam! Nostrum sequi similique earum, veniam deleniti ea!</p>
+						<p>Vel odio laborum sequi quasi esse dolor, delectus fuga sit veniam unde, fugit culpa adipisci cupiditate! Cupiditate alias, aliquid placeat sint ut sunt nobis vel odit dolorem, perferendis, reprehenderit deserunt ullam. Consectetur voluptas, cum obcaecati rerum, est ab tenetur eaque.</p>
+						<p>Vero fuga, facere veritatis nam hic minus blanditiis error cumque cupiditate tempore quos eligendi! Nesciunt non in adipisci expedita accusamus blanditiis excepturi sunt cupiditate deleniti laboriosam dicta commodi voluptate exercitationem consequuntur autem dolores labore sapiente quam, quis tempore sed sequi.</p>
+						<p>Amet aliquid accusantium fugiat ad. Quasi tempore obcaecati placeat odit saepe, dignissimos ipsam, reprehenderit, molestias praesentium ratione voluptatem pariatur facilis explicabo maiores consequuntur eos voluptas unde, velit nemo qui soluta sint? Minus eius dolor temporibus tempore perspiciatis veritatis sed distinctio.</p>
+					</div>
+				</div>
 				
-				<div class="modal-foot">
-					<a href="#add-street-art-page">ADD STREET ART</a>
+			</div> -->
+			<!-- ************************ shuimu157@gmail.com end  ********************  -->
+		</div>
+		</div>	
+				
+		</div>
+		<footer data-role="footer" data-template="#footer-template" role="contentinfo" class="ui-footer ui-bar-inherit">
+			<ul>
+				<li>
+					<a href="#map-page" class="ui-link">
+						<div class="footer-icon"><img class="icon" src="img/icons/location.svg" alt=""></div>
+					<div class="footer-label">MAP</div>
+					</a>
+				</li>
+				<li>
+					<a href="#gallery-page" class="ui-link">
+						<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
+						<div class="footer-label">GALLERY</div>
+					</a>
+				</li>
+				<li>
+					<a href="#profile-page" class="ui-link">
+						<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					<div class="footer-label">Profile</div>
+					</a>
+				</li>
+			</ul>
+		</footer>
+		<div class="modal" id="list-add-place-modal"> <!-- shuimu157@gmail.com-->
+			<div class="modal-back" data-deactivate="#list-add-place-modal">
+				<a href="#gallery-page">
+					<i class="fas fa-times"></i>
+				</a>
+			</div>
+				<div class="modal-popup">
+				
+					<div class="modal-head">
+						<a href="#add-place-page">ADD A PLACE</a>
+					</div>
+					<!-- https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css -->
+					<div class="modal-h_line"></div>
+				
+					<div class="modal-foot">
+						<a href="#add-street-art-page">ADD A STREET ART</a>
+					</div>
 				</div>
 			</div>
 		</div>
-	</div>
 	</section>
 
 
 <!-- add place page -->
 	<section data-role="page" id="add-place-page" data-url="add-place-page">
 		<header data-role="header">
-			<h1>ADD PLACE</h1>
+			<h1>ADD A PLACE</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back" class="ui-link">
+						<i class="fas fa-arrow-left"></i>
+					</a>
+					<a href="#" data-activate="#add-street-art-page" class="ui-link">
+						<i class="fas fa-check"></i>
+					</a>
 				</li>
 			</ul>
 		</header>
-		<div data-role="main">
-			Add Place
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="add-street-art-body" style="padding:1em">
+				<form id="add-street-art-form" data-ajax="false">
+					<div class="form-control">
+						<label for="select-a-place" class="form-label">
+							add location on map
+							<i class="fas fa-map-marked-alt" id="icon"></i>
+						</label>
+						<input type="text" class="form-input" id="select-a-place" placeholder="Select a place" data-role="none">
+					</div>
+					
+					<div class="form-control">
+						<label for="add-a-date" class="form-label">place name
+                    		<i class="fas fa-clipboard-list" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Add a date" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-note" class="form-label">add note
+							<i class="fas fa-edit" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="Add note" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-a-date" class="form-label">Add a date
+                    		<i class="fas fa-calendar-alt" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Add a date" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-a-photo" class="form-label">add a cover
+							<i class="fas fa-image" id="icon"></i>
+						</label>
+						
+					</div>
+				</form>
+				</div>
+			<div class="flex-stretch"></div>
+				
 		</div>
 	</section>
 
 <!-- add street art page -->
 	<section data-role="page" id="add-street-art-page" data-url="add-street-art-page">
 		<header data-role="header">
-			<h1>ADD STREET ART</h1>
+			<h1>ADD A STREET ART</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back" class="ui-link">
+						<i class="fas fa-arrow-left"></i>
+					</a>
+					
+					<a href="#" data-activate="#add-street-art-page" class="ui-link">
+						<i class="fas fa-check"></i>
+					</a>
 				</li>
 			</ul>
 		</header>
-		<div data-role="main">
-			Add street art
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="add-street-art-body" style="padding:1em">
+				<form id="add-street-art-form" data-ajax="false">
+					<div class="form-control">
+						<label for="select-a-place" class="form-label">
+							Select a place<i class="fas fa-caret-down" id="icon"></i>
+						</label>
+						<input type="text" class="form-input" id="select-a-place" placeholder="Select a place" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-a-photo" class="form-label">add a photo
+							<i class="fas fa-camera-retro" id="icon"></i>
+						</label>
+						
+					</div>
+					<div class="form-control">
+						<label for="add-a-date" class="form-label">Add a date
+                    		<i class="fas fa-calendar-alt" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Add a date" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-note" class="form-label">add note
+							<i class="fas fa-edit" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="Add note" data-role="none">
+					</div>
+					
+				</form>
+				</div>
+			<div class="flex-stretch"></div>
+				
 		</div>
 	</section>
 
@@ -306,81 +476,37 @@
 			<h1>PLACE PROFILE</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back">
+						<i class="fas fa-arrow-left"></i>
+					</a>
 				</li>
 			</ul>
 		</header>
 		<!-- https://css-tricks.com/sticky-smooth-active-nav/ -->
 		<div data-role="main">
-			<div class="scrollable">
-				<div class="cool-place-cover">
-  					<h1>Cool Place</h1>
-				</div>
+			<div class="hero-image">
+				<img src="img/Haight-Street-Cover.jpg" alt="place profile pic">
+			</div>
+			<h2 class="place-profile-title">HAIGHT STREET</h2>
+			<h6 class="place-profile-title">San Francisco, CA</h6>
+			<div class="place-profile-body">
+				<div class="container">
+					<h2>Accordion</h2>
 
-				<!-- The navbar -->
-				<nav>
-  					<ul>
-    					<li><a href="#section-1">Section 1</a></li>
-    					<li><a href="#section-2">Section 2</a></li>
-    					<li><a href="#section-3">Section 3</a></li>
-    					<li><a href="#section-4">Section 4</a></li>
-    					<li><a href="#section-5">Section 5</a></li>
-    					<li><a href="#section-6">Section 6</a></li>
-    					<li><a href="#section-7">Section 7</a></li>
-    					<li><a href="#section-8">Section 8</a></li>
-    					<li><a href="#section-9">Section 9</a></li>
-  					</ul>
-					</nav>
-
-				<div class="update-time">
-  					<section id="section-1">
-    					<h1>Section 1</h1>
-    					<img src="" alt="">
-    					<p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Officiis, blanditiis expedita? Earum eligendi pariatur quaerat quos expedita ab quibusdam ratione veniam in, mollitia fuga repudiandae?</p>
-  					</section>
-  					<section id="section-2">
-    					<h1>Section 2</h1>
-    					<img src="" alt="">
-    					<p>Ratione nulla nam, ipsa dignissimos corrupti veniam nostrum, laudantium asperiores sequi numquam placeat velit voluptate in praesentium non labore unde incidunt laborum maxime quae magni.</p>
-  					</section>
-  					<section id="section-3">
-    					<h1>Section 3</h1>
-    					<img src="" alt="">
-    					<p>Soluta quibusdam ad nostrum vel voluptate delectus sequi dolores quia quaerat officia corrupti, aperiam fugit facere debitis repudiandae praesentium sapiente inventore repellendus, nemo commodi alias!</p>
-  					</section>
-  					<section id="section-4">
-    					<h1>Section 4</h1>
-    					<img src="" alt="">
-    					<p>Aliquid aliquam magnam ducimus similique obcaecati, unde exercitationem laborum incidunt, quas in ipsum inventore nostrum? Blanditiis optio cumque earum iste odio! Alias sint accusamus repudiandae.</p>
-  					</section>
-  					<section id="section-5">
-    					<h1>Section 5</h1>
-    					<img src="" alt="">
-    					<p>Officia ipsum fugit iure eaque quisquam error tempore earum enim illum, delectus officiis incidunt corrupti aliquid nam quas perspiciatis eveniet doloremque quod labore? Doloremque, ipsum?</p>
-  					</section>
-  					<section id="section-6">
-    					<h1>Section 6</h1>
-    					<img src="" alt="">
-    					<p>Aperiam repellat dignissimos fugiat possimus esse, suscipit neque nisi libero alias obcaecati ipsam, porro illo corrupti nostrum reprehenderit unde, illum in laudantium impedit. Modi, veniam.</p>
-  					</section>
-  					<section id="section-7">
-    					<h1>Section 7</h1>
-    					<img src="" alt="">
-    					<p>Cum asperiores temporibus itaque consequatur quod inventore, quia quis explicabo dicta esse minus voluptatem reiciendis eveniet animi, necessitatibus illum dolorem doloremque repellat placeat, dolores eaque.</p>
-  					</section>
-  					<section id="section-8">
-    					<h1>Section 8</h1>
-    					<img src="" alt="">
-    					<p>Optio qui, omnis itaque rerum iusto molestiae necessitatibus deleniti quod tenetur id perspiciatis voluptatum dolorum quisquam eius ipsum non architecto labore! Distinctio, tenetur. Officiis, necessitatibus?</p>
-  					</section>
-  					<section id="section-9">
-    					<h1>Section 9</h1>
-    					<img src="" alt="">
-    					<p>Rem iste iure blanditiis excepturi esse nisi corrupti sequi, illo, laborum quo quis quaerat assumenda perspiciatis quod fuga vel laudantium doloribus architecto tempora omnis earum!</p>
-  					</section>
+					<dl class="accordion">
+						<!-- (dt+dd)*4 -->
+						<dt>Bear</dt>
+						<dd>Lives in the Woods</dd>
+						<dt>Eagle</dt>
+						<dd>Lives in the Sky</dd>
+						<dt>Shark</dt>
+						<dd>Lives in the Ocean</dd>
+						<dt>Honey Badger</dt>
+						<dd>Don't give a crap</dd>
+					</dl>
 				</div>
 			</div>
-		</div>
+		
 	</section>
 
 	
@@ -389,30 +515,59 @@
 	<section data-role="page" id="profile-page" data-url="profile-page">
 		<div data-role="main">
 			<div class="hero-image">
-				<img src="https://hdraws.com/images/businesscard.png" alt="">
+				<img src="img/profile_pic.png" alt="profile pic">
 			</div>
-			<h2 class="profile-title">Hamilton</h2>
+			<h2 class="profile-title">Jannnne Co</h2>
 			<div class="profile-body">
-				<div>
-					<strong>Email:</strong> <span>hamdiggy@gmail.com</span>
-				</div>
-				<div>
-					<strong>places:</strong> <span>5</span>
-				</div>
-				<div>
-					<strong>Locations:</strong> <span>25</span>
-				</div>
+				<!-- https://www.w3schools.com/w3css/tryit.asp?filename=tryw3css_templates_cv&stacked=h -->
+				<p>
+					<i class="fas fa-briefcase" id="icon"></i>
+					<span class="profile-body-text"> UX Designer</span>
+				</p>
+          		<p>
+          			<i class="fas fa-house-user" id="icon"></i>
+          			<span class="profile-body-text">San Francisco, CA</span>
+          		</p>
+          		<p>
+          			<i class="fas fa-envelope" id="icon"></i>
+          			<span class="profile-body-text"> zwei11@art.edu</span>
+          		</p>
+          		<p>
+          			<i class="fas fa-mobile-alt" id="icon"></i>
+          			<span class="profile-body-text"> (1) 628-999-4040</span>
+          		</p>
+
+
 			</div>
 
+			<!-- <div class="update-data-info">
+
+				<div class="modal active" id="list-add-place-modal">
+					<div class="modal-back" data-deactivate="#list-add-place-modal"></div>
+						<div class="modal-popup">
+							<div class="modal-head">
+								<a href="#add-place-page">ADD PLACE</a>
+							</div>
+							https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css
+							<div class="modal-h_line"></div>
+				
+							<div class="modal-foot">
+								<a href="#add-street-art-page">ADD STREET ART</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div> -->
+
 			<a class="settings" href="#settings-page">
-				<img src="img/icons/shishkabob.svg" alt="" class="icon">
+				<i class="fas fa-ellipsis-v" style="color: var(--color-main-medium);"></i>
 			</a>
 		</div>
 		<footer data-role="footer" data-template="#footer-template">
 		<ul>
 			<li>
 				<a href="#map-page">
-					<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
+					<div class="footer-icon"><img class="icon" src="img/icons/location.svg" alt=""></div> <!-- shuimu157@gmail.com-->
 					<div class="footer-label">MAP</div>
 				</a>
 			</li>
@@ -437,15 +592,20 @@
 			<h1>Settings</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">Back</a>
+					<a href="#" data-rel="back">
+						<i class="fas fa-arrow-left"></i>
+					</a>
+				</li>
+				<li>
+					<a href="#" class="js-logout">
+						<i class="fas fa-power-off" id="icon"></i>
+					</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<ul>
-				<li>
-					<a href="#" class="js-logout">Logout</a>
-				</li>
+				
 				<li>
 					<a href="#">Change Password</a>
 				</li>
@@ -483,7 +643,6 @@
 	</script>
 
 	<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div>
-	
  
   
 
