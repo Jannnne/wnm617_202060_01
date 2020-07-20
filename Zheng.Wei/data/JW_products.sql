@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 16, 2020 at 07:12 PM
+-- Generation Time: Jul 20, 2020 at 02:36 PM
 -- Server version: 5.6.47-cll-lve
 -- PHP Version: 7.2.7
 
@@ -75,6 +75,24 @@ CREATE TABLE `track_animals` (
   `breed` varchar(64) NOT NULL,
   `description` text NOT NULL,
   `date_create` int(11) NOT NULL,
+  `img` varchar(256) NOT NULL
+) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `Track_art_in_the_streets`
+--
+
+CREATE TABLE `Track_art_in_the_streets` (
+  `id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `name` varchar(64) NOT NULL,
+  `type` varchar(32) NOT NULL,
+  `breed` varchar(64) NOT NULL,
+  `description` text NOT NULL,
+  `date_create` datetime NOT NULL,
+  `date_disappear` datetime NOT NULL,
   `img` varchar(256) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
@@ -285,6 +303,12 @@ ALTER TABLE `track_animals`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `Track_art_in_the_streets`
+--
+ALTER TABLE `Track_art_in_the_streets`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `track_locations`
 --
 ALTER TABLE `track_locations`
@@ -310,6 +334,12 @@ ALTER TABLE `products`
 -- AUTO_INCREMENT for table `track_animals`
 --
 ALTER TABLE `track_animals`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `Track_art_in_the_streets`
+--
+ALTER TABLE `Track_art_in_the_streets`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
