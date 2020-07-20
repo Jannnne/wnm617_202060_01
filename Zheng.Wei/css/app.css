@@ -492,6 +492,15 @@ h2 {
     line-height: 2rem;
     font-size: 1.5em;
 }
+.map-icon {
+    width: 2em;
+    height: 2em;
+    display: inline-block;
+    position: absolute;
+    padding-top: 50%;
+    padding-left: 50%;
+    transform: translate(-50%,-50%);
+}
 .icon {
     width: 1em;
     height: 1em;
@@ -526,7 +535,17 @@ h2 {
     padding-left: 10px;
     text-align: left;
 }
+.profile-body-img {
+    height: 35vh;
+    position: relative;
+    margin-bottom: calc(23vh + 1em);
+    background-color: var(--color-main-medium);
+}
 
+.thumbnail {
+    /* border-radius: 50%; */
+    max-width: 30vmax;
+}
 
 .map {
 	position:absolute;
