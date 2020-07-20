@@ -25,21 +25,21 @@
 
 
 
-/* Animal Template */
+/* Street Arts Template */
 [
-  '{{repeat(50)}}',
+  '{{repeat(100)}}',
   {
     id: '{{index(1)}}',
     user_id: '{{integer(1,10)}}',
     
     name: '{{company()}}',
     
-    type: '{{random("dog","horse","cat")}}',
+    type: '{{random("Graffiti","Murals","outdoor_media")}}',
     breed: function(tags) {
       var breeds = {
-        dog:["labrador","pitbull","dachsund"],
-        horse:["thoreuahbred","shetland","unicorn"],
-        cat:["calico","tuxedo","ginger","siamese","shorthair"]
+        Graffiti:["Tag","Throw-up","Blockbuster","Wildstyle","Heaven","Stencil","Poster","Sticker","Piece"],
+        Murals:["Abstract","Contemporary","Decorative","Illustration","Kids","Landscape","Large Wall Murals","Trompe L’Oeil","Wall Mural Ideas"],
+    outdoor_media:["Billboards","Lamp Post","Bridge","Guerilla Advertising","Stunt Advertising"]
       };
       var chosen_type = breeds[this.type];
       var chosen_index = tags.integer(0,chosen_type.length-1);
@@ -49,6 +49,7 @@
     description: '{{lorem(3, "sentences")}}',
     
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
+    date_disappear: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
     img: function(tags) {
       return 'https://via.placeholder.com/400/'+
         tags.integer(700,999)+'/fff/?text='+this.name;
