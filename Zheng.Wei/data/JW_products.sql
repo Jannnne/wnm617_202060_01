@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost:3306
--- Generation Time: Jul 20, 2020 at 02:36 PM
+-- Generation Time: Jul 20, 2020 at 02:43 PM
 -- Server version: 5.6.47-cll-lve
 -- PHP Version: 7.2.7
 
@@ -104,11 +104,11 @@ CREATE TABLE `Track_art_in_the_streets` (
 
 CREATE TABLE `track_locations` (
   `id` int(11) NOT NULL,
-  `animal_id` int(11) NOT NULL,
+  `streetart_id` int(11) NOT NULL,
   `lat` decimal(12,12) NOT NULL,
   `lng` decimal(12,12) NOT NULL,
   `description` text NOT NULL,
-  `deae_create` datetime NOT NULL,
+  `date_create` datetime NOT NULL,
   `photo` varchar(256) NOT NULL,
   `icon` varchar(256) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
@@ -117,7 +117,7 @@ CREATE TABLE `track_locations` (
 -- Dumping data for table `track_locations`
 --
 
-INSERT INTO `track_locations` (`id`, `animal_id`, `lat`, `lng`, `description`, `deae_create`, `photo`, `icon`) VALUES
+INSERT INTO `track_locations` (`id`, `streetart_id`, `lat`, `lng`, `description`, `date_create`, `photo`, `icon`) VALUES
 (1, 41, '-0.999999999999', '-0.999999999999', 'Pariatur incididunt do eu anim anim aute anim ex labore nulla excepteur Lorem. Laborum anim ullamco velit commodo aliquip laborum quis consequat ad dolor aute reprehenderit laboris qui. Labore labore voluptate eiusmod quis esse aliquip eiusmod eiusmod. Velit elit pariatur veniam aliquip labore cupidatat veniam sit exercitation.\r\n\n', '2020-05-23 03:04:44', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (2, 21, '-0.999999999999', '-0.999999999999', 'Laborum qui ea non ipsum minim pariatur incididunt culpa. Nulla sint consequat exercitation nisi velit laboris eiusmod magna adipisicing dolor aute aliqua dolor. Officia ex nisi in laborum. Enim consectetur occaecat irure excepteur quis aliqua eu laborum. Pariatur qui do culpa ullamco consequat dolor non anim et eu ullamco ut eu.\r\n\n', '2020-07-06 11:26:29', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (3, 47, '-0.999999999999', '0.999999999999', 'Anim amet eu amet pariatur mollit enim excepteur. Ullamco sit nulla non nisi Lorem. Proident veniam do ea fugiat et ex esse consequat magna aute duis. Fugiat nisi non consectetur exercitation ipsum cupidatat excepteur exercitation sint quis fugiat veniam. Consequat eiusmod laboris proident anim.\r\n\n', '2020-01-15 12:19:09', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
@@ -219,7 +219,7 @@ INSERT INTO `track_locations` (`id`, `animal_id`, `lat`, `lng`, `description`, `
 (99, 33, '-0.999999999999', '-0.999999999999', 'Ut dolore ipsum ullamco consequat ullamco cupidatat nisi sint. Sit culpa non nostrud sunt occaecat sunt dolor qui minim ipsum nostrud quis irure qui. Minim dolore incididunt incididunt dolore duis est elit id ullamco aute. Do culpa proident commodo dolore anim consectetur velit veniam consequat do veniam velit. Velit consectetur in adipisicing non fugiat Lorem amet commodo magna ea minim veniam aliquip. Occaecat mollit in magna duis ullamco elit. Minim sint officia tempor et aliqua ea.\r\n\n', '2020-04-12 12:42:43', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (100, 18, '-0.999999999999', '-0.999999999999', 'Adipisicing commodo nisi do velit est cupidatat amet aliqua adipisicing deserunt deserunt. Anim reprehenderit occaecat consequat qui amet quis velit in ad reprehenderit amet. Mollit cupidatat voluptate commodo quis ex. Ad cupidatat quis magna magna esse excepteur magna aute qui. Aute consectetur enim cupidatat et reprehenderit aliqua mollit consectetur amet non labore pariatur Lorem.\r\n\n', '2020-01-03 08:43:01', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (101, 49, '-0.999999999999', '-0.999999999999', 'Ea veniam enim dolor aliqua labore cillum irure. Amet reprehenderit cillum dolore nostrud exercitation irure nisi sunt. Est pariatur deserunt nulla laborum ut id commodo quis nostrud esse est. Et ut dolore sint ex sit nisi elit qui magna aliqua eiusmod labore nostrud. Lorem magna enim veniam exercitation consequat dolor tempor nostrud enim adipisicing sint. Dolore eiusmod magna id consectetur.\r\n\n', '2020-05-01 08:18:55', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON');
-INSERT INTO `track_locations` (`id`, `animal_id`, `lat`, `lng`, `description`, `deae_create`, `photo`, `icon`) VALUES
+INSERT INTO `track_locations` (`id`, `streetart_id`, `lat`, `lng`, `description`, `date_create`, `photo`, `icon`) VALUES
 (102, 23, '-0.999999999999', '-0.999999999999', 'Exercitation quis consequat cupidatat et occaecat laboris sit. Laboris cupidatat culpa voluptate consequat cillum exercitation sit ad mollit. Nulla exercitation in proident adipisicing qui est. Voluptate laboris velit laboris elit nulla occaecat irure dolore culpa incididunt anim nisi velit. Cupidatat laborum aliqua laborum anim adipisicing et mollit ullamco veniam enim. Esse esse ipsum labore culpa eiusmod ullamco sunt proident enim culpa sit cupidatat id. In ex ex incididunt ullamco nostrud culpa Lorem dolore eu ipsum laboris fugiat velit irure.\r\n\n', '2020-05-31 09:14:25', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (103, 29, '-0.999999999999', '-0.999999999999', 'Mollit sunt consequat esse ea. Consectetur quis commodo deserunt eiusmod ad nisi nulla proident mollit eu deserunt. Mollit sunt anim Lorem magna nisi labore ullamco esse non elit nulla aliqua anim do. Minim pariatur veniam nisi sunt deserunt sint velit adipisicing consequat quis commodo adipisicing sit minim. Sint consequat magna irure irure irure laboris esse anim consequat enim incididunt. Cupidatat nulla incididunt do tempor.\r\n\n', '2020-06-09 04:25:55', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),
 (104, 50, '-0.999999999999', '0.999999999999', 'Duis ut dolore culpa esse ex cillum cupidatat deserunt veniam qui tempor. Velit cupidatat consectetur Lorem proident amet occaecat labore commodo occaecat voluptate sint in sit culpa. Nisi incididunt fugiat eiusmod elit et ea incididunt incididunt nisi. Et non excepteur proident dolore amet qui fugiat exercitation eiusmod aliqua qui ea minim. Exercitation excepteur ad est cupidatat pariatur irure aliquip enim labore. Elit occaecat dolor dolore et sint dolor occaecat ex cillum aliqua. Aliqua ullamco aliqua reprehenderit occaecat Lorem consectetur ex quis veniam ut commodo aute est.\r\n\n', '2020-05-12 06:19:24', 'https://via.placeholder.com/400/', 'https://via.placeholder.com/100/888/fff/?text=ICON'),

@@ -66,7 +66,7 @@
   '{{repeat(150)}}',
   {
     id: '{{index(1)}}',
-    animal_id: '{{integer(1,50)}}',
+    streetart_id: '{{integer(1,50)}}',
     
     lat: '{{floating(37.801030, 37.698676)}}',
     lng: '{{floating(-122.502619, -122.389420)}}',
