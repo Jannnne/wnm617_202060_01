@@ -498,7 +498,114 @@
 		
 	</section>
 
-	
+	<!-- edit place page -->
+	<section data-role="page" id="edit-place-page" data-url="edit-place-page">
+		<header data-role="header">
+			<h1>Edit A PLACE</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back" class="ui-link">
+						<i class="fas fa-arrow-left"></i>
+					</a>
+				</li>
+				<li class="flex-stretch"></li>
+			</ul>
+		</header>
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="add-street-art-body" style="padding:1em">
+				<form id="add-street-art-form" data-ajax="false">
+					<div class="form-control">
+						<label for="select-a-place" class="form-label">
+							add location on map
+							<i class="fas fa-map-marked-alt" id="icon"></i>
+						</label>
+						<input type="text" class="form-input" id="select-a-place" placeholder="Select a place" data-role="none">
+					</div>
+					
+					<div class="form-control">
+						<label for="add-a-date" class="form-label">place name
+                    		<i class="fas fa-clipboard-list" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Add a date" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-note" class="form-label">add note
+							<i class="fas fa-edit" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="Add note" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-a-date" class="form-label">Add a date
+                    		<i class="fas fa-calendar-alt" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Add a date" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-a-photo" class="form-label">add a cover
+							<i class="fas fa-image" id="icon"></i>
+						</label>
+						
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						<a href="#gallery-page" class="main-button">Submit</a>
+					</div>
+				</form>
+				</div>
+			<div class="flex-stretch"></div>
+				
+		</div>
+	</section>
+
+<!-- edit street art page -->
+	<section data-role="page" id="edit-street-art-page" data-url="edit-street-art-page">
+		<header data-role="header">
+			<h1>Edit STREET ART</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back" class="ui-link">
+						<i class="fas fa-arrow-left"></i>
+					</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="add-street-art-body" style="padding:1em">
+				<form id="add-street-art-form" data-ajax="false">
+					<div class="form-control">
+						<label for="select-a-place" class="form-label">
+							Select a place<i class="fas fa-caret-down" id="icon"></i>
+						</label>
+						<input type="text" class="form-input" id="select-a-place" placeholder="Select a place" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-a-photo" class="form-label">add a photo
+							<i class="fas fa-camera-retro" id="icon"></i>
+						</label>
+						
+					</div>
+					<div class="form-control">
+						<label for="add-a-date" class="form-label">Add a date
+                    		<i class="fas fa-calendar-alt" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Add a date" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="add-note" class="form-label">add note
+							<i class="fas fa-edit" id="icon"></i>
+						</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="Add note" data-role="none">
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						<a href="#place-profile-page" class="main-button">Submit</a>
+					</div>
+				</form>
+				</div>
+			<div class="flex-stretch"></div>
+				
+		</div>
+	</section>
 
 	<!-- PROFILE PAGE -->
 	<section data-role="page" id="profile-page" data-url="profile-page">
