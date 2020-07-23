@@ -9,6 +9,9 @@
 	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="css/app.css">
 	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
 
@@ -17,6 +20,7 @@
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
 	<script src="js/functions.js"></script>
+	<script src="js/onboarding.js"></script>
 
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
@@ -26,27 +30,55 @@
 </head>
 <body>
 	
-	<!-- Welcome Page -->
-	<section data-role="page" id="welcome-page">
+	<!-- onboarding Page -->
+	<section data-role="page" id="onboarding-page">
 		<div data-role="main" class="display-flex flex-column">
-			<div class="flex-stretch"></div>
-			<div class="flex-none" style="text-align:center">
-				<img src="img/logo.svg" alt="" class="login-logo">
-				
-  				</div>
-			</div>
-			<div class="flex-none" style="padding:1em; background-color: var(--color-background);">
-				<form id="signin-form">
-					<div class="form-control" style="font-size:0.8em;text-align:center;">
-						<a href="#signin-password-page" class="main-button">Sign In</a>
-					</div> <!-- shuimu157@gmail.com -->
-					<div class="form-control" style="font-size:0.8em;text-align:center;">
+			<!-- 7. Android App Onboarding https://speckyboy.com/onboarding-ui-css-javascript/ -->
+			<div class='phone'>
+    			<div class='onboard'>
+        			<div class='progress'><div>
+        	
+        			</div>
+    			</div>
+        			<ul class='slides'>
+            			<li class='slide slide1'>
+                			<i class='fa fa-hand-rock-o'></i>
+                			<h1>Rock</h2>
+                			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum fringilla tortor.</p>
+            			</li>
+            			<li class='slide slide2'>
+                			<i class='fa fa-hand-paper-o'></i>
+                			<h1>Paper</h2>
+                			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum fringilla tortor.r</p>
+            			</li>
+            			<li class='slide slide3'>
+                			<i class='fa fa-hand-scissors-o'></i>
+                			<h1>Scissors</h2>
+                			<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum fringilla tortor.</p>
+            			</li>
+            			<li class='slide slide4'>
+                			<i class='fa fa-hand-rock-o'></i>
+                			<i class='fa fa-hand-paper-o'></i>
+                			<i class='fa fa-hand-scissors-o'></i>
+                			<form>
+                    			<div class="flex-none" style="padding:1em; background-color: var(--color-background);">
+									<form id="signin-form">
+										<div class="form-control" style="font-size:0.8em;text-align:center;">
+											<a href="#signin-password-page" class="main-button">Sign In</a>
+										</div> <!-- shuimu157@gmail.com -->
+										<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Don't have an account? <a href="#signup-page">Sign Up</a>
-					</div>
-				</form>
+										</div>
+									</form>
+								</div>
+								<div class="flex-stretch"></div>
+								</div>
+                			</form>
+            			</li>
+        			</ul>
+    			</div>
 			</div>
-			<div class="flex-stretch"></div>
-		</div>
+			
 	</section>
 
 

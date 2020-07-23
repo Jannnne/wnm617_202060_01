@@ -4,6 +4,16 @@
 	box-sizing:border-box;
 }
 
+/*7. Android App Onboarding https://speckyboy.com/onboarding-ui-css-javascript/*/
+* {
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
 :root {
 	--color-background: #373740;
 
@@ -51,7 +61,9 @@ body {
 	display: grid;
   	grid-template-columns: min-content 1fr;
   	/* this breaks position sticky in Firefox */
-  /* overflow-x: hidden; */
+    /* overflow-x: hidden; */
+    /*7. Android App Onboarding https://speckyboy.com/onboarding-ui-css-javascript/*/
+    -webkit-font-smoothing: antialiased;
 }
 
 h1,
@@ -84,6 +96,8 @@ html {
   height: -webkit-fill-available;
 }
 */
+
+/* onboarding */
 
 
 /* Small Classes */
