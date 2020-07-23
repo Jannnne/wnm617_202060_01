@@ -112,7 +112,7 @@
             if (curIndex === 3) {
                 return false;
             }
-            slide(3);
+            slide(5);
         });
         $('form').bind('submit', function(event){
             event.preventDefault();
