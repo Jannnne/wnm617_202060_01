@@ -8,28 +8,19 @@
 
 	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
 	<link rel="stylesheet" href="css/app.css">
-	<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">
-	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600">
-	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js">
 
 	<script src="lib/js/jquery-2.2.4.min.js"></script>
-	<script  src=“https://cdnjs.cloudflare.com/ajax/libs/jquery/2.1.3/jquery.min.js”></script>
-	
 
 	<script src="js/signin.js"></script>
-	<script src="js/app.js"></script>
+	<script src="js/functions.js"></script>
 	<script src="js/pages.js"></script>
 	<script src="js/parts.js"></script>
 	<script src="js/maps.js"></script>
-	<script src="js/functions.js"></script>
-	<script src="js/onboarding.js"></script>
-
+	<script src="js/forms.js"></script>
+	<script src="js/app.js"></script>
 
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
-	<script src="js/welcomeslide.js"></script>
-	<script src="https://kit.fontawesome.com/a076d05399.js"></script>
-	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 	<script async defer
 	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChwYgKLXlMEQXUdQuNWxzIyKjbrqfIFlQ">
 	</script>
@@ -37,72 +28,12 @@
 </head>
 <body>
 	
-	<!-- onboarding Page -->
-	<section data-role="page" id="onboarding-page">
-		<div data-role="main" class="display-flex flex-column">
-			<!-- 7. Android App Onboarding https://speckyboy.com/onboarding-ui-css-javascript/ -->
-			<div class='phone'>
-    			<div class='onboard'>
-        			<div class='progress'></div>
-        	
-        			</div>
-    			</div>
-        		<ul class='slides'>
-        			<li class='slide slide1'>
-                		<div class="flex-stretch"></div>
-						<div class="flex-none" style="text-align:center">
-							<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
-						</div>
-            		</li>
-            		<li class='slide slide2'>
-                		<div class="flex-none" style="text-align:center">
-							<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
-						</div>
-                		<h1>Rock</h2>
-                		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum fringilla tortor.</p>
-            		</li>
-            		<li class='slide slide3'>
-                		<div class="flex-none" style="text-align:center">
-							<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
-						</div>
-                		<h1>Paper</h2>
-                		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum fringilla tortor.r</p>
-            		</li>
-            		<li class='slide slide4'>
-                		<div class="flex-none" style="text-align:center">
-							<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
-						</div>
-                		<h1>Scissors</h2>
-                		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum fringilla tortor.</p>
-            		</li>
-            		<li class='slide slide5'>
-                		<div class="flex-none" style="text-align:center">
-							<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
-						</div>
-                		<h1>Scissors</h2>
-                		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam elementum fringilla tortor.</p>
-                		<form>
-                    		<div class="flex-none" style="padding:1em; background-color: var(--color-background);">
-								<form id="signin-form">
-									<div class="form-control" style="font-size:0.8em;text-align:center;">
-										<a href="#signin-page" class="main-button">Get Start</a>
-									</div> 
-								</form>
-							</div>
-							<div class="flex-stretch"></div>
-                		</form>
-            		</li>
-        		</ul>
-    		</div>
-		</div>
-			
-	</section>
-
-
-	<!-- Signin page -->
 	<section data-role="page" id="signin-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
+			<div class="flex-none" style="text-align:center">
+				<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
+			</div>
 			<div class="flex-none" style="padding:1em">
 				<form id="signin-form" data-ajax="false">
 					<div class="form-control">
@@ -124,8 +55,8 @@
 			<div class="flex-stretch"></div>
 		</div>
 	</section>
-	
-	<!-- signup page -->
+
+
 	<section data-role="page" id="signup-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
@@ -148,244 +79,196 @@
 						<input type="password" class="form-input" id="signup-password2" placeholder="Type your Password" data-role="none">
 					</div>
 					<div class="form-control">
-						<input type="submit" class="confirm-button" value="Sign Up" data-role="none">
+						<input type="submit" class="form-button" value="Sign Up" data-role="none">
 					</div>
-					
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
-						Already have an account? <a href="#signin-password-page">Sign In</a>
-					</div> <!-- shuimu157@gmail.com-->
+						Already have an account? <a href="#signin-page">Sign In</a>
+					</div>
 				</form>
 			</div>
 			<div class="flex-stretch"></div>
 		</div>
 	</section>
 
-	<!-- map page -->
-	<section data-role="page" id="map-page" data-url="map-page" tabindex="0" class="ui-page ui-page-theme-a">  <!-- shuimu157@gmail.com-->
-		<header data-role="header" role="banner" class="ui-header ui-bar-inherit">
-			<h1 class="ui-title" role="heading" aria-level="1">MAP</h1>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<section data-role="page" id="recent-page">
+		<div data-role="main">
+			<div class="map"></div>
+
+			<div class="recent-search"></div>
+
+			<div class="anchor bottom right">
+				<a href="#recent-add-choose-animal-page" class="circle">+</a>
+			</div>
+
+			<div class="anchor top left" style="width:calc(100% - 2em)">
+				<form id="recent-search" class="hotdog light soft" data-ajax="false">
+					<input type="search" data-role="none" class="search" placeholder="Search For Animal">
+				</form>
+			</div>
+
+			<div class="modal" id="recent-profile-drawer">
+				<div class="modal-back transparent" data-deactivate="#recent-profile-drawer"></div>
+				<div class="modal-drawer bottom">
+					<div class="modal-body soft"></div>
+				</div>
+			</div>
+		</div>
+		<footer data-role="footer" data-template="#footer-template"></footer>
+	</section>
+
+
+	<section data-role="page" id="recent-add-choose-animal-page">
+		<header data-role="header">
+			<h1>Choose Animal</h1>
 			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-place-modal" class="ui-link">
-						<i class="fas fa-plus"></i>
-					</a>
+					<a href="#add-location-page">Next</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<div class="map">
-				<li>
-					<a href="#place-profile-page" class="ui-link">
-						<div class="map-icon"><img class="icon" src="img/icons/pin.svg" alt=""></div>
-					</a>
-				</li>
-			</div>
-		</div>
-
-		<footer data-role="footer" data-template="#footer-template" role="contentinfo" class="ui-footer ui-bar-inherit">
-		<ul>
-			<li>
-				<a href="#map-page" class="ui-link">
-					<div class="footer-icon"><img class="icon" src="img/icons/location.svg" alt=""></div> <!-- shuimu157@gmail.com-->
-					<div class="footer-label">MAP</div>
-				</a>
-			</li>
-			<li>
-				<a href="#gallery-page" class="ui-link">
-					<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
-					<div class="footer-label">GALLERY</div>
-				</a>
-			</li>
-			<li>
-				<a href="#profile-page" class="ui-link">
-					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
-					<div class="footer-label">PROFILE</div>
-				</a>
-			</li>
-		</ul>
-	</footer>
-
-	<div class="modal active" id="list-add-place-modal">
-		<div class="modal-back" data-deactivate="#list-add-place-modal"></div>
-			<div class="modal-popup">
-				<div class="modal-head">
-					<a href="#add-place-page">ADD A PLACE</a>
-				</div>
-				<!-- https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css -->
-				<div class="modal-h_line"></div>
-				
-				<div class="modal-foot">
-					<a href="#add-street-art-page">ADD A STREET ART</a>
-				</div>
-			</div>
-		</div>
-	</div>
-	</section>
-
-	<!-- History page -->
-	<section data-role="page" id="history-page" data-url="history-page" tabindex="0" class="ui-page ui-page-theme-a"> 
-		<header data-role="header" role="banner" class="ui-header ui-bar-inherit">
-			<h1 class="ui-title" role="heading" aria-level="1">History</h1>
-		</header>
-		<ul class="history-list">
-				<li class="flex-stretch"></li>
-				<li class="flex-none">
-					<a href="#" data-activate="#list-add-place-modal" class="ui-link">
-						<i class="fas fa-plus"></i>
-					</a>
-				</li>
-			</ul>
-	</section>
-
-
-
-	<!-- Gallery page -->
-	<section data-role="page" id="gallery-page" data-url="gallery-page">
-		<header data-role="header" role="banner" class="ui-header ui-bar-inherit">
-			<h1 class="ui-title" role="heading" aria-level="1">GALLERY</h1>
-			<ul>
-				<li class="flex-stretch"></li>
-				<li class="flex-none">
-					<a href="#" data-activate="#list-add-place-modal" class="ui-link">
-						<i class="fas fa-plus"></i>
-					</a>
-				</li>
-			</ul>
-		</header>
-		
-
-		<div data-role="main">
-			<!-- *******************************  shuimu157@gmail.com *********************  -->
 			<div class="scrollable">
-			<div class="animallist"></div>
-				
-			</div> 
-			
-		</div>
-		</div>	
-				
-		</div>
-		<footer data-role="footer" data-template="#footer-template" role="contentinfo" class="ui-footer ui-bar-inherit">
-			<ul>
-				<li>
-					<a href="#map-page" class="ui-link">
-						<div class="footer-icon"><img class="icon" src="img/icons/location.svg" alt=""></div>
-					<div class="footer-label">MAP</div>
-					</a>
-				</li>
-				<li>
-					<a href="#gallery-page" class="ui-link">
-						<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
-						<div class="footer-label">GALLERY</div>
-					</a>
-				</li>
-				<li>
-					<a href="#profile-page" class="ui-link">
-						<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
-					<div class="footer-label">Profile</div>
-					</a>
-				</li>
-			</ul>
-		</footer>
-		<div class="modal" id="list-add-place-modal"> <!-- shuimu157@gmail.com-->
-			<div class="modal-back" data-deactivate="#list-add-place-modal">
-				<a href="#gallery-page">
-					<i class="fas fa-times"></i>
-				</a>
-			</div>
-				<div class="modal-popup">
-				
-					<div class="modal-head">
-						<a href="#add-place-page">ADD A PLACE</a>
+				<form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em">
+					<a href="#add-animal-page">Add New Animal</a>
+					<div>Or</div>
+					<div class="form-control">
+						<label for="add-location-animal-id" class="form-label">Select Animal</label>
+						<select id="add-location-animal-id" class="form-input" data-role="none">
+							<option value="1">Cat 1</option>
+							<option value="22">Dog 1</option>
+							<option value="13">Cat 2</option>
+						</select>
 					</div>
-					<!-- https://stackoverflow.com/questions/14821087/horizontal-line-and-right-way-to-code-it-in-html-css -->
-					<div class="modal-h_line"></div>
-				
-					<div class="modal-foot">
-						<a href="#add-street-art-page">ADD A STREET ART</a>
-					</div>
-				</div>
+				</form>
 			</div>
 		</div>
 	</section>
 
 
-<!-- add place page -->
-	<section data-role="page" id="add-place-page" data-url="add-place-page">
+	<section data-role="page" id="add-animal-page">
 		<header data-role="header">
-			<h1>ADD A PLACE</h1>
+			<h1>New Animal</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back" class="ui-link">
-						<i class="fas fa-arrow-left"></i>
-					</a>
+					<a href="#" data-rel="back">Back</a>
 				</li>
 				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-page">Next</a>
+				</li>
 			</ul>
 		</header>
-		<div data-role="main" class="display-flex flex-column">
-			<div class="flex-stretch"></div>
-			<div class="add-street-art-body" style="padding:1em">
-				<form id="add-street-art-form" data-ajax="false">
-					
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
+						<div class="form-control">
+							<label for="add-animal-name" class="form-label">Animal Name</label>
+							<input type="text" class="form-input" id="add-animal-name" placeholder="Type Animal Name" data-role="none">
+						</div>
+						<div class="form-control">
+							<label for="add-animal-type" class="form-label">Animal Type</label>
+							<input type="text" class="form-input" id="add-animal-type" placeholder="Type Animal Type" data-role="none">
+						</div>
+						<div class="form-control">
+							<label for="add-animal-breed" class="form-label">Animal Breed</label>
+							<input type="text" class="form-input" id="add-animal-breed" placeholder="Type Animal Breed" data-role="none">
+						</div>
 				</form>
-				</div>
-			<div class="flex-stretch"></div>
-				
+			</div>
 		</div>
 	</section>
 
-<!-- add street art page -->
-	<section data-role="page" id="add-street-art-page" data-url="add-street-art-page">
+
+	<section data-role="page" id="add-location-page">
 		<header data-role="header">
-			<h1>ADD A STREET ART</h1>
+			<h1>Choose Location</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back" class="ui-link">
-						<i class="fas fa-arrow-left"></i>
-					</a>
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-info-page">Next</a>
 				</li>
 			</ul>
 		</header>
-		<div data-role="main" class="display-flex flex-column">
-			<div class="flex-stretch"></div>
-			<div class="add-street-art-body" style="padding:1em">
-				<form id="add-street-art-form" data-ajax="false">
-					
-				</form>
-				</div>
-			<div class="flex-stretch"></div>
-				
+		<div data-role="main">
+			<input type="hidden" id="add-location-lat">
+			<input type="hidden" id="add-location-lng">
+			<div class="map"></div>
 		</div>
 	</section>
 
-	<!-- Take AR page -->
-	<section data-role="page" id="take-AR-page" data-url="take-AR-page" tabindex="0" class="ui-page ui-page-theme-a"> 
-		<header data-role="header" role="banner" class="ui-header ui-bar-inherit">
-			<h1 class="ui-title" role="heading" aria-level="1">History</h1>
-		</header>
-		<ul class="take-AR-photo">
+
+	<section data-role="page" id="add-location-info-page">
+		<header data-role="header">
+			<h1>Location Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-place-modal" class="ui-link">
-						<i class="fas fa-plus"></i>
-					</a>
+					<a href="#" class="js-submit-add-location">Save</a>
 				</li>
 			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
+						<div class="form-control">
+							<label for="add-location-description" class="form-label">Description</label>
+							<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
+						</div>
+				</form>
+			</div>
+		</div>
 	</section>
 
-	<!-- place gallery profile page -->
-	
-	<section data-role="page" id="place-profile-page" data-url="place-profile-page">
+
+
+
+
+
+
+
+
+
+
+
+
+	<section data-role="page" id="list-page">
 		<header data-role="header">
-			<h1>Place Profile</h1>
 			<ul>
-				<li class="flex-stretch"></li>
+				<li class="flex-stretch">
+					<form id="list-search" class="hotdog" data-ajax="false">
+						<input type="search" data-role="none" class="search" placeholder="Search For Animal">
+					</form>
+				</li>
 				<li class="flex-none">
 					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
 				</li>
 			</ul>
+		</header>
+		<header data-role="header">
+			<ul class="scrollable-x list-filters"></ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
@@ -396,237 +279,226 @@
 
 		<div class="modal" id="list-add-animal-modal">
 			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
-			<div class="modal-popup">
-				<div class="modal-head">Header</div>
-				<div class="modal-body">
-					<div class="scrollable">
-						<form data-ajax="false" id="list-add-form" style="padding:1em">
-							<div class="form-control">
-								<label for="list-add-name" class="form-label">Animal Name</label>
-								<input type="text" class="form-input" id="list-add-name" placeholder="Type Animal Name" data-role="none">
-							</div>
-							<div class="form-control">
-								<label for="list-add-type" class="form-label">Animal Type</label>
-								<input type="text" class="form-input" id="list-add-type" placeholder="Type Animal Type" data-role="none">
-							</div>
-							<div class="form-control">
-								<label for="list-add-breed" class="form-label">Animal Breed</label>
-								<input type="text" class="form-input" id="list-add-breed" placeholder="Type Animal Breed" data-role="none">
-							</div>
-						</form>
+			<form data-ajax="false" id="list-add-form" class="modal-popup">
+				<div class="modal-head display-flex">
+					<div class="flex-none">
+						<a href="#" data-deactivate="#list-add-animal-modal">Cancel</a>
+					</div>
+					<div class="flex-stretch">
+						<h1>Add Animal</h1>
 					</div>
 				</div>
-				<div class="modal-foot">Footer</div>
-			</div>
+				<div class="modal-body">
+					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
+				</div>
+				<div class="modal-foot display-flex">
+					<div class="flex-stretch"></div>
+					<div class="flex-none">
+						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-animal-modal">
+					</div>
+				</div>
+			</form>
 		</div>
-		
 	</section>
 
-	<section data-role="page" id="art-profile-page" data-url="art-profile-page">
+
+
+
+
+
+
+
+
+
+
+
+	<section data-role="page" id="animal-profile-page">
 		<header data-role="header">
-			<h1>ART PROFILE</h1>
+			<h1>Animal Profile</h1>
 			<ul>
-				
 				<li class="flex-none">
-					<a href="#" data-rel="back">
-						<i class="fas fa-arrow-left"></i>
-					</a>
+					<a href="#" data-rel="back">Back</a>
 				</li>
-				
-				<li class="flex-stretch"></li>
-				<li class="flex-none">
-					<a href="#" data-activate="#list-add-place-modal" class="ui-link">
-						<i class="fas fa-plus"></i>
-					</a>
-				</li>
-			
 			</ul>
 		</header>
-		<!-- https://css-tricks.com/sticky-smooth-active-nav/ -->
 		<div data-role="main">
 			<div class="profile">
 				<div class="profile-head"></div>
-				<div class="profile-body"></div>
-
 				<div class="profile-body">
 					<div class="map"></div>
+					<div class="anchor bottom right">
+						<a href="#add-location-page" class="circle">+</a>
+					</div>
 				</div>
 			</div>
 		</div>
-		
 	</section>
 
-	<!-- edit place page -->
-	<section data-role="page" id="edit-place-page" data-url="edit-place-page">
-		<header data-role="header">
-			<h1>Edit A PLACE</h1>
-			<ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back" class="ui-link">
-						<i class="fas fa-arrow-left"></i>
-					</a>
-				</li>
-				<li class="flex-stretch"></li>
-			</ul>
-		</header>
-		<div data-role="main" class="display-flex flex-column">
-			<div class="flex-stretch"></div>
-			<div class="add-street-art-body" style="padding:1em">
-				<form id="add-street-art-form" data-ajax="false">
-					
-				</form>
-				</div>
-			<div class="flex-stretch"></div>
-				
-		</div>
-	</section>
 
-<!-- edit street art page -->
-	<section data-role="page" id="edit-street-art-page" data-url="edit-street-art-page">
-		<header data-role="header">
-			<h1>Edit STREET ART</h1>
-			<ul>
-				<li class="flex-none">
-					<a href="#" data-rel="back" class="ui-link">
-						<i class="fas fa-arrow-left"></i>
-					</a>
-				</li>
-			</ul>
-		</header>
-		<div data-role="main" class="display-flex flex-column">
-			<div class="flex-stretch"></div>
-			<div class="add-street-art-body" style="padding:1em">
-				<form id="add-street-art-form" data-ajax="false">
-					
-				</form>
-				</div>
-			<div class="flex-stretch"></div>
-				
-		</div>
-	</section>
 
-	<!-- USER PROFILE PAGE -->
-	<section data-role="page" id="user-profile-page" data-url="user-profile-page">
-	
+
+	<!-- PROFILE PAGE -->
+	<section data-role="page" id="profile-page">
 		<div data-role="main">
 			<div class="profile">
-
-
 			</div>
-
 
 			<a class="settings" href="#settings-page">
-				<i class="fas fa-ellipsis-v" style="color: var(--color-neutral-medium);"></i>
+				<img src="img/icons/shishkabob.svg" alt="" class="icon">
 			</a>
 		</div>
-		<footer data-role="footer" data-template="#footer-template">
-		<ul>
-			<li>
-				<a href="#map-page">
-					<div class="footer-icon"><img class="icon" src="img/icons/location.svg" alt=""></div> <!-- shuimu157@gmail.com-->
-					<div class="footer-label">MAP</div>
-				</a>
-			</li>
-			<li>
-				<a href="#gallery-page">
-					<div class="footer-icon"><img class="icon" src="img/icons/gallery.svg" alt=""></div>
-					<div class="footer-label">GALLERY</div>
-				</a>
-			</li>
-			<li>
-				<a href="#profile-page">
-					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
-					<div class="footer-label">PROFILE</div>
-				</a>
-			</li>
-		</ul>
-	</footer>
+		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
-	<section data-role="page" id="user-profile-edit-page" data-url="user-profile-edit-page">
-		<header data-role="header">
-			<h1>USER PROFILE EDIT</h1>
-			<ul>
-				
-				<li class="flex-none">
-					<a href="#" data-rel="back">
-						<i class="fas fa-arrow-left"></i>
-					</a>
-				</li>
-				
-				<li class="flex-stretch"></li>
-				<li class="flex-none">
-					<a href="#" data-activate="#list-add-place-modal" class="ui-link">
-						<i class="fas fa-plus"></i>
-					</a>
-				</li>
-			
-			</ul>
-		</header>
-		<!-- https://css-tricks.com/sticky-smooth-active-nav/ -->
-		<div data-role="main">
-			<div class="profile">
-				<div class="profile-head"></div>
-				<div class="profile-body"></div>
 
-			</div>
-				
-			</div>
-		</div>
-		
-	</section>
-
-	<section data-role="page" id="settings-page" data-url="settings-page">
+	<section data-role="page" id="settings-page">
 		<header data-role="header">
 			<h1>Settings</h1>
 			<ul>
 				<li class="flex-none">
-					<a href="#" data-rel="back">
-						<i class="fas fa-arrow-left"></i>
-					</a>
-				</li>
-				<li class="flex-stretch"></li>
-				<li>
-					<a href="#" class="js-logout">
-						<i class="fas fa-power-off" id="icon"></i>
-					</a>
+					<a href="#" data-rel="back">Back</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<ul>
-				
+			<ul class="settings-list">
 				<li>
-					<a href="#">Change Password</a>
+					<a href="#" class="js-logout">Logout</a>
 				</li>
 				<li>
-					<a href="#">Change Email</a>
+					<a href="#settings-password-page">Change Password</a>
 				</li>
 				<li>
-					<a href="#">Change Profile Info</a>
+					<a href="#settings-profile-page">Change Profile Info</a>
 				</li>
 			</ul>
 		</div>
 	</section>
 
+
+	<section data-role="page" id="settings-password-page">
+		<header data-role="header">
+			<h1>Change Password</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Commit</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-password-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="settings-change-password-1" class="form-label">Old Password</label>
+						<input id="settings-change-password-1" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-2" class="form-label">New Password</label>
+						<input id="settings-change-password-2" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-3" class="form-label">Confirm New Password</label>
+						<input id="settings-change-password-3" type="password" class="form-input" data-role="none">
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-profile-page">
+		<header data-role="header">
+			<h1>Profile Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-profile">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-profile-id">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-animal-profile-page">
+		<header data-role="header">
+			<h1>Animal Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-animal-profile">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-animal-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-animal-profile-id">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-profile-upload-page">
+		<header data-role="header">
+			<h1>Animal Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-profile-upload">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<form id="settings-profile-upload-form" data-ajax="false" class="form">
+				<input type="hidden" id="settings-profile-src">
+				<label class="image-uploader full">
+					<input type="file" data-role="none" class="hidden">
+				</label>
+			</form>
+		</div>
+	</section>
+
+
+
+
 	<script type="text/template" id="footer-template">
 		<ul>
 			<li>
-				<a href="#recent-page">
 				<a href="#recent-page" data-activateone="footer li:nth-child(1)">
 					<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
 					<div class="footer-label">Recent</div>
 				</a>
 			</li>
 			<li>
-				<a href="#list-page">
 				<a href="#list-page" data-activateone="footer li:nth-child(2)">
 					<div class="footer-icon"><img class="icon" src="img/icons/list.svg" alt=""></div>
 					<div class="footer-label">List</div>
 				</a>
 			</li>
 			<li>
-				<a href="#profile-page">
 				<a href="#profile-page" data-activateone="footer li:nth-child(3)">
 					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
 					<div class="footer-label">Profile</div>
@@ -634,10 +506,6 @@
 			</li>
 		</ul>
 	</script>
-
-	<div class="ui-loader ui-corner-all ui-body-a ui-loader-default"><span class="ui-icon-loading"></span><h1>loading</h1></div>
- 
-  
 
 </body>
 </html>
