@@ -12,7 +12,7 @@ This is the class README, do not edit.
 - optional (git commit -a -m "[message]"ta
 =======
 - optional (git commit -a -m "[message]")
->>>>>>> dceb508fe97771caa851b2650eb2420615aab08a
+>>>>>>> js?key=AIzaSyChwYgKLXlMEQXUdQuNWxzIyKjbrqfIFlQ
 - git push origin master
 - git pull origin master
 - git pull [somerepository] master

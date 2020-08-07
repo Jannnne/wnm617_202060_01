@@ -7,7 +7,7 @@ const checkListAddForm = () => {
 	let description = $("#list-add-description").val();
 
 	query({
-		type:'insert_animal',
+		type:'insert_location',
 		params:[sessionStorage.userId,name,type,breed,description]
 	}).then(d=>{
 		if(d.error) throw d.error;
@@ -15,16 +15,16 @@ const checkListAddForm = () => {
 	})
 }
 
-const checkSettingsAnimalProfileForm = () => {
-	let name = $("#settings-animal-profile-name").val();
-	let type = $("#settings-animal-profile-type").val();
-	let breed = $("#settings-animal-profile-breed").val();
-	let description = $("#settings-animal-profile-description").val();
-	let animalId = $("#settings-animal-profile-id").val();
+const checkSettingsLocationProfileForm = () => {
+	let name = $("#settings-location-profile-name").val();
+	let type = $("#settings-location-profile-type").val();
+	let breed = $("#settings-location-profile-breed").val();
+	let description = $("#settings-location-profile-description").val();
+	let locationId = $("#settings-location-profile-id").val();
 
 	query({
-		type:'update_animal',
-		params:[name,type,breed,description,animalId]
+		type:'update_location',
+		params:[name,type,breed,description,locationId]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.back();
@@ -50,22 +50,22 @@ const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
-	let animalId = sessionStorage.animalId;
+	let locationId = sessionStorage.locationId;
 
 	query({
 		type:'insert_location',
-		params:[animalId,lat,lng,description]
+		params:[locationId,lat,lng,description]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.go(-2);
-		// $.mobile.navigate("#animal-profile-page");
+		// $.mobile.navigate("#location-profile-page");
 	})
 }
 
 
-const checkAnimalDelete = id => {
+const checkLocationDelete = id => {
 	query({
-		type:'delete_animal',
+		type:'delete_Location',
 		params:[id]
 	}).then(d=>{
 		if(d.error) throw d.error;
@@ -81,7 +81,7 @@ const checkAnimalDelete = id => {
 
 const checkListSearch = (s) => {
 	query({
-		type:'animal_search',
+		type:'Artwork_search',
 		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
 	}).then(d=>{
 		console.log(d)
@@ -90,7 +90,7 @@ const checkListSearch = (s) => {
 }
 const checkRecentSearch = (s) => {
 	query({
-		type:'animal_search_recent',
+		type:'Artwork_search_recent',
 		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
 	}).then(d=>{
 		console.log(d)
@@ -104,11 +104,11 @@ const checkListFilter = ({filter,value}) => {
 	(
 		value=="" ?
 		query({
-			type:'animals_by_user_id',
+			type:'artworks_by_location_id',
 			params:[sessionStorage.userId]
 		}) :
 		query({
-			type:'animal_filter',
+			type:'artwrok_filter',
 			params:[filter,value,sessionStorage.userId]
 		})
 	).then(d=>{

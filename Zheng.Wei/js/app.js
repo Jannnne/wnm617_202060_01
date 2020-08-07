@@ -13,12 +13,12 @@ $(()=>{
 			case "recent-page": RecentPage(); break;
 			case "list-page": ListPage(); break;
 			case "profile-page": ProfilePage(); break;
-			case "animal-profile-page": AnimalProfilePage(); break;
+			case "location-profile-page": AnimalProfilePage(); break;
 
 			case "add-location-page": AddLocationPage(); break;
 
 			case "settings-profile-page": SettingsProfilePage(); break;
-			case "settings-animal-profile-page": SettingsAnimalProfilePage(); break;
+			case "settings-location-profile-page": SettingsAnimalProfilePage(); break;
 
 			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
 
@@ -77,13 +77,13 @@ $(()=>{
 		sessionStorage.removeItem('userId');
 		checkUserId();
 	})
-	.on("click",".animal-jump",function(e){
+	.on("click",".location-jump",function(e){
 		if(!$(this).data("id")) throw("No data ID on Element");
 
 		sessionStorage.animalId = $(this).data("id");
-		$.mobile.navigate("#animal-profile-page")
+		$.mobile.navigate("#location-profile-page")
 	})
-	.on("click",".js-submit-settings-animal-profile",function(e){
+	.on("click",".js-submit-settings-location-profile",function(e){
 		e.preventDefault();
 		checkSettingsAnimalProfileForm();
 	})

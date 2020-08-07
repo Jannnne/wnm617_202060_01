@@ -1,16 +1,16 @@
 
 const ListPage = async(d=0) => {
-	if(!d) d = await query({type:"animals_by_user_id",params:[sessionStorage.userId]})
+	if(!d) d = await query({type:"artworks_by_location_id",params:[sessionStorage.userId]})
 
-	$("#list-page .animallist").html(
+	$("#list-page .Locationlist").html(
 		d.result.length ?
-			makeAnimalList(d.result) :
-			"You need to add some animals, jack."
+			makeLocationList(d.result) :
+			"You need to add some Locations, jack."
 	);
 
 	$("#list-page .list-filters").html(listFilters(d.result));
 
-	$("#list-add-form .inputs").html(makeAnimalProfileInputs({
+	$("#list-add-form .inputs").html(makeLocationProfileInputs({
 		name:'',
 		type:'',
 		breed:'',
@@ -28,28 +28,28 @@ const RecentPage = async(d=0) => {
 
 	let map_el = await makeMap("#recent-page .map");
 
-	let valid_animals = d.result.reduce((r,o)=>{
+	let valid_Locations = d.result.reduce((r,o)=>{
 		o.icon = o.img;
 		if(o.lat && o.lng) r.push(o);
 		return r;
 	},[]);
 
-	makeMarkers(map_el,valid_animals);
+	makeMarkers(map_el,valid_Locations);
 
 	map_el.data("markers").forEach((o,i)=>{
 		o.addListener("click",function(){
 			// INFOWINDOW EXAMPLE
 			map_el.data("infoWindow").open(map_el.data("map"),o);
-			map_el.data("infoWindow").setContent(makeRecentProfile(valid_animals[i]))
+			map_el.data("infoWindow").setContent(makeRecentProfile(valid_Locations[i]))
 
 			// SIMPLE NAVIGATION
-			// sessionStorage.animalId = valid_animals[i].animal_id;
-			// $.mobile.navigate("#animal-profile-page");
+			// sessionStorage.locationId = valid_Locations[i].Location_id;
+			// $.mobile.navigate("#location-profile-page");
 
 			// DRAWER EXAMPLE
 			// $("#recent-profile-drawer")
 			// 	.toggleClass("active")
-			// 	.find(".modal-body").html(makeRecentProfile(valid_animals[i]))
+			// 	.find(".modal-body").html(makeRecentProfile(valid_Locations[i]))
 		})
 	});
 }
@@ -66,18 +66,18 @@ const ProfilePage = async() => {
 		.html(makeUserProfile(d.result[0]));
 }
 
-const AnimalProfilePage = async() => {
-	if(sessionStorage.animalId===undefined) throw("No animal ID in Storage");
+const LocationProfilePage = async() => {
+	if(sessionStorage.locationId===undefined) throw("No Location ID in Storage");
 
-	query({type:"animal_by_id",params:[sessionStorage.animalId]})
+	query({type:"Location_by_id",params:[sessionStorage.locationId]})
 	.then(d=>{
-		$("#animal-profile-page .profile-head")
-			.html(makeAnimalProfile(d.result[0]));
+		$("#location-profile-page .profile-head")
+			.html(makeLocationProfile(d.result[0]));
 	});
 
-	query({type:"locations_by_animal_id",params:[sessionStorage.animalId]})
+	query({type:"locations_by_Location_id",params:[sessionStorage.locationId]})
 	.then(async (d)=>{
-		let map_el = await makeMap("#animal-profile-page .map");
+		let map_el = await makeMap("#location-profile-page .map");
 
 		makeMarkers(map_el,d.result);
 	});
@@ -93,12 +93,12 @@ const SettingsProfilePage = async() => {
 	$("#settings-profile-page .inputs")
 		.html(makeSettingsProfileInputs(d.result[0]));
 }
-const SettingsAnimalProfilePage = async() => {
-	let d = await query({type:"animal_by_id",params:[sessionStorage.animalId]});
+const SettingsLocationProfilePage = async() => {
+	let d = await query({type:"Location_by_id",params:[sessionStorage.locationId]});
 
-	$("#settings-animal-profile-id").val(sessionStorage.animalId);
-	$("#settings-animal-profile-page .inputs")
-		.html(makeAnimalProfileInputs(d.result[0],'settings-animal-profile'));
+	$("#settings-location-profile-id").val(sessionStorage.locationId);
+	$("#settings-location-profile-page .inputs")
+		.html(makeLocationProfileInputs(d.result[0],'settings-location-profile'));
 }
 
 
