@@ -1,8 +1,8 @@
-# Zheng Wei
+# Hamilton Cline
 
 ## Links
 
-- http://jannnne.co
-- http://jannnne.co/aau/wnm617/Zheng.Wei
-- http://jannnne.co/aau/wnm617/Zheng.Wei/zengarden
-- http://jannnne.co/aau/wnm617/Zheng.Wei/jquery_demo.html
+- https://hdraws.com
+- https://hdraws.com/aau/wnm617/cline.hamilton
+- https://hdraws.com/aau/wnm617/cline.hamilton/zengarden
+- https://hdraws.com/aau/wnm617/cline.hamilton/jquery_demo.html

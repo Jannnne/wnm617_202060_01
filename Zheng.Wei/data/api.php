@@ -1,6 +1,5 @@
 <?php
 
-
 include "auth.php";
 function makeConn() {
 	try {
@@ -17,6 +16,13 @@ function print_p($d) {
 	echo "<pre>",print_r($d),"</pre>";
 }
 
+/* $r = PDO result */
+function fetchAll($r) {
+	$a = [];
+	while($row = $r->fetch(\PDO::FETCH_OBJ)) $a[] = $row;
+	return $a;
+}
+
 
 
 /*
@@ -24,7 +30,7 @@ $c = connection
 $ps = prepared statement
 $p = parameters
 */
-function makeQuery($c,$ps,$p) {
+function makeQuery($c,$ps,$p,$makeResults=true) {
 	try{
 		if(count($p)) {
 			$stmt = $c->prepare($ps);
@@ -32,7 +38,8 @@ function makeQuery($c,$ps,$p) {
 		} else {
 			$stmt = $c->query($ps);
 		}
-		$r = fetchAll($stmt);
+
+		$r = $makeResults ? fetchAll($stmt) : [];
 
 		return [
 			// "statement"=>$ps,
@@ -74,16 +81,17 @@ function makeStatement($data) {
 	$p = $data->params;
 	
 	switch($t) {
-		case "users_all" : return makeQuery($c,"SELECT * FROM `track_users`",[]);
-		case "locations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
-		case "artworks_all" : return makeQuery($c,"SELECT * FROM `track_artworks`",[]);
+		// case "users_all" : return makeQuery($c,"SELECT * FROM `track_users`",[]);
+		// case "animals_all" : return makeQuery($c,"SELECT * FROM `track_animals`",[]);
+		// case "locations_all" : return makeQuery($c,"SELECT * FROM `track_locations`",[]);
 
-		case "user_by_id" : return makeQuery($c,"SELECT id,username,name,age,gender,occupation,email,phone,password,date_create,address,Bio,img FROM `track_users` WHERE `id`=?",$p);
+		case "user_by_id" : return makeQuery($c,"SELECT id,name,username,email,date_create,img FROM `track_users` WHERE `id`=?",$p);
+		case "animal_by_id" : return makeQuery($c,"SELECT * FROM `track_animals` WHERE `id`=?",$p);
 		case "location_by_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `id`=?",$p);
-		case "artwork_by_id" : return makeQuery($c,"SELECT * FROM `track_artworks` WHERE `id`=?",$p);
 
-		case "locations_by_user_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `user_id`=?",$p);
-		case "artworks_by_location_id" : return makeQuery($c,"SELECT * FROM `track_artwroks` WHERE `location_id`=?",$p);
+		case "animals_by_user_id" : return makeQuery($c,"SELECT * FROM `track_animals` WHERE `user_id`=?",$p);
+		case "locations_by_animal_id" : return makeQuery($c,"SELECT * FROM `track_locations` WHERE `animal_id`=?",$p);
+		case "locations_by_user_id" : return makeQuery($c,"SELECT l.* FROM `track_animals` a LEFT JOIN `track_locations` l ON a.id = l.animal_id WHERE a.user_id=? ORDER BY l.date_create DESC",$p);
 
 
 		case "check_signin":
@@ -93,43 +101,43 @@ function makeStatement($data) {
 		case "recent_locations":
 			return makeQuery($c,"SELECT
 				a.*, l.*
-				FROM `track_locations` a
+				FROM `track_animals` a
 				LEFT JOIN (
-					SELECT * FROM `track_artworks`
+					SELECT * FROM `track_locations`
 					ORDER BY `date_create` DESC
 				) l
-				ON a.id = l.location_id
+				ON a.id = l.animal_id
 				WHERE a.user_id = ?
-				GROUP BY l.location_id
+				GROUP BY l.animal_id
 				",$p);
 
 
-		case "artwork_search" : return makeQuery($c,"SELECT *
-			FROM `track_artworks`
+		case "animal_search" : return makeQuery($c,"SELECT *
+			FROM `track_animals`
 			WHERE (
 				`name` LIKE ? OR
 				`type` LIKE ? OR
 				`breed` LIKE ?
 			) AND user_id=?",$p);
 
-		case "artwork_search_recent" : return makeQuery($c,"SELECT
+		case "animal_search_recent" : return makeQuery($c,"SELECT
 			a.*, l.*
-			FROM `track_artworks` a
+			FROM `track_animals` a
 			LEFT JOIN (
-				SELECT * FROM `track_artworks`
+				SELECT * FROM `track_locations`
 				ORDER BY `date_create` DESC
 			) l
-			ON a.id = l.artwork_id
+			ON a.id = l.animal_id
 			WHERE (
 				a.name LIKE ? OR
 				a.type LIKE ? OR
 				a.breed LIKE ?
 			) AND a.user_id=?
-			GROUP BY l.artwork_id",$p);
+			GROUP BY l.animal_id",$p);
 
 
-		case "artwork_filter" : return makeQuery($c,"SELECT *
-			FROM `track_artworks`
+		case "animal_filter" : return makeQuery($c,"SELECT *
+			FROM `track_animals`
 			WHERE (
 				`$p[0]` LIKE ?
 			) AND user_id=?",[$p[1],$p[2]]);
@@ -144,10 +152,20 @@ function makeStatement($data) {
 			if(count($r['result'])) return ["error"=>"Username or Email already exists"];
 
 			$r = makeQuery($c,"INSERT INTO
-				`track_users` 
-				(`username`,`name`,`age`,`gender`,`occupation`,`email`,`phone`,  `password`, `date_create`,`address`,`Bio`,`img` )
+				`track_users`
+				(`username`, `email`, `password`, `img`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, md5(?), NOW(), ?, ?, 'https://via.placeholder.com/400/?text=USER', )
+				(?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
+				",$p,false);
+			if(isset($r['error'])) return $r;
+			return ["result"=>$c->lastInsertId()];
+
+		case "insert_animal":
+			$r = makeQuery($c,"INSERT INTO
+				`track_animals`
+				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
+				VALUES
+				(?, ?, ?, ?, ?, ?, NOW())
 				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
@@ -155,20 +173,10 @@ function makeStatement($data) {
 		case "insert_location":
 			$r = makeQuery($c,"INSERT INTO
 				`track_locations`
-				(`user_id`,`lat`, `lng`, `name`, `type`, `breed`, `description`, `date_create`, `photo`, `icon`)
+				(`animal_id`,`lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
 				VALUES
-				(?, ?, ?, ?, ?, ?, ?, NOW(), 'https://via.placeholder.com/400/?text=LOCATION', 'https://via.placeholder.com/400/?text=ICON')
+				(?, ?, ?, ?, ?, ?, NOW())
 				",$p,false);
-			if(isset($r['error'])) return $r;
-			return ["result"=>$c->lastInsertId()];
-
-		case "insert_artwork":
-			$r = makeQuery($c,"INSERT INTO
-				`track_artworks`
-				(`location_id`,`artwork_title`, `artist_name`, `type`,`breed`,`description`, `date_appear`,`date_disappear`,`picture`,`inspiration`,`critique`,`main_img`, `photo`, `icon`)
-				VALUES
-				(?, ?, ?, ?, ?, ?, NOW(),NOW(),'https://via.placeholder.com/400/?text=ARTWORK', ?, ?, 'https://via.placeholder.com/400/?text=ARTWORK','https://via.placeholder.com/400/?text=ARTWORK','https://via.placeholder.com/40/?text=ICON')
-				",$p,false); 
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
@@ -187,38 +195,14 @@ function makeStatement($data) {
 				",$p,false);
 			return ["result"=>"success"];
 
-		case "update_location":
+		case "update_animal":
 			$r = makeQuery($c,"UPDATE
-				`track_locations`
+				`track_animals`
 				SET
 					`name`=?,
 					`type`=?,
 					`breed`=?,
 					`description`=?
-					`date_create`=NOW()
-					`photo`=?
-					`icon`=?
-
-				WHERE `id`=?
-				",$p,false);
-			return ["result"=>"success"];
-
-		case "update_artwork":
-			$r = makeQuery($c,"UPDATE
-				`track_artworks`
-				SET
-					`artwork_title`=?,
-					`artist_name`=?,
-					`type`=?,
-					`breed`=?,
-					`description`=?
-					`date_disappear`=NOW()
-					`picture`=?
-					`inspiration`=?
-					`critique`=?
-					`main_img`=?
-					`photo`=?
-					`icon`=?
 				WHERE `id`=?
 				",$p,false);
 			return ["result"=>"success"];
@@ -226,17 +210,7 @@ function makeStatement($data) {
 		case "update_profile_image":
 			$r = makeQuery($c,"UPDATE
 				`track_users`
-				SET 
-					`username`=?
-					`name`=?
-					`age`=?
-					`gender`=?
-					`occupation`=?
-					`email`=?
-					`phone`=?
-					`address`=?
-					`Bio`=?
-					`img`=?
+				SET `img`=?
 				WHERE `id`=?
 				",$p,false);
 			return ["result"=>"success"];
@@ -245,10 +219,10 @@ function makeStatement($data) {
 
 
 		// DELETE STATEMENTS
+		case "delete_animal":
+			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p,false);
 		case "delete_location":
-			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p,false);
-		case "delete_artwork":
-			return makeQuery($c,"DELETE FROM `track_animals` WHERE `id`=?",$p,false);
+			return makeQuery($c,"DELETE FROM `track_locations` WHERE `id`=?",$p,false);
 
 
 

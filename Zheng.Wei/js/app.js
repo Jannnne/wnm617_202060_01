@@ -13,17 +13,15 @@ $(()=>{
 			case "recent-page": RecentPage(); break;
 			case "list-page": ListPage(); break;
 			case "profile-page": ProfilePage(); break;
+			case "animal-profile-page": AnimalProfilePage(); break;
 
-			case "location-profile-page": LocationProfilePage(); break;
-			case "artwork-profile-page": LocationProfilePage(); break;
-
+			case "recent-add-choose-animal-page": ChooseAnimalPage(); break;
+			case "add-animal-page": AddAnimalPage(); break;
 			case "add-location-page": AddLocationPage(); break;
-			case "add-artwork-page": AddLocationPage(); break;
 
 			case "settings-profile-page": SettingsProfilePage(); break;
-			case "settings-location-profile-page": SettingsLocationProfilePage(); break;
-			case "settings-artwork-profile-page": SettingsLocationProfilePage(); break;
-			
+			case "settings-animal-profile-page": SettingsAnimalProfilePage(); break;
+
 			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
 
 		}
@@ -69,6 +67,17 @@ $(()=>{
 			$(".image-uploader").css({'background-image':`url('uploads/${d.result}')`})
 		})
 	})
+	.on("change","#add-location-photo-upload",function(e){
+		console.log(e)
+		checkUpload(this.files[0])
+		.then(d=>{
+			console.log(d)
+			$("#add-location-photo").val('uploads/'+d.result);
+			$("#add-location-info-form .imagepicker")
+      		.addClass("picked")
+      		.css({'background-image':`url('uploads/${d.result}')`})
+		})
+	})
 
 
 	
@@ -81,13 +90,17 @@ $(()=>{
 		sessionStorage.removeItem('userId');
 		checkUserId();
 	})
-	.on("click",".location-jump",function(e){
+	.on("click",".animal-jump",function(e){
 		if(!$(this).data("id")) throw("No data ID on Element");
 
 		sessionStorage.animalId = $(this).data("id");
-		$.mobile.navigate("#location-profile-page")
+		$.mobile.navigate("#animal-profile-page")
 	})
-	.on("click",".js-submit-settings-location-profile",function(e){
+	.on("click",".js-choose-animal",function(e){
+		sessionStorage.animalId = $("#add-location-animal-id").val();
+		$.mobile.navigate("#add-location-page");
+	})
+	.on("click",".js-submit-settings-animal-profile",function(e){
 		e.preventDefault();
 		checkSettingsAnimalProfileForm();
 	})
@@ -102,6 +115,10 @@ $(()=>{
 	.on("click",".js-submit-add-location",function(e){
 		e.preventDefault();
 		checkAddLocationForm();
+	})
+	.on("click",".js-submit-recent-add-animal",function(e){
+		e.preventDefault();
+		checkRecentAddForm();
 	})
 	.on("click",".js-delete-animal",function(e){
 		e.preventDefault();

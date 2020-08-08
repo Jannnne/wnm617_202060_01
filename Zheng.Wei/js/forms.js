@@ -5,26 +5,43 @@ const checkListAddForm = () => {
 	let type = $("#list-add-type").val();
 	let breed = $("#list-add-breed").val();
 	let description = $("#list-add-description").val();
+	let img = $("#list-add-photo").val()!=''?$("#list-add-photo").val():'https://via.placeholder.com/400/?text=ANIMAL';
 
 	query({
-		type:'insert_location',
-		params:[sessionStorage.userId,name,type,breed,description]
+		type:'insert_animal',
+		params:[sessionStorage.userId,name,type,breed,description,img]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		ListPage();
 	})
 }
-
-const checkSettingsLocationProfileForm = () => {
-	let name = $("#settings-location-profile-name").val();
-	let type = $("#settings-location-profile-type").val();
-	let breed = $("#settings-location-profile-breed").val();
-	let description = $("#settings-location-profile-description").val();
-	let locationId = $("#settings-location-profile-id").val();
+const checkRecentAddForm = () => {
+	let name = $("#add-animal-name").val();
+	let type = $("#add-animal-type").val();
+	let breed = $("#add-animal-breed").val();
+	let description = $("#add-animal-description").val();
+	let img = $("#add-animal-photo").val()!=''?$("#add-animal-photo").val():'https://via.placeholder.com/400/?text=ANIMAL';
 
 	query({
-		type:'update_location',
-		params:[name,type,breed,description,locationId]
+		type:'insert_animal',
+		params:[sessionStorage.userId,name,type,breed,description,img]
+	}).then(d=>{
+		if(d.error) throw d.error;
+		sessionStorage.animalId = d.result;
+		$.mobile.navigate("#add-location-page")
+	})
+}
+
+const checkSettingsAnimalProfileForm = () => {
+	let name = $("#settings-animal-profile-name").val();
+	let type = $("#settings-animal-profile-type").val();
+	let breed = $("#settings-animal-profile-breed").val();
+	let description = $("#settings-animal-profile-description").val();
+	let animalId = $("#settings-animal-profile-id").val();
+
+	query({
+		type:'update_animal',
+		params:[name,type,breed,description,animalId]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.back();
@@ -50,22 +67,24 @@ const checkAddLocationForm = () => {
 	let lat = +$("#add-location-lat").val();
 	let lng = +$("#add-location-lng").val();
 	let description = $("#add-location-description").val();
-	let locationId = sessionStorage.locationId;
+	let photo = $("#add-location-photo").val();
+	let icon = 'img/icons/map.svg';
+	let animalId = sessionStorage.animalId;
 
 	query({
 		type:'insert_location',
-		params:[locationId,lat,lng,description]
+		params:[animalId,lat,lng,description,photo,icon]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		window.history.go(-2);
-		// $.mobile.navigate("#location-profile-page");
+		// window.history.go(-2);
+		$.mobile.navigate("#recent-page");
 	})
 }
 
 
-const checkLocationDelete = id => {
+const checkAnimalDelete = id => {
 	query({
-		type:'delete_Location',
+		type:'delete_animal',
 		params:[id]
 	}).then(d=>{
 		if(d.error) throw d.error;
@@ -81,7 +100,7 @@ const checkLocationDelete = id => {
 
 const checkListSearch = (s) => {
 	query({
-		type:'Artwork_search',
+		type:'animal_search',
 		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
 	}).then(d=>{
 		console.log(d)
@@ -90,7 +109,7 @@ const checkListSearch = (s) => {
 }
 const checkRecentSearch = (s) => {
 	query({
-		type:'Artwork_search_recent',
+		type:'animal_search_recent',
 		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
 	}).then(d=>{
 		console.log(d)
@@ -104,11 +123,11 @@ const checkListFilter = ({filter,value}) => {
 	(
 		value=="" ?
 		query({
-			type:'artworks_by_location_id',
+			type:'animals_by_user_id',
 			params:[sessionStorage.userId]
 		}) :
 		query({
-			type:'artwrok_filter',
+			type:'animal_filter',
 			params:[filter,value,sessionStorage.userId]
 		})
 	).then(d=>{

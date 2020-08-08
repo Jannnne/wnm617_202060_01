@@ -1,16 +1,16 @@
 
 const ListPage = async(d=0) => {
-	if(!d) d = await query({type:"artworks_by_location_id",params:[sessionStorage.userId]})
+	if(!d) d = await query({type:"animals_by_user_id",params:[sessionStorage.userId]})
 
-	$("#list-page .Locationlist").html(
+	$("#list-page .animallist").html(
 		d.result.length ?
-			makeLocationList(d.result) :
-			"You need to add some Locations, jack."
+			makeAnimalList(d.result) :
+			"You need to add some animals, jack."
 	);
 
 	$("#list-page .list-filters").html(listFilters(d.result));
 
-	$("#list-add-form .inputs").html(makeLocationProfileInputs({
+	$("#list-add-form .inputs").html(makeAnimalProfileInputs({
 		name:'',
 		type:'',
 		breed:'',
@@ -28,28 +28,28 @@ const RecentPage = async(d=0) => {
 
 	let map_el = await makeMap("#recent-page .map");
 
-	let valid_Locations = d.result.reduce((r,o)=>{
+	let valid_animals = d.result.reduce((r,o)=>{
 		o.icon = o.img;
 		if(o.lat && o.lng) r.push(o);
 		return r;
 	},[]);
 
-	makeMarkers(map_el,valid_Locations);
+	makeMarkers(map_el,valid_animals);
 
 	map_el.data("markers").forEach((o,i)=>{
 		o.addListener("click",function(){
 			// INFOWINDOW EXAMPLE
 			map_el.data("infoWindow").open(map_el.data("map"),o);
-			map_el.data("infoWindow").setContent(makeRecentProfile(valid_Locations[i]))
+			map_el.data("infoWindow").setContent(makeRecentProfile(valid_animals[i]))
 
 			// SIMPLE NAVIGATION
-			// sessionStorage.locationId = valid_Locations[i].Location_id;
-			// $.mobile.navigate("#location-profile-page");
+			// sessionStorage.animalId = valid_animals[i].animal_id;
+			// $.mobile.navigate("#animal-profile-page");
 
 			// DRAWER EXAMPLE
 			// $("#recent-profile-drawer")
 			// 	.toggleClass("active")
-			// 	.find(".modal-body").html(makeRecentProfile(valid_Locations[i]))
+			// 	.find(".modal-body").html(makeRecentProfile(valid_animals[i]))
 		})
 	});
 }
@@ -60,27 +60,28 @@ const RecentPage = async(d=0) => {
 
 
 const ProfilePage = async() => {
-	let d = await query({type:"user_by_id",params:[sessionStorage.userId]});
+	let user = await query({type:"user_by_id",params:[sessionStorage.userId]});
+	let animals = await query({type:"animals_by_user_id",params:[sessionStorage.userId]});
+	let locations = await query({type:"locations_by_user_id",params:[sessionStorage.userId]});
 
 	$("#profile-page .profile")
-		.html(makeUserProfile(d.result[0]));
+		.html(makeUserProfile(user.result[0],animals.result,locations.result));
 }
 
-const LocationProfilePage = async() => {
-	if(sessionStorage.locationId===undefined) throw("No Location ID in Storage");
+const AnimalProfilePage = async() => {
+	if(sessionStorage.animalId===undefined) throw("No animal ID in Storage");
 
-	query({type:"Location_by_id",params:[sessionStorage.locationId]})
-	.then(d=>{
-		$("#location-profile-page .profile-head")
-			.html(makeLocationProfile(d.result[0]));
-	});
+	let animal = await query({type:"animal_by_id",params:[sessionStorage.animalId]})
+	let locations = await query({type:"locations_by_animal_id",params:[sessionStorage.animalId]})
+	
+	$("#animal-profile-page h1").html(animal.result[0].name)
 
-	query({type:"locations_by_Location_id",params:[sessionStorage.locationId]})
-	.then(async (d)=>{
-		let map_el = await makeMap("#location-profile-page .map");
+	$("#animal-profile-page .profile-head").removeClass("active")
+		.html(makeAnimalProfile(animal.result[0],locations.result));
 
-		makeMarkers(map_el,d.result);
-	});
+	let map_el = await makeMap("#animal-profile-page .map");
+
+	makeMarkers(map_el,locations.result);
 }
 
 
@@ -93,12 +94,12 @@ const SettingsProfilePage = async() => {
 	$("#settings-profile-page .inputs")
 		.html(makeSettingsProfileInputs(d.result[0]));
 }
-const SettingsLocationProfilePage = async() => {
-	let d = await query({type:"Location_by_id",params:[sessionStorage.locationId]});
+const SettingsAnimalProfilePage = async() => {
+	let d = await query({type:"animal_by_id",params:[sessionStorage.animalId]});
 
-	$("#settings-location-profile-id").val(sessionStorage.locationId);
-	$("#settings-location-profile-page .inputs")
-		.html(makeLocationProfileInputs(d.result[0],'settings-location-profile'));
+	$("#settings-animal-profile-id").val(sessionStorage.animalId);
+	$("#settings-animal-profile-page .inputs")
+		.html(makeAnimalProfileInputs(d.result[0],'settings-animal-profile'));
 }
 
 
@@ -118,4 +119,25 @@ const SettingsProfileUploadPage = async() => {
 
 	$("#settings-profile-upload-form .image-uploader")
 		.css('background-image',`url('${d.result[0].img}')`);
+}
+
+
+
+
+
+
+
+const ChooseAnimalPage = async () => {
+	let animals = await query({type:'animals_by_user_id',params:[sessionStorage.userId]});
+
+	$("#add-location-animal-id").html(makeSelectOptions(animals.result.map(o=>([o.id,o.name]))));
+}
+
+const AddAnimalPage = async(d=0) => {
+	$("#add-animal-form .inputs").html(makeAnimalProfileInputs({
+		name:'',
+		type:'',
+		breed:'',
+		description:''
+	},'add-animal'))
 }
