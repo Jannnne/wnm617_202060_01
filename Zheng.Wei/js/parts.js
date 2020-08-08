@@ -50,6 +50,32 @@ const makeLocationProfile = o=>`
 `;
 
 
+const makeArtworkProfile = o=>`
+<div class="display-flex">
+	<div class="flex-none">
+		<img src="${o.img}" alt="" />
+	</div>
+	<div>
+		<div><strong>${o.name}</strong></div>
+		<div>${o.type}</div>
+		<div>${o.breed}</div>
+		<div class="display-flex">
+			<div class="flex-none">
+				<button data-toggle=".profile-head" class="form-button">More</button>
+			</div>
+			<div class="flex-none">
+				<a href="#settings-location-profile-page" class="form-button">Edit</a>
+			</div>
+			<div class="flex-none">
+				<a href="#" class="form-button js-delete-Location" data-id="${o.id}">Delete</a>
+			</div>
+		</div>
+	</div>
+</div>
+`;
+
+
+
 const makeRecentProfile = o=>`
 <div class="display-flex location-jump" data-id="${o.Location_id}">
 	<div class="flex-none">
@@ -90,6 +116,10 @@ ${FormControl({namespace:namespace,label:"Name",name:"name",value:o.name})}
 ${FormControl({namespace:namespace,label:"Type",name:"type",value:o.type})}
 ${FormControl({namespace:namespace,label:"Breed",name:"breed",value:o.breed})}`;
 
+const makeSettingsArtworkProfileInputs = (o,namespace="settings-location-profile") => `
+${FormControl({namespace:namespace,label:"Name",name:"name",value:o.name})}
+${FormControl({namespace:namespace,label:"Type",name:"type",value:o.type})}
+${FormControl({namespace:namespace,label:"Breed",name:"breed",value:o.breed})}`;
 
 const FormControl = ({namespace,label,name,value,type="text"}) => `
 <div class="form-control">

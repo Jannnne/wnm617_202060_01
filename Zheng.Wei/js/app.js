@@ -13,13 +13,17 @@ $(()=>{
 			case "recent-page": RecentPage(); break;
 			case "list-page": ListPage(); break;
 			case "profile-page": ProfilePage(); break;
-			case "location-profile-page": AnimalProfilePage(); break;
+
+			case "location-profile-page": LocationProfilePage(); break;
+			case "artwork-profile-page": LocationProfilePage(); break;
 
 			case "add-location-page": AddLocationPage(); break;
+			case "add-artwork-page": AddLocationPage(); break;
 
 			case "settings-profile-page": SettingsProfilePage(); break;
-			case "settings-location-profile-page": SettingsAnimalProfilePage(); break;
-
+			case "settings-location-profile-page": SettingsLocationProfilePage(); break;
+			case "settings-artwork-profile-page": SettingsLocationProfilePage(); break;
+			
 			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
 
 		}

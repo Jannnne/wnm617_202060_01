@@ -27,7 +27,9 @@
 	
 </head>
 <body>
-	
+	<!-- onboarding Page -->
+
+	<!-- Signin Page -->
 	<section data-role="page" id="signin-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
@@ -56,7 +58,7 @@
 		</div>
 	</section>
 
-
+	<!-- Signup Page -->
 	<section data-role="page" id="signup-page">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
@@ -102,7 +104,7 @@
 
 
 
-
+	<!-- Recent Page -->
 	<section data-role="page" id="recent-page">
 		<div data-role="main">
 			<div class="map"></div>
@@ -112,8 +114,12 @@
 			<div class="anchor bottom right">
 				<a href="#recent-add-choose-Location-page" class="circle">+</a>
 			</div>
+			
+			<div class="anchor top left">
+				<a href="#recent-add-choose-Location-page" class="circle">+</a>
+			</div>
 
-			<div class="anchor top left" style="width:calc(100% - 2em)">
+			<div class="anchor top right" style="width:calc(100% - 2em)">
 				<form id="recent-search" class="hotdog light soft" data-ajax="false">
 					<input type="search" data-role="none" class="search" placeholder="Search For Location">
 				</form>
@@ -126,6 +132,7 @@
 				</div>
 			</div>
 		</div>
+
 		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
@@ -248,12 +255,121 @@
 
 
 
+	<section data-role="page" id="recent-add-Artwork-page">
+		<header data-role="header">
+			<h1>Choose Location</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-Artwork-page">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="recent-add-Artwork-form" data-ajax="false" class="form" style="padding:1em">
+					<a href="#add-Artwork-page">Add New Location</a>
+					<div>Or</div>
+					<div class="form-control">
+						<label for="add-artwork-Artwork-id" class="form-label">Select Location</label>
+						<select id="add-artwork-Artwork-id" class="form-input" data-role="none">
+							<option value="1">Cat 1</option>
+							<option value="22">Dog 1</option>
+							<option value="13">Cat 2</option>
+						</select>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-Artwork-page">
+		<header data-role="header">
+			<h1>New Location</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-artwork-page">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-Artwork-form" data-ajax="false" class="form" style="padding:1em">
+						<div class="form-control">
+							<label for="add-Artwork-name" class="form-label">Artwork Name</label>
+							<input type="text" class="form-input" id="add-Artwork-name" placeholder="Type Artwork Name" data-role="none">
+						</div>
+						<div class="form-control">
+							<label for="add-Artwork-type" class="form-label">Artwork Type</label>
+							<input type="text" class="form-input" id="add-Artwork-type" placeholder="Type Artwork Type" data-role="none">
+						</div>
+						<div class="form-control">
+							<label for="add-Artwork-breed" class="form-label">Artwork Breed</label>
+							<input type="text" class="form-input" id="add-Artwork-breed" placeholder="Type Artwork Breed" data-role="none">
+						</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-artwork-page">
+		<header data-role="header">
+			<h1>Choose Location</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-artwork-info-page">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<!-- <input type="hidden" id="add-location-lat">
+			<input type="hidden" id="add-location-lng"> -->
+			<div class="map"></div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-artwork-info-page">
+		<header data-role="header">
+			<h1>Location Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-add-artwork">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-artwork-info-form" data-ajax="false" class="form" style="padding:1em">
+						<div class="form-control">
+							<label for="add-artwork-description" class="form-label">Description</label>
+							<textarea type="text" class="form-input" id="add-artwork-description" placeholder="Type Description" data-role="none"></textarea>
+						</div>
+				</form>
+			</div>
+		</div>
+	</section>
 
 
 
-
-
-
+	<!-- list Page -->
 	<section data-role="page" id="list-page">
 		<header data-role="header">
 			<ul>
@@ -311,7 +427,7 @@
 
 
 
-
+	<!-- Location profile Page -->
 	<section data-role="page" id="location-profile-page">
 		<header data-role="header">
 			<h1>Location Profile</h1>
@@ -334,7 +450,28 @@
 		</div>
 	</section>
 
-
+	<!-- Artwork profile Page -->
+	<section data-role="page" id="artwork-profile-page">
+		<header data-role="header">
+			<h1>Location Profile</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="profile">
+				<div class="profile-head"></div>
+				<div class="profile-body">
+					<div class="map"></div>
+					<div class="anchor bottom right">
+						<a href="#add-location-page" class="circle">+</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
 
 
 	<!-- PROFILE PAGE -->
@@ -350,7 +487,7 @@
 		<footer data-role="footer" data-template="#footer-template"></footer>
 	</section>
 
-
+	<!-- Setting PAGE -->
 	<section data-role="page" id="settings-page">
 		<header data-role="header">
 			<h1>Settings</h1>
@@ -375,7 +512,7 @@
 		</div>
 	</section>
 
-
+	<!-- Setting Password PAGE -->
 	<section data-role="page" id="settings-password-page">
 		<header data-role="header">
 			<h1>Change Password</h1>
@@ -409,7 +546,7 @@
 		</div>
 	</section>
 
-
+	<!-- Setting Profile PAGE -->
 	<section data-role="page" id="settings-profile-page">
 		<header data-role="header">
 			<h1>Profile Info</h1>
@@ -433,7 +570,7 @@
 		</div>
 	</section>
 
-
+	<!-- Setting Location PAGE -->
 	<section data-role="page" id="settings-location-profile-page">
 		<header data-role="header">
 			<h1>Location Info</h1>
@@ -457,7 +594,7 @@
 		</div>
 	</section>
 
-
+	<!-- Setting Profile Upload PAGE -->
 	<section data-role="page" id="settings-profile-upload-page">
 		<header data-role="header">
 			<h1>Location Info</h1>

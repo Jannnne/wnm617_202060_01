@@ -98,9 +98,9 @@ function makeStatement($data) {
 					SELECT * FROM `track_artworks`
 					ORDER BY `date_create` DESC
 				) l
-				ON a.id = l.animal_id
+				ON a.id = l.location_id
 				WHERE a.user_id = ?
-				GROUP BY l.animal_id
+				GROUP BY l.location_id
 				",$p);
 
 
@@ -144,10 +144,10 @@ function makeStatement($data) {
 			if(count($r['result'])) return ["error"=>"Username or Email already exists"];
 
 			$r = makeQuery($c,"INSERT INTO
-				`track_users`
-				(`username`, `email`, `password`, `img`, `date_create`)
+				`track_users` 
+				(`username`,`name`,`age`,`gender`,`occupation`,`email`,`phone`,  `password`, `date_create`,`address`,`Bio`,`img` )
 				VALUES
-				(?, ?, md5(?), 'https://via.placeholder.com/400/?text=USER', NOW())
+				(?, ?, ?, ?, ?, ?, ?, md5(?), NOW(), ?, ?, 'https://via.placeholder.com/400/?text=USER', )
 				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
@@ -155,9 +155,9 @@ function makeStatement($data) {
 		case "insert_location":
 			$r = makeQuery($c,"INSERT INTO
 				`track_locations`
-				(`user_id`,`name`, `type`, `breed`, `description`, `img`, `date_create`)
+				(`user_id`,`lat`, `lng`, `name`, `type`, `breed`, `description`, `date_create`, `photo`, `icon`)
 				VALUES
-				(?, ?, ?, ?, ?, ?, NOW())
+				(?, ?, ?, ?, ?, ?, ?, NOW(), 'https://via.placeholder.com/400/?text=LOCATION', 'https://via.placeholder.com/400/?text=ICON')
 				",$p,false);
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
@@ -165,10 +165,10 @@ function makeStatement($data) {
 		case "insert_artwork":
 			$r = makeQuery($c,"INSERT INTO
 				`track_artworks`
-				(`animal_id`,`lat`, `lng`, `description`, `photo`, `icon`, `date_create`)
+				(`location_id`,`artwork_title`, `artist_name`, `type`,`breed`,`description`, `date_appear`,`date_disappear`,`picture`,`inspiration`,`critique`,`main_img`, `photo`, `icon`)
 				VALUES
-				(?, ?, ?, ?, 'https://via.placeholder.com/400/?text=LOCATION', 'https://via.placeholder.com/40/?text=ICON', NOW())
-				",$p,false);
+				(?, ?, ?, ?, ?, ?, NOW(),NOW(),'https://via.placeholder.com/400/?text=ARTWORK', ?, ?, 'https://via.placeholder.com/400/?text=ARTWORK','https://via.placeholder.com/400/?text=ARTWORK','https://via.placeholder.com/40/?text=ICON')
+				",$p,false); 
 			if(isset($r['error'])) return $r;
 			return ["result"=>$c->lastInsertId()];
 
@@ -195,6 +195,30 @@ function makeStatement($data) {
 					`type`=?,
 					`breed`=?,
 					`description`=?
+					`date_create`=NOW()
+					`photo`=?
+					`icon`=?
+
+				WHERE `id`=?
+				",$p,false);
+			return ["result"=>"success"];
+
+		case "update_artwork":
+			$r = makeQuery($c,"UPDATE
+				`track_artworks`
+				SET
+					`artwork_title`=?,
+					`artist_name`=?,
+					`type`=?,
+					`breed`=?,
+					`description`=?
+					`date_disappear`=NOW()
+					`picture`=?
+					`inspiration`=?
+					`critique`=?
+					`main_img`=?
+					`photo`=?
+					`icon`=?
 				WHERE `id`=?
 				",$p,false);
 			return ["result"=>"success"];
@@ -202,7 +226,17 @@ function makeStatement($data) {
 		case "update_profile_image":
 			$r = makeQuery($c,"UPDATE
 				`track_users`
-				SET `img`=?
+				SET 
+					`username`=?
+					`name`=?
+					`age`=?
+					`gender`=?
+					`occupation`=?
+					`email`=?
+					`phone`=?
+					`address`=?
+					`Bio`=?
+					`img`=?
 				WHERE `id`=?
 				",$p,false);
 			return ["result"=>"success"];
