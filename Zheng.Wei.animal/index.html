@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>New Project</title>
+
+	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+
+	<link rel="stylesheet" href="lib/css/jquery.mobile.structure-1.4.5.min.css">
+	<link rel="stylesheet" href="css/app.css">
+
+	<script src="lib/js/jquery-2.2.4.min.js"></script>
+
+	<script src="js/signin.js"></script>
+	<script src="js/functions.js"></script>
+	<script src="js/pages.js"></script>
+	<script src="js/parts.js"></script>
+	<script src="js/maps.js"></script>
+	<script src="js/forms.js"></script>
+	<script src="js/app.js"></script>
+
+	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
+
+	<script async defer
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChwYgKLXlMEQXUdQuNWxzIyKjbrqfIFlQ">
+	</script>
+	
+</head>
+<body>
+	
+	<section data-role="page" id="signin-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="flex-none" style="text-align:center">
+				<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
+			</div>
+			<div class="flex-none" style="padding:1em">
+				<form id="signin-form" data-ajax="false">
+					<div class="form-control">
+						<label for="signin-username" class="form-label">Username</label>
+						<input type="text" class="hotdog" id="signin-username" placeholder="Type your Username" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signin-password" class="form-label">Password</label>
+						<input type="password" class="hotdog" id="signin-password" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<input type="submit" class="hotdog-button" value="Sign In" data-role="none">
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Don't have an account? <a href="#signup-page">Sign Up</a>
+					</div>
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="signup-page">
+		<div data-role="main" class="display-flex flex-column">
+			<div class="flex-stretch"></div>
+			<div class="flex-none" style="padding:1em">
+				<form id="signup-form" data-ajax="false">
+					<div class="form-control">
+						<label for="signup-username" class="form-label">Username</label>
+						<input type="text" class="form-input" id="signup-username" placeholder="Type your Username" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-email" class="form-label">Email</label>
+						<input type="text" class="form-input" id="signup-email" placeholder="Type your Email" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password" class="form-label">Password</label>
+						<input type="password" class="form-input" id="signup-password" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="signup-password2" class="form-label">Confirm Password</label>
+						<input type="password" class="form-input" id="signup-password2" placeholder="Type your Password" data-role="none">
+					</div>
+					<div class="form-control">
+						<input type="submit" class="form-button" value="Sign Up" data-role="none">
+					</div>
+					<div class="form-control" style="font-size:0.8em;text-align:center;">
+						Already have an account? <a href="#signin-page">Sign In</a>
+					</div>
+				</form>
+			</div>
+			<div class="flex-stretch"></div>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<section data-role="page" id="recent-page">
+		<div data-role="main">
+			<div class="map"></div>
+
+			<div class="recent-search"></div>
+
+			<div class="anchor bottom right">
+				<a href="#recent-add-choose-animal-page" class="circle">+</a>
+			</div>
+
+			<div class="anchor top left" style="width:calc(100% - 2em)">
+				<form id="recent-search" class="hotdog light soft" data-ajax="false">
+					<input type="search" data-role="none" class="search" placeholder="Search For Animal">
+				</form>
+			</div>
+
+			<div class="modal" id="recent-profile-drawer">
+				<div class="modal-back transparent" data-deactivate="#recent-profile-drawer"></div>
+				<div class="modal-drawer bottom">
+					<div class="modal-body soft"></div>
+				</div>
+			</div>
+		</div>
+		<footer data-role="footer" data-template="#footer-template"></footer>
+	</section>
+
+
+	<section data-role="page" id="recent-add-choose-animal-page">
+		<header data-role="header">
+			<h1>Choose Animal</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-choose-animal">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em">
+					<a href="#add-animal-page">Add New Animal</a>
+					<div>Or</div>
+					<div class="form-control">
+						<label for="add-location-animal-id" class="form-label">Select Animal</label>
+						<select id="add-location-animal-id" class="form-input" data-role="none"></select>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-animal-page">
+		<header data-role="header">
+			<h1>New Animal</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-page" class="js-submit-recent-add-animal">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-location-page">
+		<header data-role="header">
+			<h1>Choose Location</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#add-location-info-page">Next</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<input type="hidden" id="add-location-lat">
+			<input type="hidden" id="add-location-lng">
+			<div class="map"></div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="add-location-info-page">
+		<header data-role="header">
+			<h1>Location Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-add-location">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Add a Photo</label>
+						<input type='hidden' id="add-location-photo" data-role="none">
+						<label class="imagepicker imagepicker-replace thumbnail">
+							<input type='file' id="add-location-photo-upload" data-role="none">
+						</label>
+					</div>
+					<div class="form-control">
+						<label for="add-location-description" class="form-label">Description</label>
+						<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+
+	<section data-role="page" id="list-page">
+		<header data-role="header">
+			<ul>
+				<li class="flex-stretch">
+					<form id="list-search" class="hotdog" data-ajax="false">
+						<input type="search" data-role="none" class="search" placeholder="Search For Animal">
+					</form>
+				</li>
+				<li class="flex-none">
+					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
+				</li>
+			</ul>
+		</header>
+		<header data-role="header">
+			<ul class="scrollable-x list-filters"></ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<div class="animallist"></div>
+			</div>
+		</div>
+		<footer data-role="footer" data-template="#footer-template"></footer>
+
+		<div class="modal" id="list-add-animal-modal">
+			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
+			<form data-ajax="false" id="list-add-form" class="modal-popup">
+				<div class="modal-head display-flex">
+					<div class="flex-none">
+						<a href="#" data-deactivate="#list-add-animal-modal">Cancel</a>
+					</div>
+					<div class="flex-stretch">
+						<h1>Add Animal</h1>
+					</div>
+				</div>
+				<div class="modal-body">
+					<div class="scrollable" style="padding:1em"><div class="inputs"></div></div>
+				</div>
+				<div class="modal-foot display-flex">
+					<div class="flex-stretch"></div>
+					<div class="flex-none">
+						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-animal-modal">
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+
+
+
+
+
+
+
+
+
+
+
+
+	<section data-role="page" id="animal-profile-page">
+		<header data-role="header">
+			<h1>Animal Profile</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="profile">
+				<div class="profile-head"></div>
+				<div class="profile-body">
+					<div class="map"></div>
+					<div class="anchor bottom right">
+						<a href="#add-location-page" class="circle">+</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+
+
+
+	<!-- PROFILE PAGE -->
+	<section data-role="page" id="profile-page">
+		<div data-role="main">
+			<div class="profile">
+			</div>
+
+			<a class="settings" href="#settings-page">
+				<img src="img/icons/shishkabob.svg" alt="" class="icon">
+			</a>
+		</div>
+		<footer data-role="footer" data-template="#footer-template"></footer>
+	</section>
+
+
+	<section data-role="page" id="settings-page">
+		<header data-role="header">
+			<h1>Settings</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Back</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<ul class="settings-list">
+				<li>
+					<a href="#" class="js-logout">Logout</a>
+				</li>
+				<li>
+					<a href="#settings-password-page">Change Password</a>
+				</li>
+				<li>
+					<a href="#settings-profile-page">Change Profile Info</a>
+				</li>
+			</ul>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-password-page">
+		<header data-role="header">
+			<h1>Change Password</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Commit</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-password-form" data-ajax="false" class="form" style="padding:1em">
+					<div class="form-control">
+						<label for="settings-change-password-1" class="form-label">Old Password</label>
+						<input id="settings-change-password-1" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-2" class="form-label">New Password</label>
+						<input id="settings-change-password-2" type="password" class="form-input" data-role="none">
+					</div>
+					<div class="form-control">
+						<label for="settings-change-password-3" class="form-label">Confirm New Password</label>
+						<input id="settings-change-password-3" type="password" class="form-input" data-role="none">
+					</div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-profile-page">
+		<header data-role="header">
+			<h1>Profile Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-profile">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-profile-id">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-animal-profile-page">
+		<header data-role="header">
+			<h1>Animal Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-animal-profile">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<div class="scrollable">
+				<form id="settings-animal-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-animal-profile-id">
+					<div class="inputs"></div>
+				</form>
+			</div>
+		</div>
+	</section>
+
+
+	<section data-role="page" id="settings-profile-upload-page">
+		<header data-role="header">
+			<h1>Animal Info</h1>
+			<ul>
+				<li class="flex-none">
+					<a href="#" data-rel="back">Cancel</a>
+				</li>
+				<li class="flex-stretch"></li>
+				<li class="flex-none">
+					<a href="#" class="js-submit-settings-profile-upload">Save</a>
+				</li>
+			</ul>
+		</header>
+		<div data-role="main">
+			<form id="settings-profile-upload-form" data-ajax="false" class="form">
+				<input type="hidden" id="settings-profile-src">
+				<label class="image-uploader full">
+					<input type="file" data-role="none" class="hidden">
+				</label>
+			</form>
+		</div>
+	</section>
+
+
+
+
+	<script type="text/template" id="footer-template">
+		<ul>
+			<li>
+				<a href="#recent-page" data-activateone="footer li:nth-child(1)">
+					<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
+					<div class="footer-label">Recent</div>
+				</a>
+			</li>
+			<li>
+				<a href="#list-page" data-activateone="footer li:nth-child(2)">
+					<div class="footer-icon"><img class="icon" src="img/icons/list.svg" alt=""></div>
+					<div class="footer-label">List</div>
+				</a>
+			</li>
+			<li>
+				<a href="#profile-page" data-activateone="footer li:nth-child(3)">
+					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
+					<div class="footer-label">Profile</div>
+				</a>
+			</li>
+		</ul>
+	</script>
+
+</body>
+</html>

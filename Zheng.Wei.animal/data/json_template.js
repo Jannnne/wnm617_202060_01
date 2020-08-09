@@ -37,9 +37,9 @@
     type: '{{random("dog","horse","cat")}}',
     breed: function(tags) {
       var breeds = {
-        dog:["labrador","pitbull","dachsund"],
-        horse:["thoreuahbred","shetland","unicorn"],
-        cat:["calico","tuxedo","ginger","siamese","shorthair"]
+        XX:["bowtruckle","Mooncalf","Granian","Thestral","Diricawl","Grindylow"],
+        XXX:["niffler","Fwooper","Billywig","Murtlap","Doxy"],
+        XXXX:["Occamy","Demiguise","Thunderbird","Erumpent"]
       };
       var chosen_type = breeds[this.type];
       var chosen_index = tags.integer(0,chosen_type.length-1);
