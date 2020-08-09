@@ -5,10 +5,10 @@ const checkListAddForm = () => {
 	let type = $("#list-add-type").val();
 	let breed = $("#list-add-breed").val();
 	let description = $("#list-add-description").val();
-	let img = $("#list-add-photo").val()!=''?$("#list-add-photo").val():'https://via.placeholder.com/400/?text=place';
+	let img = $("#list-add-photo").val()!=''?$("#list-add-photo").val():'https://via.placeholder.com/400/?text=ANIMAL';
 
 	query({
-		type:'insert_place',
+		type:'insert_animal',
 		params:[sessionStorage.userId,name,type,breed,description,img]
 	}).then(d=>{
 		if(d.error) throw d.error;
@@ -16,32 +16,32 @@ const checkListAddForm = () => {
 	})
 }
 const checkRecentAddForm = () => {
-	let name = $("#add-place-name").val();
-	let type = $("#add-place-type").val();
-	let breed = $("#add-place-breed").val();
-	let description = $("#add-place-description").val();
-	let img = $("#add-place-photo").val()!=''?$("#add-place-photo").val():'https://via.placeholder.com/400/?text=place';
+	let name = $("#add-animal-name").val();
+	let type = $("#add-animal-type").val();
+	let breed = $("#add-animal-breed").val();
+	let description = $("#add-animal-description").val();
+	let img = $("#add-animal-photo").val()!=''?$("#add-animal-photo").val():'https://via.placeholder.com/400/?text=ANIMAL';
 
 	query({
-		type:'insert_place',
+		type:'insert_animal',
 		params:[sessionStorage.userId,name,type,breed,description,img]
 	}).then(d=>{
 		if(d.error) throw d.error;
-		sessionStorage.placeId = d.result;
-		$.mobile.navigate("#add-artwork-page")
+		sessionStorage.animalId = d.result;
+		$.mobile.navigate("#add-location-page")
 	})
 }
 
-const checkSettingsplaceProfileForm = () => {
-	let name = $("#settings-place-profile-name").val();
-	let type = $("#settings-place-profile-type").val();
-	let breed = $("#settings-place-profile-breed").val();
-	let description = $("#settings-place-profile-description").val();
-	let placeId = $("#settings-place-profile-id").val();
+const checkSettingsAnimalProfileForm = () => {
+	let name = $("#settings-animal-profile-name").val();
+	let type = $("#settings-animal-profile-type").val();
+	let breed = $("#settings-animal-profile-breed").val();
+	let description = $("#settings-animal-profile-description").val();
+	let animalId = $("#settings-animal-profile-id").val();
 
 	query({
-		type:'update_place',
-		params:[name,type,breed,description,placeId]
+		type:'update_animal',
+		params:[name,type,breed,description,animalId]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		window.history.back();
@@ -63,17 +63,17 @@ const checkSettingsProfileForm = () => {
 	})
 }
 
-const checkAddartworkForm = () => {
-	let lat = +$("#add-artwork-lat").val();
-	let lng = +$("#add-artwork-lng").val();
-	let description = $("#add-artwork-description").val();
-	let photo = $("#add-artwork-photo").val();
+const checkAddLocationForm = () => {
+	let lat = +$("#add-location-lat").val();
+	let lng = +$("#add-location-lng").val();
+	let description = $("#add-location-description").val();
+	let photo = $("#add-location-photo").val();
 	let icon = 'img/icons/map.svg';
-	let placeId = sessionStorage.placeId;
+	let animalId = sessionStorage.animalId;
 
 	query({
-		type:'insert_artwork',
-		params:[placeId,lat,lng,description,photo,icon]
+		type:'insert_location',
+		params:[animalId,lat,lng,description,photo,icon]
 	}).then(d=>{
 		if(d.error) throw d.error;
 		// window.history.go(-2);
@@ -82,9 +82,9 @@ const checkAddartworkForm = () => {
 }
 
 
-const checkplaceDelete = id => {
+const checkAnimalDelete = id => {
 	query({
-		type:'delete_place',
+		type:'delete_animal',
 		params:[id]
 	}).then(d=>{
 		if(d.error) throw d.error;
@@ -100,7 +100,7 @@ const checkplaceDelete = id => {
 
 const checkListSearch = (s) => {
 	query({
-		type:'place_search',
+		type:'animal_search',
 		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
 	}).then(d=>{
 		console.log(d)
@@ -109,7 +109,7 @@ const checkListSearch = (s) => {
 }
 const checkRecentSearch = (s) => {
 	query({
-		type:'place_search_recent',
+		type:'animal_search_recent',
 		params:[`%${s}%`,`%${s}%`,`%${s}%`,sessionStorage.userId]
 	}).then(d=>{
 		console.log(d)
@@ -123,11 +123,11 @@ const checkListFilter = ({filter,value}) => {
 	(
 		value=="" ?
 		query({
-			type:'places_by_user_id',
+			type:'animals_by_user_id',
 			params:[sessionStorage.userId]
 		}) :
 		query({
-			type:'place_filter',
+			type:'animal_filter',
 			params:[filter,value,sessionStorage.userId]
 		})
 	).then(d=>{

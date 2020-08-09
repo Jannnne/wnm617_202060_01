@@ -1,8 +1,8 @@
 CREATE TABLE IF NOT EXISTS `track_locations` (
 `id` INT NULL,
 `animal_id` INT NULL,
-`lat` FLOAT NULL,
-`lng` FLOAT NULL,
+`lat` DOUBLE NULL,
+`lng` DOUBLE NULL,
 `description` VARCHAR(MAX) NULL,
 `date_create` VARCHAR(MAX) NULL,
 `photo` VARCHAR(MAX) NULL,

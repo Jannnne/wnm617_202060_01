@@ -13,14 +13,14 @@ $(()=>{
 			case "recent-page": RecentPage(); break;
 			case "list-page": ListPage(); break;
 			case "profile-page": ProfilePage(); break;
-			case "place-profile-page": placeProfilePage(); break;
+			case "animal-profile-page": AnimalProfilePage(); break;
 
-			case "recent-add-choose-place-page": ChooseplacePage(); break;
-			case "add-place-page": AddplacePage(); break;
-			case "add-artwork-page": AddartworkPage(); break;
+			case "recent-add-choose-animal-page": ChooseAnimalPage(); break;
+			case "add-animal-page": AddAnimalPage(); break;
+			case "add-location-page": AddLocationPage(); break;
 
 			case "settings-profile-page": SettingsProfilePage(); break;
-			case "settings-place-profile-page": SettingsplaceProfilePage(); break;
+			case "settings-animal-profile-page": SettingsAnimalProfilePage(); break;
 
 			case "settings-profile-upload-page": SettingsProfileUploadPage(); break;
 
@@ -67,13 +67,13 @@ $(()=>{
 			$(".image-uploader").css({'background-image':`url('uploads/${d.result}')`})
 		})
 	})
-	.on("change","#add-artwork-photo-upload",function(e){
+	.on("change","#add-location-photo-upload",function(e){
 		console.log(e)
 		checkUpload(this.files[0])
 		.then(d=>{
 			console.log(d)
-			$("#add-artwork-photo").val('uploads/'+d.result);
-			$("#add-artwork-info-form .imagepicker")
+			$("#add-location-photo").val('uploads/'+d.result);
+			$("#add-location-info-form .imagepicker")
       		.addClass("picked")
       		.css({'background-image':`url('uploads/${d.result}')`})
 		})
@@ -90,19 +90,19 @@ $(()=>{
 		sessionStorage.removeItem('userId');
 		checkUserId();
 	})
-	.on("click",".place-jump",function(e){
+	.on("click",".animal-jump",function(e){
 		if(!$(this).data("id")) throw("No data ID on Element");
 
-		sessionStorage.placeId = $(this).data("id");
-		$.mobile.navigate("#place-profile-page")
+		sessionStorage.animalId = $(this).data("id");
+		$.mobile.navigate("#animal-profile-page")
 	})
-	.on("click",".js-choose-place",function(e){
-		sessionStorage.placeId = $("#add-artwork-place-id").val();
-		$.mobile.navigate("#add-artwork-page");
+	.on("click",".js-choose-animal",function(e){
+		sessionStorage.animalId = $("#add-location-animal-id").val();
+		$.mobile.navigate("#add-location-page");
 	})
-	.on("click",".js-submit-settings-place-profile",function(e){
+	.on("click",".js-submit-settings-animal-profile",function(e){
 		e.preventDefault();
-		checkSettingsplaceProfileForm();
+		checkSettingsAnimalProfileForm();
 	})
 	.on("click",".js-submit-settings-profile",function(e){
 		e.preventDefault();
@@ -112,17 +112,17 @@ $(()=>{
 		e.preventDefault();
 		checkSettingsProfileUpload();
 	})
-	.on("click",".js-submit-add-artwork",function(e){
+	.on("click",".js-submit-add-location",function(e){
 		e.preventDefault();
-		checkAddartworkForm();
+		checkAddLocationForm();
 	})
-	.on("click",".js-submit-recent-add-place",function(e){
+	.on("click",".js-submit-recent-add-animal",function(e){
 		e.preventDefault();
 		checkRecentAddForm();
 	})
-	.on("click",".js-delete-place",function(e){
+	.on("click",".js-delete-animal",function(e){
 		e.preventDefault();
-		checkplaceDelete($(this).data("id"));
+		checkAnimalDelete($(this).data("id"));
 	})
 
 

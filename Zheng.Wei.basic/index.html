@@ -22,7 +22,7 @@
 	<script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
 
 	<script async defer
-	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyChwYgKLXlMEQXUdQuNWxzIyKjbrqfIFlQ">
+	  src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA8erqiFPDLjaL0jG_EXnAR_Zlf72RDEb8">
 	</script>
 	
 </head>
@@ -110,12 +110,12 @@
 			<div class="recent-search"></div>
 
 			<div class="anchor bottom right">
-				<a href="#recent-add-choose-place-page" class="circle">+</a>
+				<a href="#recent-add-choose-animal-page" class="circle">+</a>
 			</div>
 
 			<div class="anchor top left" style="width:calc(100% - 2em)">
 				<form id="recent-search" class="hotdog light soft" data-ajax="false">
-					<input type="search" data-role="none" class="search" placeholder="Search For place">
+					<input type="search" data-role="none" class="search" placeholder="Search For Animal">
 				</form>
 			</div>
 
@@ -130,27 +130,27 @@
 	</section>
 
 
-	<section data-role="page" id="recent-add-choose-place-page">
+	<section data-role="page" id="recent-add-choose-animal-page">
 		<header data-role="header">
-			<h1>Choose place</h1>
+			<h1>Choose Animal</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" class="js-choose-place">Next</a>
+					<a href="#" class="js-choose-animal">Next</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="recent-add-choose-place-form" data-ajax="false" class="form" style="padding:1em">
-					<a href="#add-place-page">Add New place</a>
+				<form id="recent-add-choose-animal-form" data-ajax="false" class="form" style="padding:1em">
+					<a href="#add-animal-page">Add New Animal</a>
 					<div>Or</div>
 					<div class="form-control">
-						<label for="add-artwork-place-id" class="form-label">Select place</label>
-						<select id="add-artwork-place-id" class="form-input" data-role="none"></select>
+						<label for="add-location-animal-id" class="form-label">Select Animal</label>
+						<select id="add-location-animal-id" class="form-input" data-role="none"></select>
 					</div>
 				</form>
 			</div>
@@ -158,22 +158,22 @@
 	</section>
 
 
-	<section data-role="page" id="add-place-page">
+	<section data-role="page" id="add-animal-page">
 		<header data-role="header">
-			<h1>New place</h1>
+			<h1>New Animal</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-artwork-page" class="js-submit-recent-add-place">Next</a>
+					<a href="#add-location-page" class="js-submit-recent-add-animal">Next</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="add-place-form" data-ajax="false" class="form" style="padding:1em">
+				<form id="add-animal-form" data-ajax="false" class="form" style="padding:1em">
 					<div class="inputs"></div>
 				</form>
 			</div>
@@ -181,53 +181,53 @@
 	</section>
 
 
-	<section data-role="page" id="add-artwork-page">
+	<section data-role="page" id="add-location-page">
 		<header data-role="header">
-			<h1>Choose artwork</h1>
+			<h1>Choose Location</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#add-artwork-info-page">Next</a>
+					<a href="#add-location-info-page">Next</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
-			<input type="hidden" id="add-artwork-lat">
-			<input type="hidden" id="add-artwork-lng">
+			<input type="hidden" id="add-location-lat">
+			<input type="hidden" id="add-location-lng">
 			<div class="map"></div>
 		</div>
 	</section>
 
 
-	<section data-role="page" id="add-artwork-info-page">
+	<section data-role="page" id="add-location-info-page">
 		<header data-role="header">
-			<h1>artwork Info</h1>
+			<h1>Location Info</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" class="js-submit-add-artwork">Save</a>
+					<a href="#" class="js-submit-add-location">Save</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="add-artwork-info-form" data-ajax="false" class="form" style="padding:1em">
+				<form id="add-location-info-form" data-ajax="false" class="form" style="padding:1em">
 					<div class="form-control">
-						<label for="add-artwork-description" class="form-label">Add a Photo</label>
-						<input type='hidden' id="add-artwork-photo" data-role="none">
+						<label for="add-location-description" class="form-label">Add a Photo</label>
+						<input type='hidden' id="add-location-photo" data-role="none">
 						<label class="imagepicker imagepicker-replace thumbnail">
-							<input type='file' id="add-artwork-photo-upload" data-role="none">
+							<input type='file' id="add-location-photo-upload" data-role="none">
 						</label>
 					</div>
 					<div class="form-control">
-						<label for="add-artwork-description" class="form-label">Description</label>
-						<textarea type="text" class="form-input" id="add-artwork-description" placeholder="Type Description" data-role="none"></textarea>
+						<label for="add-location-description" class="form-label">Description</label>
+						<textarea type="text" class="form-input" id="add-location-description" placeholder="Type Description" data-role="none"></textarea>
 					</div>
 				</form>
 			</div>
@@ -251,11 +251,11 @@
 			<ul>
 				<li class="flex-stretch">
 					<form id="list-search" class="hotdog" data-ajax="false">
-						<input type="search" data-role="none" class="search" placeholder="Search For place">
+						<input type="search" data-role="none" class="search" placeholder="Search For Animal">
 					</form>
 				</li>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-place-modal">&plus;</a>
+					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
 				</li>
 			</ul>
 		</header>
@@ -264,20 +264,20 @@
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<div class="placelist"></div>
+				<div class="animallist"></div>
 			</div>
 		</div>
 		<footer data-role="footer" data-template="#footer-template"></footer>
 
-		<div class="modal" id="list-add-place-modal">
-			<div class="modal-back" data-deactivate="#list-add-place-modal"></div>
+		<div class="modal" id="list-add-animal-modal">
+			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
 			<form data-ajax="false" id="list-add-form" class="modal-popup">
 				<div class="modal-head display-flex">
 					<div class="flex-none">
-						<a href="#" data-deactivate="#list-add-place-modal">Cancel</a>
+						<a href="#" data-deactivate="#list-add-animal-modal">Cancel</a>
 					</div>
 					<div class="flex-stretch">
-						<h1>Add place</h1>
+						<h1>Add Animal</h1>
 					</div>
 				</div>
 				<div class="modal-body">
@@ -286,7 +286,7 @@
 				<div class="modal-foot display-flex">
 					<div class="flex-stretch"></div>
 					<div class="flex-none">
-						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-place-modal">
+						<input type="submit" value="Save" class="chromeless" data-role="none" data-deactivate="#list-add-animal-modal">
 					</div>
 				</div>
 			</form>
@@ -304,9 +304,9 @@
 
 
 
-	<section data-role="page" id="place-profile-page">
+	<section data-role="page" id="animal-profile-page">
 		<header data-role="header">
-			<h1>place Profile</h1>
+			<h1>Animal Profile</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Back</a>
@@ -319,7 +319,7 @@
 				<div class="profile-body">
 					<div class="map"></div>
 					<div class="anchor bottom right">
-						<a href="#add-artwork-page" class="circle">+</a>
+						<a href="#add-location-page" class="circle">+</a>
 					</div>
 				</div>
 			</div>
@@ -426,23 +426,23 @@
 	</section>
 
 
-	<section data-role="page" id="settings-place-profile-page">
+	<section data-role="page" id="settings-animal-profile-page">
 		<header data-role="header">
-			<h1>place Info</h1>
+			<h1>Animal Info</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Cancel</a>
 				</li>
 				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" class="js-submit-settings-place-profile">Save</a>
+					<a href="#" class="js-submit-settings-animal-profile">Save</a>
 				</li>
 			</ul>
 		</header>
 		<div data-role="main">
 			<div class="scrollable">
-				<form id="settings-place-profile-form" data-ajax="false" class="form" style="padding:1em">
-					<input type="hidden" id="settings-place-profile-id">
+				<form id="settings-animal-profile-form" data-ajax="false" class="form" style="padding:1em">
+					<input type="hidden" id="settings-animal-profile-id">
 					<div class="inputs"></div>
 				</form>
 			</div>
@@ -452,7 +452,7 @@
 
 	<section data-role="page" id="settings-profile-upload-page">
 		<header data-role="header">
-			<h1>place Info</h1>
+			<h1>Animal Info</h1>
 			<ul>
 				<li class="flex-none">
 					<a href="#" data-rel="back">Cancel</a>
