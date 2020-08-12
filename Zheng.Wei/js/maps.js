@@ -36,7 +36,7 @@ const makeMarkers = (map_el,map_locs) => {
 			position: o,
 			map: map_el.data("map"),
 			icon: {
-				// expects artwork object to have .icon property
+				// expects location object to have .icon property
 				url: o.icon,
 				scaledSize: {
 					width:40,
@@ -58,9 +58,9 @@ const setMapBounds = (map,map_locs) => {
 		map.setCenter(map_locs[0]);
 		map.setZoom(14);
 	} else if(map_locs.length==0) {
-		if(window.artwork.protocol!=="https:") return;
+		if(window.location.protocol!=="https:") return;
 		else {
-			navigator.geoartwork.getCurrentPosition(p=>{
+			navigator.geolocation.getCurrentPosition(p=>{
 				let pos = {
 					lat:p.coords.latitude,
 					lng:p.coords.longitude

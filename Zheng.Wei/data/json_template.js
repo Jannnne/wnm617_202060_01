@@ -14,9 +14,6 @@
     },
     password: 'md5(\'pass\')',
     date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
-    phone: '+1 {{phone()}}',
-    address: '{{integer(100, 999)}} {{street()}}, {{city()}}, {{state()}}, {{integer(100, 10000)}}',
-    about: '{{lorem(1, "paragraphs")}}',
     img: function(tags) {
       return 'https://via.placeholder.com/400/'+
         tags.integer(700,999)+'/fff/?text='+this.username;
@@ -26,12 +23,49 @@
 
 
 
-/* Place Template */
+
+
+/* Animal Template */
 [
   '{{repeat(50)}}',
   {
     id: '{{index(1)}}',
-    user_id: '{{integer(1,50)}}',
+    user_id: '{{integer(1,10)}}',
+    
+    name: '{{company()}}',
+    
+    type: '{{random("dog","horse","cat")}}',
+    breed: function(tags) {
+      var breeds = {
+        dog:["labrador","pitbull","dachsund"],
+        horse:["thoreuahbred","shetland","unicorn"],
+        cat:["calico","tuxedo","ginger","siamese","shorthair"]
+      };
+      var chosen_type = breeds[this.type];
+      var chosen_index = tags.integer(0,chosen_type.length-1);
+      return chosen_type[chosen_index];
+    },
+    
+    description: '{{lorem(3, "sentences")}}',
+    
+    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
+    img: function(tags) {
+      return 'https://via.placeholder.com/400/'+
+        tags.integer(700,999)+'/fff/?text='+this.name;
+    }
+  }
+]
+
+
+
+
+
+/* Location Template */
+[
+  '{{repeat(150)}}',
+  {
+    id: '{{index(1)}}',
+    animal_id: '{{integer(1,50)}}',
     
     lat: '{{floating(37.801030, 37.698676)}}',
     lng: '{{floating(-122.502619, -122.389420)}}',
@@ -46,38 +80,6 @@
 ]
 
 
-/* Artwork Template */
-[
-  '{{repeat(150)}}',
-  {
-    id: '{{index(1)}}',
-    place_id: '{{integer(1,50)}}',
-    
-    artwork_name: '{{company()}}',
-    artist: '{{firstName()}} {{surname()}}',
-    
-    type: '{{random("Graffiti","Murals")}}',
-    breed: function(tags) {
-      var breeds = {
-        Graffiti:["Tag","Throw-up","Blockbuster","Wildstyle","Heaven","Stencil","Poster","Sticker","Piece"],
-        Murals:["Abstract","Contemporary","Decorative","Illustration","Kids","Landscape","Large Wall Murals","Trompe L’Oeil","Wall Mural Ideas"]
-      };
-      var chosen_type = breeds[this.type];
-      var chosen_index = tags.integer(0,chosen_type.length-1);
-      return chosen_type[chosen_index];
-    },
-    
-    inspiration: '{{lorem(3, "sentences")}}',
-    critique: '{{lorem(3, "sentences")}}',
-    
-    date_create: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
-    date_disappear: '{{date(new Date(2020, 0, 1), new Date(), "YYYY-MM-dd hh:mm:ss")}}',
-    img: function(tags) {
-      return 'https://via.placeholder.com/400/'+
-        tags.integer(700,999)+'/fff/?text='+this.name;
-    }
-  }
-]
 
 
 

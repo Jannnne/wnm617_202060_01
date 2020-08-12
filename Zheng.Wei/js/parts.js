@@ -1,8 +1,8 @@
 
-const makeplaceList = templater(o=>`
-<div class="placelist-item display-flex place-jump" data-id="${o.id}">
+const makeAnimalList = templater(o=>`
+<div class="animallist-item display-flex animal-jump" data-id="${o.id}">
 	<div class="flex-none"><img src="${o.img}" alt="" class="list-image" /></div>
-	<div class="flex-stretch placelist-body">
+	<div class="flex-stretch animallist-body">
 		<div>${o.name}</div>
 		<div>${o.type}</div>
 		<div>${o.breed}</div>
@@ -12,11 +12,11 @@ const makeplaceList = templater(o=>`
 
 
 
-const UserProfileartworksPhotoList = templater(o=>`<img src="${o.photo}" class="place-jump" data-id="${o.place_id}">`);
-const placeProfileartworksPhotoList = templater(o=>`<img src="${o.photo}" data-id="${o.id}">`);
+const UserProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" class="animal-jump" data-id="${o.animal_id}">`);
+const AnimalProfileLocationsPhotoList = templater(o=>`<img src="${o.photo}" data-id="${o.id}">`);
 
 
-const makeUserProfile = (user,places,artworks) =>{
+const makeUserProfile = (user,animals,locations) =>{
 return `
 <div>
 	<div class="hero-image">
@@ -27,13 +27,13 @@ return `
 		<div class="profile-body">
 			<div><strong>Handle</strong> ${user.username}</div>
 			<div><strong>Email</strong> ${user.email}</div>
-			<div><strong>places</strong> ${places.length}</div>
-			<div><strong>artworks</strong> ${artworks.length}</div>
+			<div><strong>Animals</strong> ${animals.length}</div>
+			<div><strong>Locations</strong> ${locations.length}</div>
 		</div>
 		<div class="profile-photos">
 			<h3>Latest Photos</h3>
-			<div class="profile-artwork-photos">
-				${UserProfileartworksPhotoList(artworks.slice(0,3))}
+			<div class="profile-location-photos">
+				${UserProfileLocationsPhotoList(locations.slice(0,3))}
 			</div>
 		</div>
 	</div>
@@ -42,31 +42,31 @@ return `
 }
 
 
-const makeplaceProfile = (place,artworks)=>{
+const makeAnimalProfile = (animal,locations)=>{
 
 return `<div>
 <div class="display-flex">
 	<div class="flex-none">
-		<img src="${place.img}" alt="" />
+		<img src="${animal.img}" alt="" />
 	</div>
 	<div style="padding:1em">
-		<div>${place.type}</div>
-		<div>${place.breed}</div>
+		<div>${animal.type}</div>
+		<div>${animal.breed}</div>
 		<div class="display-flex">
 			<div class="flex-none">
 				<button data-toggle=".profile-head" class="form-button">More</button>
 			</div>
 			<div class="flex-none">
-				<a href="#settings-place-profile-page" class="form-button">Edit</a>
+				<a href="#settings-animal-profile-page" class="form-button">Edit</a>
 			</div>
 			<div class="flex-none">
-				<a href="#" class="form-button js-delete-place" data-id="${place.id}">Delete</a>
+				<a href="#" class="form-button js-delete-animal" data-id="${animal.id}">Delete</a>
 			</div>
 		</div>
 	</div>
 </div>
-<div class="profile-artwork-photos">
-	${placeProfileartworksPhotoList(artworks)}
+<div class="profile-location-photos">
+	${AnimalProfileLocationsPhotoList(locations)}
 </div>
 </div>
 `;
@@ -74,7 +74,7 @@ return `<div>
 
 
 const makeRecentProfile = o=>`
-<div class="display-flex place-jump" data-id="${o.place_id}">
+<div class="display-flex animal-jump" data-id="${o.animal_id}">
 	<div class="flex-none">
 		<img src="${o.img}" class="list-image" alt="" />
 	</div>
@@ -108,7 +108,7 @@ const makeSettingsProfileInputs = (o,namespace="settings-profile") => `
 </div>`;
 
 // You can also break things into their smaller reusable parts
-const makeSettingsplaceProfileInputs = (o,namespace="settings-place-profile") => `
+const makeSettingsAnimalProfileInputs = (o,namespace="settings-animal-profile") => `
 ${FormControl({namespace:namespace,label:"Name",name:"name",value:o.name})}
 ${FormControl({namespace:namespace,label:"Type",name:"type",value:o.type})}
 ${FormControl({namespace:namespace,label:"Breed",name:"breed",value:o.breed})}`;
@@ -129,7 +129,7 @@ const makeSelectOptions = (options,selected) => {
 }
 
 
-const makeplaceProfileInputs = (o,namespace="list-add") => {
+const makeAnimalProfileInputs = (o,namespace="list-add") => {
 let types = [
 	['dog','Dog'],
 	['cat','Cat'],
@@ -147,7 +147,7 @@ return `
 </div>
 <div class="form-control">
 	<label for="${namespace}-name" class="form-label">Name</label>
-	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type place Name" data-role="none" value="${o.name}">
+	<input type="text" class="form-input" id="${namespace}-name" placeholder="Type Animal Name" data-role="none" value="${o.name}">
 </div>
 <div class="form-control">
 	<label for="${namespace}-type" class="form-label">Type</label>
@@ -159,11 +159,11 @@ return `
 </div>
 <div class="form-control">
 	<label for="${namespace}-breed" class="form-label">Breed</label>
-	<input type="text" class="form-input" id="${namespace}-breed" placeholder="Type place Breed" data-role="none" value="${o.breed}">
+	<input type="text" class="form-input" id="${namespace}-breed" placeholder="Type Animal Breed" data-role="none" value="${o.breed}">
 </div>
 <div class="form-control">
 	<label for="${namespace}-description" class="form-label">Description</label>
-	<textarea class="form-input" id="${namespace}-description" placeholder="Type place Description" data-role="none">${o.description}</textarea>
+	<textarea class="form-input" id="${namespace}-description" placeholder="Type Animal Description" data-role="none">${o.description}</textarea>
 </div>`;
 }
 
@@ -171,15 +171,15 @@ return `
 
 
 
-const filterList = (places,type) => {
-	let a = [...(new Set(places.map(o=>o[type])))];
+const filterList = (animals,type) => {
+	let a = [...(new Set(animals.map(o=>o[type])))];
 	return templater(o=>`<li><a href="#" data-filter="${type}" data-value="${o}">${o[0].toUpperCase()+o.substr(1)}</a></li>`)(a)
 }
 
-const listFilters = (places) => {
+const listFilters = (animals) => {
 	return `
 	<li><a href="#" data-filter="type" data-value="">All</a></li>
-	${filterList(places,'type')}
-	${filterList(places,'breed')}
+	${filterList(animals,'type')}
+	${filterList(animals,'breed')}
 	`;
 }
