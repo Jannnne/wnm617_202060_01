@@ -28,15 +28,19 @@
 </head>
 <body>
 	
-	<section data-role="page" id="signin-page">
+	<section data-role="page" id="signin-page" style="background-color: #d6cca2;">
 		<div data-role="main" class="display-flex flex-column">
 			<div class="flex-stretch"></div>
-			<div class="flex-none" style="text-align:center">
-				<img src="https://via.placeholder.com/400x400/?text=Tracker" alt="" class="login-logo">
-			</div>
+			<!-- <div class="flex-none" style="text-align:center">
+				<img src="../img/logo-02.png" alt="" class="login-logo">
+			</div> -->
+
 			<div class="flex-none" style="padding:1em">
 				<form id="signin-form" data-ajax="false">
 					<div class="form-control">
+						
+						<img src="img/logo-02.png" alt="track_animals_logo" class="login-logo">
+						
 						<label for="signin-username" class="form-label">Username</label>
 						<input type="text" class="hotdog" id="signin-username" placeholder="Type your Username" data-role="none">
 					</div>
@@ -45,7 +49,7 @@
 						<input type="password" class="hotdog" id="signin-password" placeholder="Type your Password" data-role="none">
 					</div>
 					<div class="form-control">
-						<input type="submit" class="hotdog-button" value="Sign In" data-role="none">
+						<input type="submit" class="form-button" value="Sign In" data-role="none">
 					</div>
 					<div class="form-control" style="font-size:0.8em;text-align:center;">
 						Don't have an account? <a href="#signup-page">Sign Up</a>
@@ -126,7 +130,14 @@
 				</div>
 			</div>
 		</div>
-		<footer data-role="footer" data-template="#footer-template"></footer>
+		<footer data-role="footer">
+			<ul>
+				<!-- li*3>a[href=#] -->
+				<li><a href="#recent-page" style="display: block"><img src="img/icons/map.svg" alt=""></a></li>
+				<li><a href="#list-page"><img src="img/icons/list.svg" alt=""></a></li>
+				<li><a href="#profile-page"><img src="img/icons/profile.svg" alt=""></a></li>
+			</ul>
+		</footer>
 	</section>
 
 
@@ -155,8 +166,10 @@
 				</form>
 			</div>
 		</div>
-	</section>
 
+	
+	</section>
+	
 
 	<section data-role="page" id="add-animal-page">
 		<header data-role="header">
@@ -248,26 +261,50 @@
 
 	<section data-role="page" id="list-page">
 		<header data-role="header">
+			<h1>Animals List</h1>
 			<ul>
-				<li class="flex-stretch">
-					<form id="list-search" class="hotdog" data-ajax="false">
-						<input type="search" data-role="none" class="search" placeholder="Search For Animal">
-					</form>
-				</li>
+				<li class="flex-stretch"></li>
 				<li class="flex-none">
-					<a href="#" data-activate="#list-add-animal-modal">&plus;</a>
+					<a href="#" data-activate="#list-add-animal-modal" style="color:#ffa543;">&plus;</a>
 				</li>
 			</ul>
-		</header>
-		<header data-role="header">
+			<ul>
+			<li class="flex-stretch">
+					<form id="list-search" class="hotdog light soft" data-ajax="false">
+						<input type="search" data-role="none" class="search" placeholder="Search For Animal" style="align-items: center;">
+					</form>
+				</li>
+			</ul>
 			<ul class="scrollable-x list-filters"></ul>
 		</header>
+		
 		<div data-role="main">
-			<div class="scrollable">
-				<div class="animallist"></div>
+			<div class="scrollable flex-column">
+				<div class="flex-stretch"></div>
+				<div >
+					<ul>
+					<li><a href="#animal-profile-page"><img src="img/01.jpeg"><p>Nefflix</p></a></li>					
+					<li><a href="#animal-profile-page"><img src="img/02.jpg"><p>Mosdfd</p></a></li>
+					<li><a href="#animal-profile-page"><img src="img/03.jpg"><p>Rksjhfk</p></a></li>				
+					<li><a href="#animal-profile-page"><img src="img/04.jpg"><p>Pfhkjsad</p></a></li>
+					<li><a href="#animal-profile-page"><img src="img/05.png"><p>Bkafhk</p></a></li>				
+					<li><a href="#animal-profile-page"><img src="img/06.jpg"><p>Gskajd</p></a></li>	
+					<li><a href="#animal-profile-page"><img src="img/07.png"><p>Ejdks</p></a></li>				
+					<li><a href="#animal-profile-page"><img src="img/08.jpg"><p">Pjfaksdj</p></a></li>
+					
+				</ul>
+				</div>
 			</div>
 		</div>
-		<footer data-role="footer" data-template="#footer-template"></footer>
+		
+		<footer data-role="footer">
+			<ul>
+				<!-- li*3>a[href=#] -->
+				<li><a href="#recent-page" style="display: block"><img src="img/icons/map.svg" alt=""></a></li>
+				<li><a href="#list-page"><img src="img/icons/list.svg" alt=""></a></li>
+				<li><a href="#profile-page"><img src="img/icons/profile.svg" alt=""></a></li>
+			</ul>
+		</footer>
 
 		<div class="modal" id="list-add-animal-modal">
 			<div class="modal-back" data-deactivate="#list-add-animal-modal"></div>
@@ -291,6 +328,7 @@
 				</div>
 			</form>
 		</div>
+		
 	</section>
 
 
@@ -332,15 +370,23 @@
 	<!-- PROFILE PAGE -->
 	<section data-role="page" id="profile-page">
 		<div data-role="main">
-			<div class="profile">
-			</div>
+			<div class="profile"></div>
 
 			<a class="settings" href="#settings-page">
-				<img src="img/icons/shishkabob.svg" alt="" class="icon">
+				<img src="img/icon/settings.svg" alt="" class="icon">
 			</a>
 		</div>
-		<footer data-role="footer" data-template="#footer-template"></footer>
+		<footer data-role="footer">
+			<ul>
+				<!-- li*3>a[href=#] -->
+				<li><a href="#recent-page" style="display: block"><img src="img/icons/map.svg" alt=""></a></li>
+				<li><a href="#list-page"><img src="img/icons/list.svg" alt=""></a></li>
+				<li><a href="#profile-page"><img src="img/icons/profile.svg" alt=""></a></li>
+			</ul>
+		</footer>
 	</section>
+
+	
 
 
 	<section data-role="page" id="settings-page">
@@ -365,6 +411,7 @@
 				</li>
 			</ul>
 		</div>
+		
 	</section>
 
 
@@ -472,32 +519,10 @@
 			</form>
 		</div>
 	</section>
+	
+	
 
 
-
-
-	<script type="text/template" id="footer-template">
-		<ul>
-			<li>
-				<a href="#recent-page" data-activateone="footer li:nth-child(1)">
-					<div class="footer-icon"><img class="icon" src="img/icons/map.svg" alt=""></div>
-					<div class="footer-label">Recent</div>
-				</a>
-			</li>
-			<li>
-				<a href="#list-page" data-activateone="footer li:nth-child(2)">
-					<div class="footer-icon"><img class="icon" src="img/icons/list.svg" alt=""></div>
-					<div class="footer-label">List</div>
-				</a>
-			</li>
-			<li>
-				<a href="#profile-page" data-activateone="footer li:nth-child(3)">
-					<div class="footer-icon"><img class="icon" src="img/icons/profile.svg" alt=""></div>
-					<div class="footer-label">Profile</div>
-				</a>
-			</li>
-		</ul>
-	</script>
 
 </body>
 </html>
